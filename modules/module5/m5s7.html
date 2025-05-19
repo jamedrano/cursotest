@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compartiendo Nuestros Mapas - Tecniseguros</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .slide {
+            width: 1280px;
+            min-height: 720px;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+        }
+        .header-bar {
+            background: linear-gradient(90deg, #005792 0%, #00A6A6 100%);
+            height: 12px;
+        }
+        .footer-bar {
+            background: linear-gradient(90deg, #005792 0%, #00A6A6 100%);
+            height: 8px;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+        .company-logo {
+            position: absolute;
+            bottom: 20px;
+            right: 30px;
+            font-size: 16px;
+            color: #666;
+            font-weight: 500;
+        }
+        .sharing-item {
+            transition: all 0.3s ease;
+        }
+        .sharing-item:hover {
+            transform: translateX(5px);
+        }
+        .question-item {
+            transition: all 0.3s ease;
+        }
+        .question-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+        .discussion-group {
+            position: relative;
+            overflow: hidden;
+        }
+        .discussion-group::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0,87,146,0.05) 0%, rgba(0,166,166,0.05) 100%);
+            border-radius: 0.5rem;
+            z-index: -1;
+        }
+        .thought-bubble {
+            position: absolute;
+            z-index: 1;
+            background-color: white;
+            padding: 8px 12px;
+            border-radius: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            font-size: 12px;
+            max-width: 120px;
+        }
+        .bubble-1 {
+            top: 20px;
+            left: 80px;
+            transform: rotate(-3deg);
+        }
+        .bubble-2 {
+            top: 30px;
+            right: 70px;
+            transform: rotate(2deg);
+        }
+        .bubble-3 {
+            bottom: 50px;
+            right: 90px;
+            transform: rotate(-2deg);
+        }
+        .bubble-tail {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background-color: white;
+            bottom: -5px;
+            left: 15px;
+            transform: rotate(45deg);
+            box-shadow: 2px 2px 2px rgba(0,0,0,0.05);
+        }
+        .bg-pattern {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 300px;
+            height: 300px;
+            background-color: rgba(0, 87, 146, 0.03);
+            background-image: radial-gradient(circle, rgba(0, 166, 166, 0.1) 2px, transparent 2px);
+            background-size: 20px 20px;
+            z-index: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <div class="header-bar"></div>
+        
+        <!-- Main Content -->
+        <div class="p-10 z-10 relative">
+            <!-- Title Section -->
+            <div class="mb-6">
+                <h1 class="text-3xl font-bold text-blue-700">Compartiendo Nuestros Mapas</h1>
+                <div class="w-20 h-1 bg-green-500 mt-2"></div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-8">
+                <!-- Left Side: Instructions and Tips -->
+                <div>
+                    <div class="bg-white rounded-lg shadow-md p-5 border-l-4 border-blue-500 mb-6">
+                        <h3 class="text-xl font-medium text-blue-700 mb-4">Instrucciones para compartir:</h3>
+                        
+                        <div class="space-y-3">
+                            <div class="sharing-item flex items-start">
+                                <div class="bg-blue-100 rounded-full w-8 h-8 flex-shrink-0 flex items-center justify-center mr-3 mt-1">
+                                    <i class="fas fa-map-marked-alt text-blue-600"></i>
+                                </div>
+                                <div>
+                                    <p class="text-gray-700">Cada grupo presenta brevemente su mapa (o una sección del mismo).</p>
+                                </div>
+                            </div>
+                            
+                            <div class="sharing-item flex items-start">
+                                <div class="bg-blue-100 rounded-full w-8 h-8 flex-shrink-0 flex items-center justify-center mr-3 mt-1">
+                                    <i class="fas fa-search text-blue-600"></i>
+                                </div>
+                                <div>
+                                    <p class="text-gray-700">Resalten el proceso que mapearon y por qué lo eligieron.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="sharing-item flex items-start">
+                                <div class="bg-blue-100 rounded-full w-8 h-8 flex-shrink-0 flex items-center justify-center mr-3 mt-1">
+                                    <i class="fas fa-lightbulb text-blue-600"></i>
+                                </div>
+                                <div>
+                                    <p class="text-gray-700">Compartan cualquier descubrimiento sorprendente o inesperado que identificaron al mapear el proceso.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-green-50 p-4 rounded-lg">
+                        <h3 class="text-lg font-medium text-green-700 mb-3 flex items-center">
+                            <i class="fas fa-question-circle text-green-600 mr-2"></i>Preguntas de reflexión:
+                        </h3>
+                        
+                        <div class="space-y-3">
+                            <div class="question-item bg-white p-3 rounded-lg shadow-sm">
+                                <p class="text-gray-700">¿Qué pasos o transferencias entre departamentos no eran evidentes antes del mapeo?</p>
+                            </div>
+                            
+                            <div class="question-item bg-white p-3 rounded-lg shadow-sm">
+                                <p class="text-gray-700">¿Identificaron posibles cuellos de botella o áreas problemáticas?</p>
+                            </div>
+                            
+                            <div class="question-item bg-white p-3 rounded-lg shadow-sm">
+                                <p class="text-gray-700">¿Qué aprendieron sobre el proceso que no sabían antes?</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right Side: Visual & Timing -->
+                <div>
+                    <div class="discussion-group bg-white p-5 rounded-lg shadow-md mb-6 h-80 relative">
+                        <div class="thought-bubble bubble-1 border border-blue-200">
+                            <p class="text-blue-700">¡Hay muchas transferencias entre departamentos!</p>
+                            <div class="bubble-tail"></div>
+                        </div>
+                        
+                        <div class="thought-bubble bubble-2 border border-green-200">
+                            <p class="text-green-700">Encontramos un ciclo de reproceso aquí...</p>
+                            <div class="bubble-tail"></div>
+                        </div>
+                        
+                        <div class="thought-bubble bubble-3 border border-blue-200">
+                            <p class="text-blue-700">¿Por qué esperamos tanto en este paso?</p>
+                            <div class="bubble-tail"></div>
+                        </div>
+                        
+                        <div class="absolute bottom-5 left-0 right-0 flex justify-center space-x-4">
+                            <div class="bg-blue-100 rounded-full w-16 h-16 flex items-center justify-center">
+                                <i class="fas fa-user-tie text-blue-600 text-2xl"></i>
+                            </div>
+                            <div class="bg-green-100 rounded-full w-16 h-16 flex items-center justify-center">
+                                <i class="fas fa-users text-green-600 text-2xl"></i>
+                            </div>
+                            <div class="bg-blue-100 rounded-full w-16 h-16 flex items-center justify-center">
+                                <i class="fas fa-user text-blue-600 text-2xl"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-10 text-7xl text-blue-700">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                    </div>
+                    
+                    <!-- Facilitator Tips -->
+                    <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-400">
+                        <h3 class="text-lg font-medium text-blue-700 mb-2 flex items-center">
+                            <i class="fas fa-chalkboard-teacher text-blue-600 mr-2"></i>Para el facilitador:
+                        </h3>
+                        <ul class="text-sm text-gray-700 space-y-2 ml-6 list-disc">
+                            <li>Centre la discusión en lo que aprendieron al mapear, no solo en el mapa en sí mismo.</li>
+                            <li>Pregunte: "¿Qué vieron que no se habían dado cuenta antes?"</li>
+                            <li>Destaque cómo el mapeo ayuda a revelar problemas ocultos y oportunidades de mejora.</li>
+                        </ul>
+                        
+                        <!-- Timing -->
+                        <div class="mt-4 bg-white p-3 rounded-lg flex items-center justify-center">
+                            <div class="flex items-center">
+                                <i class="fas fa-clock text-blue-600 text-lg mr-2"></i>
+                                <div>
+                                    <p class="text-sm text-gray-500">Tiempo para compartir y discusión</p>
+                                    <p class="font-bold text-gray-700">10-15 minutos</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Key Message -->
+            <div class="mt-4 bg-green-50 p-3 rounded-lg flex items-center">
+                <div class="bg-green-100 rounded-full p-2 mr-4 flex-shrink-0">
+                    <i class="fas fa-bullhorn text-green-600"></i>
+                </div>
+                <p class="text-gray-700">
+                    <span class="font-medium text-green-700">Reflexión clave:</span> 
+                    El acto de mapear un proceso a menudo revela información valiosa, incluso antes de cualquier análisis formal. Este es el primer paso para "ver" los problemas que necesitan solución.
+                </p>
+            </div>
+        </div>
+        
+        <!-- Background Pattern -->
+        <div class="bg-pattern"></div>
+        
+        <!-- footer -->
+        <div class="company-logo">Tecniseguros | Lean Six Sigma Yellow Belt</div>
+        <div class="footer-bar"></div>
+    </div>
+<!-- 1. Navigation Buttons HTML Block -->
+<div style="position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 100; background: white; padding: 10px; border-radius: 5px; box-shadow: 0 0 10px rgba(0,0,0,0.2);">
+    <button id="prevSlideButton" onclick="goToPrevSlide()"> « Previous </button>
+    <span id="slideIndicator" style="margin: 0 15px;">Slide ? of ?</span>
+    <button id="nextSlideButton" onclick="goToNextSlide()"> Next » </button>
+</div>
+
+<!-- 2. Link to Global script.js -->
+<script src="../../script.js"></script>
+</body>
+</html>

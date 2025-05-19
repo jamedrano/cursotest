@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entendiendo los Niveles Sigma</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #ebf4ff 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .blue-accent {
+            background: linear-gradient(90deg, #1a365d 0%, #2a4365 100%);
+        }
+        .level-card {
+            transition: all 0.3s ease;
+        }
+        .level-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        .chart-container {
+            height: 280px;
+            width: 100%;
+        }
+        .sigma-symbol {
+            font-family: serif;
+            font-style: italic;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        .sigma-level {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        .sigma-bullet {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: white;
+            margin-right: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        .pattern-bg {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 300px;
+            background-image: radial-gradient(#3182ce 1px, transparent 1px);
+            background-size: 20px 20px;
+            opacity: 0.05;
+            z-index: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container flex flex-col">
+        <!-- header -->
+        <div class="blue-accent h-12 w-full shadow-md"></div>
+        
+        <!-- Decorative pattern -->
+        <div class="pattern-bg"></div>
+        
+        <!-- Main content -->
+        <div class="flex-1 p-10 z-10">
+            <!-- Title -->
+            <h1 class="text-4xl font-bold text-blue-800 mb-6">
+                <i class="fas fa-chart-line text-blue-600 mr-3"></i>
+                Midiendo el Desempeño: El Nivel Sigma
+            </h1>
+            
+            <div class="flex -mx-4">
+                <!-- Left column: Definition and explanation -->
+                <div class="w-1/2 px-4">
+                    <!-- What is Sigma? -->
+                    <div class="bg-white rounded-lg p-5 shadow-md mb-5">
+                        <h2 class="text-2xl font-bold text-blue-700 mb-3 flex items-center">
+                            <span class="sigma-symbol mr-2">σ</span>
+                            ¿Qué es Sigma?
+                        </h2>
+                        <p class="text-gray-700 mb-4">
+                            Sigma (<span class="sigma-symbol">σ</span>) es una medida estadística de la variación.
+                        </p>
+                        
+                        <div class="bg-blue-50 p-3 rounded-lg mb-4">
+                            <h3 class="font-semibold text-blue-700 mb-2">
+                                Un "Nivel Sigma" indica:
+                            </h3>
+                            <ul class="space-y-2">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-blue-500 mt-1 mr-2"></i>
+                                    <span>Con qué frecuencia es probable que ocurran defectos</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-blue-500 mt-1 mr-2"></i>
+                                    <span>Cuán capaz es un proceso de cumplir especificaciones</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-blue-500 mt-1 mr-2"></i>
+                                    <span>Nivel de rendimiento del proceso</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-yellow-50 border-l-4 border-yellow-400 p-3">
+                            <p class="text-yellow-800">
+                                <i class="fas fa-lightbulb text-yellow-600 mr-2"></i>
+                                <span class="font-medium">Mayor Nivel Sigma = Menor Variación = Menos Defectos = Mejor Desempeño</span>
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Message for Tecniseguros -->
+                    <div class="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg p-5 shadow-md">
+                        <h3 class="text-xl font-bold text-blue-700 mb-3">
+                            Mensaje Clave para Tecniseguros:
+                        </h3>
+                        <p class="text-gray-700 mb-3">
+                            Aspirar a niveles sigma más altos significa:
+                        </p>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <div class="bg-green-100 rounded-full p-1 mr-3 flex-shrink-0">
+                                    <i class="fas fa-file-alt text-green-600"></i>
+                                </div>
+                                <span>Emisión de pólizas más confiable</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="bg-green-100 rounded-full p-1 mr-3 flex-shrink-0">
+                                    <i class="fas fa-clock text-green-600"></i>
+                                </div>
+                                <span>Tiempos de procesamiento de reclamos más consistentes</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="bg-green-100 rounded-full p-1 mr-3 flex-shrink-0">
+                                    <i class="fas fa-dollar-sign text-green-600"></i>
+                                </div>
+                                <span>Menos errores de facturación</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="bg-green-100 rounded-full p-1 mr-3 flex-shrink-0">
+                                    <i class="fas fa-smile text-green-600"></i>
+                                </div>
+                                <span>Clientes más satisfechos</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Right column: Sigma levels visualization -->
+                <div class="w-1/2 px-4">
+                    <!-- Conceptual Scale -->
+                    <div class="bg-white rounded-lg p-5 shadow-md mb-5">
+                        <h3 class="text-xl font-bold text-blue-700 mb-3">
+                            Escala Conceptual:
+                        </h3>
+                        
+                        <div class="space-y-3 mb-4">
+                            <div class="sigma-level level-card bg-gray-50 p-3 rounded-lg">
+                                <div class="sigma-bullet bg-red-500">2<span class="sigma-symbol">σ</span></div>
+                                <div>
+                                    <p class="font-bold">~308,000 DPMO</p>
+                                    <p class="text-sm text-gray-600">¡Muchos errores!</p>
+                                </div>
+                            </div>
+                            
+                            <div class="sigma-level level-card bg-gray-50 p-3 rounded-lg">
+                                <div class="sigma-bullet bg-purple-500">3<span class="sigma-symbol">σ</span></div>
+                                <div>
+                                    <p class="font-bold">~67,000 DPMO</p>
+                                    <p class="text-sm text-gray-600">1 error cada 15 transacciones</p>
+                                </div>
+                            </div>
+                            
+                            <div class="sigma-level level-card bg-gray-50 p-3 rounded-lg">
+                                <div class="sigma-bullet bg-yellow-500">4<span class="sigma-symbol">σ</span></div>
+                                <div>
+                                    <p class="font-bold">~6,200 DPMO</p>
+                                    <p class="text-sm text-gray-600">1 error cada 160 transacciones</p>
+                                </div>
+                            </div>
+                            
+                            <div class="sigma-level level-card bg-gray-50 p-3 rounded-lg">
+                                <div class="sigma-bullet bg-green-500">5<span class="sigma-symbol">σ</span></div>
+                                <div>
+                                    <p class="font-bold">~233 DPMO</p>
+                                    <p class="text-sm text-gray-600">1 error cada 4,300 transacciones</p>
+                                </div>
+                            </div>
+                            
+                            <div class="sigma-level level-card bg-gray-50 p-3 rounded-lg">
+                                <div class="sigma-bullet bg-blue-500">6<span class="sigma-symbol">σ</span></div>
+                                <div>
+                                    <p class="font-bold">~3.4 DPMO</p>
+                                    <p class="text-sm text-gray-600">¡Casi perfección! 1 error cada 300,000 transacciones</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="text-sm text-gray-500 italic text-center">
+                            DPMO = Defectos Por Millón de Oportunidades
+                        </div>
+                    </div>
+                    
+                    <!-- Chart visualization -->
+                    <div class="bg-white rounded-lg p-5 shadow-md">
+                        <h3 class="text-xl font-bold text-blue-700 mb-2">
+                            Visualización de Defectos por Nivel Sigma:
+                        </h3>
+                        <div class="chart-container">
+                            <canvas id="sigmaChart"></canvas>
+                        </div>
+                        <div class="text-sm text-gray-500 italic text-center mt-2">
+                            Escala logarítmica - Note la reducción dramática de defectos
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- footer -->
+        <div class="blue-accent h-6 w-full mt-auto"></div>
+    </div>
+    
+    <script>
+        // Create sigma levels chart
+        document.addEventListener('DOMContentLoaded', function() {
+            const ctx = document.getElementById('sigmaChart').getContext('2d');
+            const sigmaChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['2σ', '3σ', '4σ', '5σ', '6σ'],
+                    datasets: [{
+                        label: 'Defectos Por Millón de Oportunidades (DPMO)',
+                        data: [308000, 67000, 6200, 233, 3.4],
+                        backgroundColor: [
+                            'rgba(229, 62, 62, 0.7)',
+                            'rgba(221, 107, 32, 0.7)',
+                            'rgba(214, 158, 46, 0.7)',
+                            'rgba(56, 161, 105, 0.7)',
+                            'rgba(49, 130, 206, 0.7)'
+                        ],
+                        borderColor: [
+                            'rgb(229, 62, 62)',
+                            'rgb(221, 107, 32)',
+                            'rgb(214, 158, 46)',
+                            'rgb(56, 161, 105)',
+                            'rgb(49, 130, 206)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            type: 'logarithmic',
+                            min: 1,
+                            title: {
+                                display: true,
+                                text: 'DPMO (escala logarítmica)'
+                            }
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Nivel Sigma'
+                            }
+                        }
+                    },
+                    plugins: {
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    let value = context.parsed.y;
+                                    return `${value.toLocaleString()} defectos por millón`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+<!-- 1. Navigation Buttons HTML Block -->
+<div style="position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 100; background: white; padding: 10px; border-radius: 5px; box-shadow: 0 0 10px rgba(0,0,0,0.2);">
+    <button id="prevSlideButton" onclick="goToPrevSlide()"> « Previous </button>
+    <span id="slideIndicator" style="margin: 0 15px;">Slide ? of ?</span>
+    <button id="nextSlideButton" onclick="goToNextSlide()"> Next » </button>
+</div>
+
+<!-- 2. Link to Global script.js -->
+<script src="../../script.js"></script>
+</body>
+</html>

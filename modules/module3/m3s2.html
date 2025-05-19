@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variación: El Enemigo de la Calidad - Tecniseguros</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .slide {
+            width: 1280px;
+            min-height: 720px;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+        }
+        .header-bar {
+            background: linear-gradient(90deg, #005792 0%, #00A6A6 100%);
+            height: 12px;
+        }
+        .footer-bar {
+            background: linear-gradient(90deg, #005792 0%, #00A6A6 100%);
+            height: 8px;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+        .company-logo {
+            position: absolute;
+            bottom: 20px;
+            right: 30px;
+            font-size: 16px;
+            color: #666;
+            font-weight: 500;
+        }
+        .impact-item {
+            transition: all 0.3s ease;
+        }
+        .impact-item:hover {
+            transform: translateX(5px);
+        }
+        .chart-container {
+            height: 200px;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <div class="header-bar"></div>
+        
+        <!-- Main Content -->
+        <div class="p-10 z-10 relative">
+            <!-- Title Section -->
+            <div class="mb-6">
+                <h1 class="text-3xl font-bold text-blue-700">Variación: Por Qué Importa la Consistencia</h1>
+                <div class="w-20 h-1 bg-blue-500 mt-3"></div>
+            </div>
+            
+            <!-- Recap Section -->
+            <div class="bg-blue-50 p-4 rounded-lg mb-6">
+                <h3 class="text-lg font-medium text-blue-700 mb-2">
+                    <i class="fas fa-sync-alt mr-2"></i>Recuerda del Módulo 1:
+                </h3>
+                <p class="text-gray-700">La variación significa inconsistencia e impredecibilidad en los procesos y los resultados.</p>
+            </div>
+            
+            <!-- Impact of Variation -->
+            <div class="grid grid-cols-2 gap-6">
+                <!-- Left Side: Impact List -->
+                <div>
+                    <h3 class="text-lg font-medium text-blue-700 mb-3">
+                        <i class="fas fa-exclamation-triangle text-yellow-500 mr-2"></i>Impacto de la Variación en Tecniseguros:
+                    </h3>
+                    
+                    <div class="space-y-4">
+                        <div class="impact-item flex bg-white p-3 rounded-lg shadow border-l-4 border-red-400">
+                            <div class="mr-3 flex-shrink-0">
+                                <div class="bg-red-100 rounded-full p-2">
+                                    <i class="fas fa-clock text-red-500"></i>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="font-medium">Tiempos de procesamiento inconsistentes</h4>
+                                <p class="text-sm text-gray-600">→ Experiencia impredecible para el cliente</p>
+                            </div>
+                        </div>
+                        
+                        <div class="impact-item flex bg-white p-3 rounded-lg shadow border-l-4 border-red-400">
+                            <div class="mr-3 flex-shrink-0">
+                                <div class="bg-red-100 rounded-full p-2">
+                                    <i class="fas fa-keyboard text-red-500"></i>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="font-medium">Precisión variable en la entrada de datos</h4>
+                                <p class="text-sm text-gray-600">→ Reprocesos, facturación incorrecta, riesgos de cumplimiento</p>
+                            </div>
+                        </div>
+                        
+                        <div class="impact-item flex bg-white p-3 rounded-lg shadow border-l-4 border-red-400">
+                            <div class="mr-3 flex-shrink-0">
+                                <div class="bg-red-100 rounded-full p-2">
+                                    <i class="fas fa-phone-alt text-red-500"></i>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="font-medium">Tiempos de respuesta impredecibles del centro de llamadas</h4>
+                                <p class="text-sm text-gray-600">→ Frustración del cliente</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Key Message -->
+                    <div class="bg-green-50 p-4 rounded-lg mt-6">
+                        <h3 class="text-lg font-medium text-green-700 mb-2">
+                            <i class="fas fa-check-circle mr-2"></i>Mensaje Clave:
+                        </h3>
+                        <p class="text-gray-700">Reducir la variación conduce a resultados más predecibles, mayor calidad, menores costos y mayor satisfacción del cliente.</p>
+                    </div>
+                </div>
+                
+                <!-- Right Side: Visual Comparison & Example -->
+                <div>
+                    <h3 class="text-lg font-medium text-blue-700 mb-3">
+                        <i class="fas fa-chart-line mr-2"></i>Comparación de Procesos:
+                    </h3>
+                    
+                    <div class="bg-white p-4 rounded-lg shadow mb-6">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <h4 class="text-center font-medium text-red-600 mb-2">Alta Variación</h4>
+                                <div class="chart-container">
+                                    <canvas id="highVariationChart"></canvas>
+                                </div>
+                                <p class="text-sm text-center text-gray-600 mt-2">Resultados impredecibles</p>
+                            </div>
+                            
+                            <div>
+                                <h4 class="text-center font-medium text-green-600 mb-2">Baja Variación</h4>
+                                <div class="chart-container">
+                                    <canvas id="lowVariationChart"></canvas>
+                                </div>
+                                <p class="text-sm text-center text-gray-600 mt-2">Resultados consistentes</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Practical Example -->
+                    <div class="bg-blue-50 p-4 rounded-lg">
+                        <h3 class="text-lg font-medium text-blue-700 mb-2">
+                            <i class="fas fa-lightbulb text-yellow-500 mr-2"></i>Ejemplo Práctico:
+                        </h3>
+                        <div class="flex">
+                            <i class="fas fa-quote-left text-blue-300 text-2xl mr-2 mt-1"></i>
+                            <p class="text-gray-700">Si a nuestro equipo le toma entre 2 y 15 días emitir un documento de póliza estándar, esa alta variación hace imposible que nuestro equipo de ventas proporcione a los clientes plazos confiables, lo que genera frustración. Six Sigma busca entender por qué existe esa variación y reducirla.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- footer -->
+        <div class="company-logo">Tecniseguros | Lean Six Sigma Yellow Belt</div>
+        <div class="footer-bar"></div>
+    </div>
+    
+    <script>
+        // Chart for high variation process
+        const highVariationCtx = document.getElementById('highVariationChart').getContext('2d');
+        const highVariationChart = new Chart(highVariationCtx, {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: 'Tiempo de procesamiento (días)',
+                    data: [
+                        {x: 1, y: 4}, {x: 2, y: 15}, {x: 3, y: 2}, {x: 4, y: 9},
+                        {x: 5, y: 12}, {x: 6, y: 5}, {x: 7, y: 8}, {x: 8, y: 3},
+                        {x: 9, y: 14}, {x: 10, y: 7}
+                    ],
+                    backgroundColor: 'rgba(239, 68, 68, 0.6)',
+                    borderColor: 'rgba(239, 68, 68, 1)',
+                    borderWidth: 1,
+                    pointRadius: 6
+                }]
+            },
+            options: {
+                maintainAspectRatio: false,
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Caso'
+                        },
+                        ticks: {
+                            display: false
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Días'
+                        },
+                        min: 0,
+                        max: 16,
+                        ticks: {
+                            stepSize: 4
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return `Caso ${context.parsed.x}: ${context.parsed.y} días`;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+        
+        // Chart for low variation process
+        const lowVariationCtx = document.getElementById('lowVariationChart').getContext('2d');
+        const lowVariationChart = new Chart(lowVariationCtx, {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: 'Tiempo de procesamiento (días)',
+                    data: [
+                        {x: 1, y: 5}, {x: 2, y: 4.5}, {x: 3, y: 5.2}, {x: 4, y: 4.8},
+                        {x: 5, y: 5.1}, {x: 6, y: 4.9}, {x: 7, y: 5.3}, {x: 8, y: 4.7},
+                        {x: 9, y: 5}, {x: 10, y: 5.2}
+                    ],
+                    backgroundColor: 'rgba(16, 185, 129, 0.6)',
+                    borderColor: 'rgba(16, 185, 129, 1)',
+                    borderWidth: 1,
+                    pointRadius: 6
+                }]
+            },
+            options: {
+                maintainAspectRatio: false,
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Caso'
+                        },
+                        ticks: {
+                            display: false
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Días'
+                        },
+                        min: 0,
+                        max: 16,
+                        ticks: {
+                            stepSize: 4
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return `Caso ${context.parsed.x}: ${context.parsed.y} días`;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+<!-- 1. Navigation Buttons HTML Block -->
+<div style="position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 100; background: white; padding: 10px; border-radius: 5px; box-shadow: 0 0 10px rgba(0,0,0,0.2);">
+    <button id="prevSlideButton" onclick="goToPrevSlide()"> « Previous </button>
+    <span id="slideIndicator" style="margin: 0 15px;">Slide ? of ?</span>
+    <button id="nextSlideButton" onclick="goToNextSlide()"> Next » </button>
+</div>
+
+<!-- 2. Link to Global script.js -->
+<script src="../../script.js"></script>
+</body>
+</html>

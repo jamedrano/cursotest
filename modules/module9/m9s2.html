@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Fase de Mejora - Propósito y Preguntas Clave</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            /* overflow: hidden; -- Removed for consistency with other slides allowing scroll if needed */
+            background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+            /* Added for centering the slide for testing, as per previous slides */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .slide {
+            width: 1280px;
+            min-height: 720px;
+            background-color: white;
+            margin: 0 auto;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+        }
+        .top-bar {
+            height: 12px;
+            background: linear-gradient(90deg, #1e40af, #3b82f6, #93c5fd);
+        }
+        .mini-dmaic {
+            position: relative;
+            width: 200px;
+            height: 200px; /* Increased slightly to better contain scaled letters if needed, original was 180px. Keeping 200px. */
+        }
+        .mini-letter {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 16px;
+            color: white;
+            background-color: #93c5fd;
+            z-index: 1; /* Ensure letters are consistently layered if they touch */
+        }
+        .mini-letter.active {
+            background-color: #2563eb;
+            transform: scale(1.3);
+            box-shadow: 0 0 15px rgba(37, 99, 235, 0.5);
+            z-index: 2; /* Active letter on top */
+        }
+        .purpose-box, .questions-box {
+            border-radius: 10px;
+            padding: 20px;
+            height: 100%;
+            border-left: 6px solid;
+            background-color: #f8fafc;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        .purpose-box {
+            border-left-color: #3b82f6;
+        }
+        .questions-box {
+            border-left-color: #2563eb;
+        }
+        .purpose-box:hover, .questions-box:hover {
+            transform: translateY(-5px);
+        }
+        .purpose-icon, .question-icon {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 24px;
+            margin-right: 15px;
+        }
+        .purpose-icon {
+            background-color: rgba(59, 130, 246, 0.15);
+            color: #3b82f6;
+        }
+        .question-icon {
+            background-color: rgba(37, 99, 235, 0.15);
+            color: #2563eb;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <div class="top-bar"></div>
+        <div class="flex flex-col h-full">
+            <!-- header Section -->
+            <header class="px-16 pt-8 pb-4">
+                <div class="flex justify-between items-center">
+                    <h1 class="text-4xl font-bold text-blue-700">La Fase de Mejora</h1>
+                    <img src="../../assets/images/logotecniseguros.png" alt="Logo Tecniseguros" class="h-12">
+                </div>
+                <h2 class="text-3xl font-bold text-gray-700">Corrigiendo las Causas Raíz</h2>
+            </header>
+
+            <!-- Main Content -->
+            <main class="px-16 py-4 flex-1 flex flex-col">
+                <div class="flex flex-1 gap-10">
+                    <!-- Left Column: Purpose of Improve Phase -->
+                    <div class="w-1/2">
+                        <div class="purpose-box h-full flex flex-col">
+                            <div class="flex items-center mb-4">
+                                <div class="purpose-icon">
+                                    <i class="fas fa-lightbulb"></i>
+                                </div>
+                                <h3 class="text-2xl font-bold text-gray-800">Propósito</h3>
+                            </div>
+                            <div class="flex-1">
+                                <ul class="space-y-4 text-lg">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-blue-600 mt-1 mr-3"></i>
+                                        <span>Generar soluciones que ataquen directamente las causas raíz identificadas</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-blue-600 mt-1 mr-3"></i>
+                                        <span>Seleccionar las soluciones más viables e impactantes</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-blue-600 mt-1 mr-3"></i>
+                                        <span>Desarrollar e implementar las soluciones elegidas</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-blue-600 mt-1 mr-3"></i>
+                                        <span>Probar soluciones con pilotos antes de implementación completa</span>
+                                    </li>
+                                </ul>
+                                
+                                <!-- Corrected Mini DMAIC Structure -->
+                                <div class="mt-6 flex flex-col items-center">
+                                    <div class="mini-dmaic">
+                                        <!-- Pentagon points for 200x200 container, 40x40 letters, radius ~70px from center (100,100) -->
+                                        <!-- D (top): left: 80px, top: 10px -->
+                                        <div class="mini-letter" style="top: 10px; left: 80px;">D</div>
+                                        <!-- M (top-right): left: 147px, top: 58px -->
+                                        <div class="mini-letter" style="top: 58px; left: 147px;">M</div>
+                                        <!-- A (bottom-right): left: 121px, top: 137px -->
+                                        <div class="mini-letter" style="top: 137px; left: 121px;">A</div>
+                                        <!-- I (bottom-left - Active): left: 39px, top: 137px -->
+                                        <div class="mini-letter active" style="top: 137px; left: 39px;">I</div>
+                                        <!-- C (top-left): left: 13px, top: 58px -->
+                                        <div class="mini-letter" style="top: 58px; left: 13px;">C</div>
+                                    </div>
+                                    <!-- Text label moved outside and below mini-dmaic visual -->
+                                    <div class="text-center mt-2 text-sm text-blue-700 font-semibold">
+                                        I - IMPROVE (MEJORAR)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Right Column: Key Questions -->
+                    <div class="w-1/2">
+                        <div class="questions-box h-full flex flex-col">
+                            <div class="flex items-center mb-4">
+                                <div class="question-icon">
+                                    <i class="fas fa-question"></i>
+                                </div>
+                                <h3 class="text-2xl font-bold text-gray-800">Preguntas Clave</h3>
+                            </div>
+                            <div class="flex-1 flex flex-col justify-between">
+                                <div class="space-y-6">
+                                    <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-blue-500">
+                                        <p class="font-semibold">¿Cuáles son las posibles soluciones para corregir las causas raíz?</p>
+                                    </div>
+                                    
+                                    <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-blue-500">
+                                        <p class="font-semibold">¿Qué soluciones tienen más probabilidades de ser efectivas y factibles?</p>
+                                    </div>
+                                    
+                                    <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-blue-500">
+                                        <p class="font-semibold">¿Cómo implementaremos las soluciones elegidas?</p>
+                                    </div>
+                                    
+                                    <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-blue-500">
+                                        <p class="font-semibold">¿Cómo podemos probar las soluciones a pequeña escala?</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex justify-end mt-4">
+                                    <div class="flex items-center bg-blue-50 p-3 rounded-lg">
+                                        <i class="fas fa-cogs text-blue-600 text-3xl mr-3"></i>
+                                        <p class="text-sm italic text-gray-700">Aquí es donde la creatividad se une al análisis.<br>Las soluciones deben derivarse lógicamente de las causas raíz.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+<!-- 1. Navigation Buttons HTML Block -->
+<div style="position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 100; background: white; padding: 10px; border-radius: 5px; box-shadow: 0 0 10px rgba(0,0,0,0.2);">
+    <button id="prevSlideButton" onclick="goToPrevSlide()"> « Previous </button>
+    <span id="slideIndicator" style="margin: 0 15px;">Slide ? of ?</span>
+    <button id="nextSlideButton" onclick="goToNextSlide()"> Next » </button>
+</div>
+
+<!-- 2. Link to Global script.js -->
+<script src="../../script.js"></script>
+</body>
+</html>

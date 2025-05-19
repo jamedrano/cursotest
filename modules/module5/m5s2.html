@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Por qué Mapear Procesos? - Tecniseguros</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .slide {
+            width: 1280px;
+            min-height: 720px;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+        }
+        .header-bar {
+            background: linear-gradient(90deg, #005792 0%, #00A6A6 100%);
+            height: 12px;
+        }
+        .footer-bar {
+            background: linear-gradient(90deg, #005792 0%, #00A6A6 100%);
+            height: 8px;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+        .company-logo {
+            position: absolute;
+            bottom: 20px;
+            right: 30px;
+            font-size: 16px;
+            color: #666;
+            font-weight: 500;
+        }
+        .benefit-item {
+            transition: all 0.3s ease;
+        }
+        .benefit-item:hover {
+            transform: translateX(5px);
+        }
+        .problem-item {
+            transition: all 0.3s ease;
+        }
+        .problem-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+        .comparison-visual {
+            position: relative;
+            overflow: hidden;
+        }
+        .comparison-visual::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0,87,146,0.05) 0%, rgba(0,166,166,0.05) 100%);
+            border-radius: 0.5rem;
+            z-index: -1;
+        }
+        .map-icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 60px;
+            opacity: 0.1;
+            color: #005792;
+            transform: rotate(15deg);
+            z-index: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <div class="header-bar"></div>
+        
+        <!-- Main Content -->
+        <div class="p-10 z-10 relative">
+            <!-- Title Section -->
+            <div class="mb-6">
+                <h1 class="text-3xl font-bold text-blue-700">¿Por Qué Hacemos Mapeo de Procesos?</h1>
+                <div class="w-20 h-1 bg-blue-500 mt-3"></div>
+            </div>
+            
+            <div class="grid grid-cols-2 gap-8">
+                <!-- Left Column: Benefits List -->
+                <div>
+                    <h3 class="text-lg font-medium text-blue-700 mb-4">
+                        <i class="fas fa-star text-yellow-500 mr-2"></i>Beneficios del Mapeo de Procesos:
+                    </h3>
+                    
+                    <div class="space-y-3">
+                        <div class="benefit-item bg-white p-3 rounded-lg shadow-sm border-l-4 border-blue-500">
+                            <h4 class="font-medium text-gray-800 flex items-center">
+                                <i class="fas fa-eye text-blue-600 mr-2"></i>Comprensión Visual
+                            </h4>
+                            <p class="text-sm text-gray-600 ml-7">Facilita ver y entender flujos de trabajo complejos para todos los involucrados.</p>
+                            <p class="text-sm italic text-blue-600 ml-7">"Una imagen vale más que mil palabras"</p>
+                        </div>
+                        
+                        <div class="benefit-item bg-white p-3 rounded-lg shadow-sm border-l-4 border-green-500">
+                            <h4 class="font-medium text-gray-800 flex items-center">
+                                <i class="fas fa-comments text-green-600 mr-2"></i>Herramienta de Comunicación
+                            </h4>
+                            <p class="text-sm text-gray-600 ml-7">Proporciona un lenguaje común para discutir el proceso y los cambios propuestos.</p>
+                        </div>
+                        
+                        <div class="benefit-item bg-white p-3 rounded-lg shadow-sm border-l-4 border-blue-500">
+                            <h4 class="font-medium text-gray-800 flex items-center">
+                                <i class="fas fa-chart-line text-blue-600 mr-2"></i>Base para el Análisis
+                            </h4>
+                            <p class="text-sm text-gray-600 ml-7">Esencial para entender el estado "Como-Es" antes de intentar mejorarlo (fases de Medir y Analizar).</p>
+                        </div>
+                        
+                        <div class="benefit-item bg-white p-3 rounded-lg shadow-sm border-l-4 border-green-500">
+                            <h4 class="font-medium text-gray-800 flex items-center">
+                                <i class="fas fa-graduation-cap text-green-600 mr-2"></i>Capacitación e Inducción
+                            </h4>
+                            <p class="text-sm text-gray-600 ml-7">Útil para explicar cómo funcionan los procesos a nuevos miembros del equipo.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right Column: Problems Identified & Visual -->
+                <div>
+                    <div class="mb-6">
+                        <h3 class="text-lg font-medium text-green-700 mb-4">
+                            <i class="fas fa-search mr-2"></i>Identifica Problemas Ocultos:
+                        </h3>
+                        
+                        <div class="grid grid-cols-2 gap-3">
+                            <div class="problem-item bg-white p-3 rounded-lg shadow-sm border-t-3 border-red-400">
+                                <div class="flex items-center">
+                                    <div class="bg-red-100 rounded-full p-2 mr-2">
+                                        <i class="fas fa-hourglass-half text-red-500"></i>
+                                    </div>
+                                    <h4 class="font-medium text-gray-800 text-sm">Cuellos de Botella & Demoras</h4>
+                                </div>
+                            </div>
+                            
+                            <div class="problem-item bg-white p-3 rounded-lg shadow-sm border-t-3 border-red-400">
+                                <div class="flex items-center">
+                                    <div class="bg-red-100 rounded-full p-2 mr-2">
+                                        <i class="fas fa-redo text-red-500"></i>
+                                    </div>
+                                    <h4 class="font-medium text-gray-800 text-sm">Ciclos de Reproceso & Redundancias</h4>
+                                </div>
+                            </div>
+                            
+                            <div class="problem-item bg-white p-3 rounded-lg shadow-sm border-t-3 border-red-400">
+                                <div class="flex items-center">
+                                    <div class="bg-red-100 rounded-full p-2 mr-2">
+                                        <i class="fas fa-trash-alt text-red-500"></i>
+                                    </div>
+                                    <h4 class="font-medium text-gray-800 text-sm">Actividades que No Agregan Valor</h4>
+                                </div>
+                            </div>
+                            
+                            <div class="problem-item bg-white p-3 rounded-lg shadow-sm border-t-3 border-red-400">
+                                <div class="flex items-center">
+                                    <div class="bg-red-100 rounded-full p-2 mr-2">
+                                        <i class="fas fa-question-circle text-red-500"></i>
+                                    </div>
+                                    <h4 class="font-medium text-gray-800 text-sm">Roles & Responsabilidades Poco Claras</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Before/After Visual -->
+                    <div class="comparison-visual bg-white p-4 rounded-lg shadow-sm">
+                        <h3 class="text-md font-medium text-blue-700 mb-3 flex items-center">
+                            <i class="fas fa-exchange-alt text-blue-600 mr-2"></i>Antes vs. Después del Mapeo
+                        </h3>
+                        
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-gray-50 p-3 rounded-lg border border-gray-200 text-center">
+                                <div class="bg-gray-100 h-24 rounded flex justify-center items-center mb-2">
+                                    <i class="fas fa-random text-gray-400 text-4xl"></i>
+                                </div>
+                                <p class="text-sm text-gray-600 font-medium">Proceso Confuso</p>
+                                <p class="text-xs text-gray-500">Complejidad - Variabilidad - Caos</p>
+                            </div>
+                            
+                            <div class="bg-blue-50 p-3 rounded-lg border border-blue-200 text-center">
+                                <div class="bg-blue-100 h-24 rounded flex justify-center items-center mb-2">
+                                    <i class="fas fa-project-diagram text-blue-500 text-4xl"></i>
+                                </div>
+                                <p class="text-sm text-blue-600 font-medium">Proceso Clarificado</p>
+                                <p class="text-xs text-blue-500">Visibilidad - Estructura - Orden</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Example Box -->
+            <div class="bg-yellow-50 p-4 rounded-lg mt-6">
+                <h3 class="text-lg font-medium text-yellow-700 mb-2 flex items-center">
+                    <i class="fas fa-lightbulb text-yellow-500 mr-2"></i>Ejemplo Práctico:
+                </h3>
+                <p class="text-gray-700">
+                    "Creemos que sabemos cómo se incorpora a un nuevo cliente, pero el mapeo podría revelar que 3 departamentos diferentes realizan un paso de verificación similar, causando demoras y posibles inconsistencias en la información. El mapa hace esto visible."
+                </p>
+            </div>
+            
+            <!-- Visual Element -->
+            <div class="map-icon">
+                <i class="fas fa-map-marked-alt"></i>
+            </div>
+        </div>
+        
+        <!-- footer -->
+        <div class="company-logo">Tecniseguros | Lean Six Sigma Yellow Belt</div>
+        <div class="footer-bar"></div>
+    </div>
+<!-- 1. Navigation Buttons HTML Block -->
+<div style="position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 100; background: white; padding: 10px; border-radius: 5px; box-shadow: 0 0 10px rgba(0,0,0,0.2);">
+    <button id="prevSlideButton" onclick="goToPrevSlide()"> « Previous </button>
+    <span id="slideIndicator" style="margin: 0 15px;">Slide ? of ?</span>
+    <button id="nextSlideButton" onclick="goToNextSlide()"> Next » </button>
+</div>
+
+<!-- 2. Link to Global script.js -->
+<script src="../../script.js"></script>
+</body>
+</html>

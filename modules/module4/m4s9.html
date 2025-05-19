@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roles del Equipo LSS - Tecniseguros</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .slide {
+            width: 1280px;
+            min-height: 720px;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+        }
+        .header-bar {
+            background: linear-gradient(90deg, #005792 0%, #00A6A6 100%);
+            height: 12px;
+        }
+        .footer-bar {
+            background: linear-gradient(90deg, #005792 0%, #00A6A6 100%);
+            height: 8px;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+        .company-logo {
+            position: absolute;
+            bottom: 20px;
+            right: 30px;
+            font-size: 16px;
+            color: #666;
+            font-weight: 500;
+        }
+        .role-card {
+            transition: all 0.3s ease;
+            min-height: 190px;
+        }
+        .role-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+        .bg-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 300px;
+            height: 300px;
+            background-color: rgba(0, 87, 146, 0.03);
+            background-image: radial-gradient(rgba(0, 166, 166, 0.1) 2px, transparent 2px);
+            background-size: 20px 20px;
+            z-index: 0;
+        }
+        .yellow-badge {
+            background: linear-gradient(45deg, #FFD700, #FFC107);
+        }
+        .green-badge {
+            background: linear-gradient(45deg, #4CAF50, #2E7D32);
+        }
+        .black-badge {
+            background: linear-gradient(45deg, #424242, #212121);
+        }
+        .master-badge {
+            background: linear-gradient(45deg, #212121, #000000);
+            border: 2px solid #FFC107;
+        }
+        .sponsor-badge {
+            background: linear-gradient(45deg, #1976D2, #0D47A1);
+        }
+        .connection-line {
+            position: absolute;
+            height: 2px;
+            background-color: #d1d5db;
+            z-index: 0;
+        }
+        .teamwork-callout {
+            border-left: 4px solid #10B981;
+            background-color: #ECFDF5;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <div class="header-bar"></div>
+        
+        <!-- Main Content -->
+        <div class="p-10 z-10 relative">
+            <!-- Title Section -->
+            <div class="mb-6">
+                <h1 class="text-3xl font-bold text-blue-700">Quién es Quién en un Proyecto Lean Six Sigma</h1>
+                <div class="w-20 h-1 bg-blue-500 mt-3"></div>
+            </div>
+            
+            <!-- Roles Grid -->
+            <div class="grid grid-cols-3 gap-4 mb-6">
+                <!-- Yellow Belt -->
+                <div class="role-card bg-white p-4 rounded-lg shadow-md border-t-4 border-yellow-400">
+                    <div class="flex items-center mb-3">
+                        <div class="yellow-badge rounded-full w-12 h-12 flex items-center justify-center mr-3 flex-shrink-0">
+                            <span class="font-bold text-white">YB</span>
+                        </div>
+                        <h3 class="text-lg font-medium text-gray-800">Yellow Belt</h3>
+                    </div>
+                    <ul class="text-sm text-gray-600 space-y-1 ml-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-yellow-500 mt-1 mr-2"></i>
+                            <span>Entiende los conceptos básicos de LSS</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-yellow-500 mt-1 mr-2"></i>
+                            <span>Participa en equipos de proyecto</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-yellow-500 mt-1 mr-2"></i>
+                            <span>Recopila datos y ayuda a implementar soluciones</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-yellow-500 mt-1 mr-2"></i>
+                            <span>Puede liderar mejoras pequeñas y localizadas</span>
+                        </li>
+                    </ul>
+                    <div class="bg-yellow-50 mt-3 p-2 rounded border border-yellow-200">
+                        <p class="text-xs text-gray-700 flex items-center">
+                            <i class="fas fa-lightbulb text-yellow-500 mr-1"></i>
+                            <span class="font-medium">¡Ese eres tú!</span> Experto en procesos y contribuidor clave del equipo
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Green Belt -->
+                <div class="role-card bg-white p-4 rounded-lg shadow-md border-t-4 border-green-600">
+                    <div class="flex items-center mb-3">
+                        <div class="green-badge rounded-full w-12 h-12 flex items-center justify-center mr-3 flex-shrink-0">
+                            <span class="font-bold text-white">GB</span>
+                        </div>
+                        <h3 class="text-lg font-medium text-gray-800">Green Belt</h3>
+                    </div>
+                    <ul class="text-sm text-gray-600 space-y-1 ml-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Lidera proyectos LSS más pequeños</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Asiste a Black Belts en proyectos más grandes</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Aplica herramientas LSS en su trabajo diario</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Generalmente dedica tiempo parcial a proyectos LSS</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Black Belt -->
+                <div class="role-card bg-white p-4 rounded-lg shadow-md border-t-4 border-gray-800">
+                    <div class="flex items-center mb-3">
+                        <div class="black-badge rounded-full w-12 h-12 flex items-center justify-center mr-3 flex-shrink-0">
+                            <span class="font-bold text-white">BB</span>
+                        </div>
+                        <h3 class="text-lg font-medium text-gray-800">Black Belt</h3>
+                    </div>
+                    <ul class="text-sm text-gray-600 space-y-1 ml-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-gray-500 mt-1 mr-2"></i>
+                            <span>Lidera proyectos LSS complejos</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-gray-500 mt-1 mr-2"></i>
+                            <span>Mentores de Green y Yellow Belts</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-gray-500 mt-1 mr-2"></i>
+                            <span>Experto en herramientas LSS</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-gray-500 mt-1 mr-2"></i>
+                            <span>Generalmente dedica tiempo completo a LSS</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Master Black Belt -->
+                <div class="role-card bg-white p-4 rounded-lg shadow-md border-t-4 border-gray-900">
+                    <div class="flex items-center mb-3">
+                        <div class="master-badge rounded-full w-12 h-12 flex items-center justify-center mr-3 flex-shrink-0">
+                            <span class="font-bold text-white">MBB</span>
+                        </div>
+                        <h3 class="text-lg font-medium text-gray-800">Master Black Belt</h3>
+                    </div>
+                    <ul class="text-sm text-gray-600 space-y-1 ml-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-gray-800 mt-1 mr-2"></i>
+                            <span>Entrena y capacita a otros Belts</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-gray-800 mt-1 mr-2"></i>
+                            <span>Gestiona el programa LSS</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-gray-800 mt-1 mr-2"></i>
+                            <span>Implementación estratégica de LSS</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-gray-800 mt-1 mr-2"></i>
+                            <span>Experto técnico máximo en metodología LSS</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Sponsor/Champion -->
+                <div class="role-card bg-white p-4 rounded-lg shadow-md border-t-4 border-blue-700">
+                    <div class="flex items-center mb-3">
+                        <div class="sponsor-badge rounded-full w-12 h-12 flex items-center justify-center mr-3 flex-shrink-0">
+                            <i class="fas fa-trophy text-white text-lg"></i>
+                        </div>
+                        <h3 class="text-lg font-medium text-gray-800">Patrocinador/Champion</h3>
+                    </div>
+                    <ul class="text-sm text-gray-600 space-y-1 ml-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-500 mt-1 mr-2"></i>
+                            <span>Líder de negocio que autoriza el proyecto</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-500 mt-1 mr-2"></i>
+                            <span>Proporciona recursos necesarios</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-500 mt-1 mr-2"></i>
+                            <span>Elimina obstáculos organizacionales</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-500 mt-1 mr-2"></i>
+                            <span>Impulsa el cambio y mantiene el alineamiento estratégico</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Org Structure Visual -->
+                <div class="col-span-1 flex items-center justify-center">
+                    <div class="p-4 rounded-lg bg-gradient-to-br from-blue-50 to-green-50 w-full h-full flex flex-col justify-center items-center relative">
+                        <div class="flex flex-col items-center space-y-4">
+                            <div class="flex flex-col items-center">
+                                <div class="bg-blue-600 rounded-full w-12 h-12 flex items-center justify-center shadow-md">
+                                    <i class="fas fa-trophy text-white text-lg"></i>
+                                </div>
+                                <p class="text-xs font-medium text-blue-800 mt-1">Patrocinador</p>
+                            </div>
+                            
+                            <i class="fas fa-arrow-down text-gray-400"></i>
+                            
+                            <div class="flex justify-center space-x-6">
+                                <div class="flex flex-col items-center">
+                                    <div class="bg-black rounded-full w-10 h-10 flex items-center justify-center border-2 border-yellow-400 shadow-md">
+                                        <span class="text-xs font-bold text-white">MBB</span>
+                                    </div>
+                                    <p class="text-xs font-medium text-gray-800 mt-1">Master BB</p>
+                                </div>
+                            </div>
+                            
+                            <i class="fas fa-arrow-down text-gray-400"></i>
+                            
+                            <div class="flex justify-center space-x-6">
+                                <div class="flex flex-col items-center">
+                                    <div class="bg-gray-800 rounded-full w-10 h-10 flex items-center justify-center shadow-md">
+                                        <span class="text-xs font-bold text-white">BB</span>
+                                    </div>
+                                    <p class="text-xs font-medium text-gray-800 mt-1">Black Belt</p>
+                                </div>
+                            </div>
+                            
+                            <i class="fas fa-arrow-down text-gray-400"></i>
+                            
+                            <div class="flex justify-center space-x-6">
+                                <div class="flex flex-col items-center">
+                                    <div class="bg-green-600 rounded-full w-10 h-10 flex items-center justify-center shadow-md">
+                                        <span class="text-xs font-bold text-white">GB</span>
+                                    </div>
+                                    <p class="text-xs font-medium text-gray-800 mt-1">Green Belt</p>
+                                </div>
+                            </div>
+                            
+                            <i class="fas fa-arrow-down text-gray-400"></i>
+                            
+                            <div class="flex justify-center space-x-6">
+                                <div class="flex flex-col items-center">
+                                    <div class="bg-yellow-500 rounded-full w-10 h-10 flex items-center justify-center shadow-md">
+                                        <span class="text-xs font-bold text-white">YB</span>
+                                    </div>
+                                    <p class="text-xs font-medium text-gray-800 mt-1">Yellow Belt</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Teamwork Key Message -->
+            <div class="teamwork-callout p-4 rounded-lg">
+                <div class="flex items-center">
+                    <div class="bg-green-100 rounded-full p-3 mr-4 flex-shrink-0">
+                        <i class="fas fa-users text-green-600 text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-medium text-green-700">¡El trabajo en equipo es clave!</h3>
+                        <p class="text-gray-700">El LSS eficaz se basa en la colaboración entre roles y departamentos. Cada nivel aporta habilidades y perspectivas únicas para resolver problemas complejos.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Background Pattern -->
+        <div class="bg-pattern"></div>
+        
+        <!-- footer -->
+        <div class="company-logo">Tecniseguros | Lean Six Sigma Yellow Belt</div>
+        <div class="footer-bar"></div>
+    </div>
+<!-- 1. Navigation Buttons HTML Block -->
+<div style="position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 100; background: white; padding: 10px; border-radius: 5px; box-shadow: 0 0 10px rgba(0,0,0,0.2);">
+    <button id="prevSlideButton" onclick="goToPrevSlide()"> « Previous </button>
+    <span id="slideIndicator" style="margin: 0 15px;">Slide ? of ?</span>
+    <button id="nextSlideButton" onclick="goToNextSlide()"> Next » </button>
+</div>
+
+<!-- 2. Link to Global script.js -->
+<script src="../../script.js"></script>
+</body>
+</html>

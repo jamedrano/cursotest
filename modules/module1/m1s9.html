@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Qué es Six Sigma?</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background: radial-gradient(circle at top right, #f0f9ff, #ffffff);
+            position: relative;
+            overflow: hidden;
+        }
+        .blue-accent {
+            background: linear-gradient(90deg, #1a365d 0%, #2a4365 100%);
+        }
+        .highlight-text {
+            color: #2b6cb0;
+            font-weight: bold;
+        }
+        .concept-box {
+            transition: all 0.3s ease;
+        }
+        .concept-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Target analogy styling */
+        .target {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        .target-ring {
+            position: absolute;
+            border-radius: 50%;
+        }
+        .ring-5 {
+            width: 100%;
+            height: 100%;
+            background-color: #e53e3e;
+        }
+        .ring-4 {
+            width: 80%;
+            height: 80%;
+            background-color: #dd6b20;
+        }
+        .ring-3 {
+            width: 60%;
+            height: 60%;
+            background-color: #d69e2e;
+        }
+        .ring-2 {
+            width: 40%;
+            height: 40%;
+            background-color: #38a169;
+        }
+        .ring-1 {
+            width: 20%;
+            height: 20%;
+            background-color: #2b6cb0;
+        }
+        
+        /* Scatter dots for variation */
+        .dot {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background-color: #000;
+            border-radius: 50%;
+        }
+        .high-variation .dot {
+            transform: translate(-50%, -50%);
+        }
+        .low-variation .dot {
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container flex flex-col">
+        <!-- header -->
+        <div class="blue-accent h-12 w-full shadow-md"></div>
+        
+        <!-- Main content -->
+        <div class="flex-1 p-10">
+            <!-- Title -->
+            <h1 class="text-4xl font-bold text-blue-800 mb-6">
+                <i class="fas fa-chart-bar text-blue-600 mr-3"></i>
+                Six Sigma = Reducción de Variación y Defectos
+            </h1>
+            
+            <div class="flex flex-wrap -mx-4">
+                <!-- Left column: Core concepts -->
+                <div class="w-1/2 px-4">
+                    <!-- Core Idea -->
+                    <div class="concept-box bg-white p-6 rounded-lg shadow-md mb-6">
+                        <h2 class="text-2xl font-bold text-blue-700 mb-3">
+                            Idea Central
+                        </h2>
+                        <p class="text-lg text-gray-700 mb-3">
+                            Reducir <span class="highlight-text">sistemáticamente</span> la variabilidad y eliminar
+                            errores (defectos) en los procesos.
+                        </p>
+                        
+                        <div class="flex flex-col space-y-4 mt-6">
+                            <h3 class="text-xl font-semibold text-gray-700">Enfoque en:</h3>
+                            
+                            <div class="flex items-center bg-blue-50 p-3 rounded-lg">
+                                <div class="bg-blue-100 rounded-full p-3 mr-4 flex items-center justify-center">
+                                    <i class="fas fa-check-circle text-blue-600 fa-lg"></i>
+                                </div>
+                                <span class="text-lg font-medium">Calidad</span>
+                            </div>
+                            
+                            <div class="flex items-center bg-blue-50 p-3 rounded-lg">
+                                <div class="bg-blue-100 rounded-full p-3 mr-4 flex items-center justify-center">
+                                    <i class="fas fa-balance-scale text-blue-600 fa-lg"></i>
+                                </div>
+                                <span class="text-lg font-medium">Consistencia</span>
+                            </div>
+                            
+                            <div class="flex items-center bg-blue-50 p-3 rounded-lg">
+                                <div class="bg-blue-100 rounded-full p-3 mr-4 flex items-center justify-center">
+                                    <i class="fas fa-chart-line text-blue-600 fa-lg"></i>
+                                </div>
+                                <span class="text-lg font-medium">Predictibilidad</span>
+                            </div>
+                            
+                            <div class="flex items-center bg-blue-50 p-3 rounded-lg">
+                                <div class="bg-blue-100 rounded-full p-3 mr-4 flex items-center justify-center">
+                                    <i class="fas fa-database text-blue-600 fa-lg"></i>
+                                </div>
+                                <span class="text-lg font-medium">Decisiones Basadas en Datos</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- What is a Defect? -->
+                    <div class="bg-white p-5 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold text-blue-700 mb-3 flex items-center">
+                            <i class="fas fa-bug text-red-500 mr-2"></i>
+                            ¿Qué es un Defecto?
+                        </h3>
+                        <p class="text-gray-700 mb-3">
+                            Todo lo que cae fuera de los requerimientos del cliente o especificaciones.
+                        </p>
+                        
+                        <div class="bg-red-50 p-3 rounded-lg">
+                            <h4 class="font-semibold text-red-700 mb-2">Ejemplos en Tecniseguros:</h4>
+                            <ul class="space-y-2 text-gray-700">
+                                <li class="flex items-start">
+                                    <i class="fas fa-times-circle text-red-500 mt-1 mr-2"></i>
+                                    <span>Póliza emitida con cobertura incorrecta</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-times-circle text-red-500 mt-1 mr-2"></i>
+                                    <span>Reclamo procesado después del plazo acordado</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-times-circle text-red-500 mt-1 mr-2"></i>
+                                    <span>Factura enviada con monto incorrecto</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right column: Variation and analogy -->
+                <div class="w-1/2 px-4">
+                    <!-- What is Variation? -->
+                    <div class="concept-box bg-white p-5 rounded-lg shadow-md mb-6">
+                        <h3 class="text-xl font-bold text-blue-700 mb-3 flex items-center">
+                            <i class="fas fa-random text-purple-500 mr-2"></i>
+                            ¿Qué es la Variación?
+                        </h3>
+                        <p class="text-gray-700 mb-4">
+                            Inconsistencia en los resultados o desempeño del proceso.
+                        </p>
+                        
+                        <div class="bg-purple-50 p-3 rounded-lg mb-4">
+                            <h4 class="font-semibold text-purple-700 mb-2">Ejemplos en Tecniseguros:</h4>
+                            <ul class="space-y-2 text-gray-700">
+                                <li class="flex items-start">
+                                    <i class="fas fa-wave-square text-purple-500 mt-1 mr-2"></i>
+                                    <span>Tiempo para emitir pólizas varía de 1 a 10 días</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-wave-square text-purple-500 mt-1 mr-2"></i>
+                                    <span>Tiempos de respuesta en call center muy variables</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-wave-square text-purple-500 mt-1 mr-2"></i>
+                                    <span>Precisión de datos inconsistente entre operadores</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="text-gray-700 mb-2">
+                            <span class="font-semibold">La variación crea:</span> Impredictibilidad, ineficiencia y frustración para clientes y empleados.
+                        </div>
+                    </div>
+                    
+                    <!-- Target Analogy -->
+                    <div class="bg-white p-5 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold text-blue-700 mb-4">
+                            <i class="fas fa-bullseye text-blue-600 mr-2"></i>
+                            Analogía: Tiro al Blanco
+                        </h3>
+                        
+                        <div class="flex justify-around mb-5">
+                            <div class="text-center">
+                                <div class="target high-variation mx-auto relative mb-3">
+                                    <div class="target-ring ring-5"></div>
+                                    <div class="target-ring ring-4"></div>
+                                    <div class="target-ring ring-3"></div>
+                                    <div class="target-ring ring-2"></div>
+                                    <div class="target-ring ring-1"></div>
+                                    <!-- Random scattered dots -->
+                                    <div class="dot" style="top: 30%; left: 20%;"></div>
+                                    <div class="dot" style="top: 60%; left: 30%;"></div>
+                                    <div class="dot" style="top: 40%; left: 80%;"></div>
+                                    <div class="dot" style="top: 70%; left: 60%;"></div>
+                                    <div class="dot" style="top: 20%; left: 40%;"></div>
+                                    <div class="dot" style="top: 50%; left: 75%;"></div>
+                                    <div class="dot" style="top: 80%; left: 45%;"></div>
+                                    <div class="dot" style="top: 25%; left: 65%;"></div>
+                                </div>
+                                <p class="font-semibold text-red-700">Alta Variación</p>
+                                <p class="text-sm text-gray-600">Tiros dispersos</p>
+                                <p class="text-sm text-gray-600">Resultados impredecibles</p>
+                            </div>
+                            
+                            <div class="text-center">
+                                <div class="target low-variation mx-auto relative mb-3">
+                                    <div class="target-ring ring-5"></div>
+                                    <div class="target-ring ring-4"></div>
+                                    <div class="target-ring ring-3"></div>
+                                    <div class="target-ring ring-2"></div>
+                                    <div class="target-ring ring-1"></div>
+                                    <!-- Tightly grouped dots -->
+                                    <div class="dot" style="top: 48%; left: 46%;"></div>
+                                    <div class="dot" style="top: 52%; left: 48%;"></div>
+                                    <div class="dot" style="top: 47%; left: 51%;"></div>
+                                    <div class="dot" style="top: 49%; left: 53%;"></div>
+                                    <div class="dot" style="top: 51%; left: 49%;"></div>
+                                    <div class="dot" style="top: 53%; left: 47%;"></div>
+                                    <div class="dot" style="top: 48%; left: 52%;"></div>
+                                    <div class="dot" style="top: 52%; left: 51%;"></div>
+                                </div>
+                                <p class="font-semibold text-green-700">Baja Variación</p>
+                                <p class="text-sm text-gray-600">Tiros agrupados</p>
+                                <p class="text-sm text-gray-600">Resultados consistentes</p>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-blue-50 p-4 rounded-lg">
+                            <p class="text-blue-700 font-medium">
+                                <span class="font-bold">Six Sigma</span> busca reducir la variación para que los procesos produzcan resultados:
+                            </p>
+                            <div class="flex items-center mt-2">
+                                <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                <span class="font-semibold">Consistentemente precisos</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                <span class="font-semibold">Dentro de las expectativas del cliente</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- footer -->
+        <div class="blue-accent h-6 w-full mt-auto"></div>
+    </div>
+<!-- 1. Navigation Buttons HTML Block -->
+<div style="position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 100; background: white; padding: 10px; border-radius: 5px; box-shadow: 0 0 10px rgba(0,0,0,0.2);">
+    <button id="prevSlideButton" onclick="goToPrevSlide()"> « Previous </button>
+    <span id="slideIndicator" style="margin: 0 15px;">Slide ? of ?</span>
+    <button id="nextSlideButton" onclick="goToNextSlide()"> Next » </button>
+</div>
+
+<!-- 2. Link to Global script.js -->
+<script src="../../script.js"></script>
+</body>
+</html>

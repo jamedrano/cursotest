@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Fase Definir - Propósito y Preguntas Clave - Tecniseguros</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .slide {
+            width: 1280px;
+            min-height: 720px;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+        }
+        .header-bar {
+            background: linear-gradient(90deg, #005792 0%, #00A6A6 100%);
+            height: 12px;
+        }
+        .footer-bar {
+            background: linear-gradient(90deg, #005792 0%, #00A6A6 100%);
+            height: 8px;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+        .company-logo {
+            position: absolute;
+            bottom: 20px;
+            right: 30px;
+            font-size: 16px;
+            color: #666;
+            font-weight: 500;
+        }
+        .purpose-item {
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+        }
+        .purpose-item:hover {
+            transform: translateX(5px);
+            border-left-color: #00A6A6;
+        }
+        .question-item {
+            transition: all 0.3s ease;
+        }
+        .question-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+        .dmaic-circle {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            position: relative;
+            background: linear-gradient(135deg, #e6f7ff 0%, #f0f9ff 100%);
+            border: 2px solid #e0f2fe;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
+        }
+        .phase {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            background: white;
+            font-weight: bold;
+            z-index: 2; /* Ensure phases are above lines */
+        }
+        /* Pentagon positioning for DMAIC phases */
+        /* Container center: (150, 150). Pentagon radius: 110px */
+        /* D: top-center */
+        .d-phase {
+            top: 5px; /* (150 - 110) - 35 (half-height) */
+            left: 115px; /* 150 - 35 (half-width) */
+            background: #005792;
+            color: white;
+            font-size: 24px;
+            width: 70px;
+            height: 70px;
+            box-shadow: 0 0 15px rgba(0, 87, 146, 0.5);
+        }
+        /* M: top-right */
+        .m-phase {
+            top: 86.01px; /* (150 + 110*sin(-18deg)) - 30 */
+            left: 224.62px; /* (150 + 110*cos(-18deg)) - 30 */
+            color: #666;
+            opacity: 0.7;
+        }
+        /* A: bottom-right */
+        .a-phase {
+            top: 208.99px; /* (150 + 110*sin(54deg)) - 30 */
+            left: 184.66px; /* (150 + 110*cos(54deg)) - 30 */
+            color: #666;
+            opacity: 0.7;
+        }
+        /* I: bottom-left */
+        .i-phase {
+            top: 208.99px; /* (150 + 110*sin(126deg)) - 30 */
+            left: 55.34px;  /* (150 + 110*cos(126deg)) - 30 */
+            color: #666;
+            opacity: 0.7;
+        }
+        /* C: top-left */
+        .c-phase {
+            top: 86.01px;  /* (150 + 110*sin(198deg)) - 30 */
+            left: 15.38px; /* (150 + 110*cos(198deg)) - 30 */
+            color: #666;
+            opacity: 0.7;
+        }
+        /* Removed .connect-line and line1-line5 styles as SVG is used now */
+
+        .quote-box {
+            border-left: 4px solid #00A6A6;
+            background-color: #f0f9ff;
+        }
+        .highlight-text {
+            position: relative;
+            display: inline-block;
+        }
+        .highlight-text::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background-color: rgba(0, 166, 166, 0.3);
+            z-index: -1;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <div class="header-bar"></div>
+        
+        <!-- Main Content -->
+        <div class="p-10 z-10 relative">
+            <!-- Title Section -->
+            <div class="mb-6">
+                <h1 class="text-3xl font-bold text-blue-700">Fase Definir: ¿Qué Estamos Tratando de Resolver y Por Qué?</h1>
+                <div class="w-20 h-1 bg-blue-500 mt-3"></div>
+            </div>
+            
+            <div class="grid grid-cols-2 gap-8">
+                <!-- Left Column: Purpose & Key Questions -->
+                <div>
+                    <!-- Purpose of Define Phase -->
+                    <div class="mb-6">
+                        <h2 class="text-xl font-medium text-blue-700 mb-4">
+                            <i class="fas fa-bullseye mr-2 text-blue-600"></i>Propósito de la Fase Definir:
+                        </h2>
+                        
+                        <div class="space-y-3">
+                            <div class="purpose-item bg-white p-3 rounded-lg shadow-sm pl-4">
+                                <p class="text-gray-700"><i class="fas fa-check-circle text-green-500 mr-2"></i>Articular claramente el problema u oportunidad</p>
+                            </div>
+                            
+                            <div class="purpose-item bg-white p-3 rounded-lg shadow-sm pl-4">
+                                <p class="text-gray-700"><i class="fas fa-check-circle text-green-500 mr-2"></i>Definir las metas y objetivos del proyecto</p>
+                            </div>
+                            
+                            <div class="purpose-item bg-white p-3 rounded-lg shadow-sm pl-4">
+                                <p class="text-gray-700"><i class="fas fa-check-circle text-green-500 mr-2"></i>Establecer el alcance (qué está dentro y fuera)</p>
+                            </div>
+                            
+                            <div class="purpose-item bg-white p-3 rounded-lg shadow-sm pl-4">
+                                <p class="text-gray-700"><i class="fas fa-check-circle text-green-500 mr-2"></i>Identificar al cliente(s) y sus requerimientos críticos</p>
+                            </div>
+                            
+                            <div class="purpose-item bg-white p-3 rounded-lg shadow-sm pl-4">
+                                <p class="text-gray-700"><i class="fas fa-check-circle text-green-500 mr-2"></i>Obtener acuerdo y compromiso de los interesados</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Quote Box -->
+                    <div class="quote-box p-4 rounded-lg mb-5">
+                        <p class="text-gray-700 italic font-medium">
+                            <i class="fas fa-quote-left text-green-300 mr-2"></i>
+                            Un problema bien planteado es un problema medio resuelto.
+                        </p>
+                        <p class="text-right text-sm text-gray-500">- Charles Kettering</p>
+                    </div>
+                    
+                    <!-- Key Message -->
+                    <div class="bg-red-50 p-4 rounded-lg border border-red-100">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <i class="fas fa-exclamation-triangle text-red-500 mr-2"></i>
+                            </div>
+                            <p class="text-gray-700">Un proyecto mal definido probablemente <span class="font-bold">fracasará</span> sin importar cuán bien se ejecute el resto del proceso.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right Column: DMAIC Cycle & Key Questions -->
+                <div>
+                    <!-- DMAIC Cycle Visual -->
+                    <div class="flex justify-center mb-6">
+                        <div class="dmaic-circle">
+                            <!-- SVG for Connecting Lines -->
+                            <svg style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1;" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+                                <!-- Line coordinates are bubble centers: (D center: 150,40), (M center: 254.62,116.01), (A center: 214.66,238.99), (I center: 85.34,238.99), (C center: 45.38,116.01) -->
+                                <line x1="150"    y1="40"    x2="254.62" y2="116.01" stroke="#d1d5db" stroke-width="2"/> <!-- D to M -->
+                                <line x1="254.62" y1="116.01" x2="214.66" y2="238.99" stroke="#d1d5db" stroke-width="2"/> <!-- M to A -->
+                                <line x1="214.66" y1="238.99" x2="85.34"  y2="238.99" stroke="#d1d5db" stroke-width="2"/> <!-- A to I -->
+                                <line x1="85.34"  y1="238.99" x2="45.38"  y2="116.01" stroke="#d1d5db" stroke-width="2"/> <!-- I to C -->
+                                <line x1="45.38"  y1="116.01" x2="150"    y2="40"    stroke="#d1d5db" stroke-width="2"/> <!-- C to D -->
+                            </svg>
+
+                            <!-- Phases -->
+                            <div class="phase d-phase">D</div>
+                            <div class="phase m-phase">M</div>
+                            <div class="phase a-phase">A</div>
+                            <div class="phase i-phase">I</div>
+                            <div class="phase c-phase">C</div>
+                            
+                            <!-- Center Text -->
+                            <div class="absolute inset-0 flex items-center justify-center" style="z-index: 2;"> <!-- Ensure center text is also above lines -->
+                                <p class="text-blue-700 font-medium text-sm">Ciclo DMAIC</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Key Questions -->
+                    <h2 class="text-xl font-medium text-blue-700 mb-4">
+                        <i class="fas fa-question-circle mr-2 text-blue-600"></i>Preguntas Clave en Definir:
+                    </h2>
+                    
+                    <div class="grid grid-cols-1 gap-3">
+                        <div class="question-item bg-white p-3 rounded-lg shadow-sm border-l-4 border-blue-400">
+                            <p class="text-gray-700">¿<span class="highlight-text">Cuál</span> es el problema/oportunidad?</p>
+                        </div>
+                        
+                        <div class="question-item bg-white p-3 rounded-lg shadow-sm border-l-4 border-green-400">
+                            <p class="text-gray-700">¿<span class="highlight-text">Por qué</span> es importante este proyecto para Tecniseguros?</p>
+                        </div>
+                        
+                        <div class="question-item bg-white p-3 rounded-lg shadow-sm border-l-4 border-blue-400">
+                            <p class="text-gray-700">¿<span class="highlight-text">Quién</span> es el cliente y qué le importa?</p>
+                        </div>
+                        
+                        <div class="question-item bg-white p-3 rounded-lg shadow-sm border-l-4 border-green-400">
+                            <p class="text-gray-700">¿<span class="highlight-text">Cuáles</span> son los límites de este proyecto?</p>
+                        </div>
+                        
+                        <div class="question-item bg-white p-3 rounded-lg shadow-sm border-l-4 border-blue-400">
+                            <p class="text-gray-700">¿<span class="highlight-text">Cómo</span> se ve el éxito?</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Bottom Callout -->
+            <div class="bg-blue-50 p-3 rounded-lg mt-6">
+                <div class="flex items-center">
+                    <div class="bg-blue-100 rounded-full p-2 mr-3">
+                        <i class="fas fa-lightbulb text-yellow-500 text-xl"></i>
+                    </div>
+                    <p class="text-gray-700"><span class="font-medium text-blue-600">Claridad desde el inicio:</span> Una definición clara y completa del problema aumenta significativamente las probabilidades de éxito del proyecto.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- footer -->
+        <div class="company-logo">Tecniseguros | Lean Six Sigma Yellow Belt</div>
+        <div class="footer-bar"></div>
+    </div>
+<!-- 1. Navigation Buttons HTML Block -->
+<div style="position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 100; background: white; padding: 10px; border-radius: 5px; box-shadow: 0 0 10px rgba(0,0,0,0.2);">
+    <button id="prevSlideButton" onclick="goToPrevSlide()"> « Previous </button>
+    <span id="slideIndicator" style="margin: 0 15px;">Slide ? of ?</span>
+    <button id="nextSlideButton" onclick="goToNextSlide()"> Next » </button>
+</div>
+
+<!-- 2. Link to Global script.js -->
+<script src="../../script.js"></script>
+</body>
+</html>

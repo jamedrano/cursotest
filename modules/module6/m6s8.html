@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resumen del Módulo 6 - Tecniseguros</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .slide {
+            width: 1280px;
+            min-height: 720px;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+        }
+        .header-bar {
+            background: linear-gradient(90deg, #005792 0%, #00A6A6 100%);
+            height: 12px;
+        }
+        .footer-bar {
+            background: linear-gradient(90deg, #005792 0%, #00A6A6 100%);
+            height: 8px;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+        .company-logo {
+            position: absolute;
+            bottom: 20px;
+            right: 30px;
+            font-size: 16px;
+            color: #666;
+            font-weight: 500;
+        }
+        .takeaway-item {
+            transition: all 0.3s ease;
+        }
+        .takeaway-item:hover {
+            transform: translateX(5px);
+        }
+        .preview-module {
+            position: relative;
+            overflow: hidden;
+        }
+        .preview-module::after {
+            content: "7";
+            position: absolute;
+            bottom: -10px;
+            right: 20px;
+            font-size: 120px;
+            font-weight: bold;
+            color: rgba(0, 87, 146, 0.05);
+            z-index: 0;
+        }
+        .next-steps-icon {
+            position: absolute;
+            top: 50%;
+            right: 30px;
+            transform: translateY(-50%);
+            font-size: 60px;
+            color: rgba(0, 87, 146, 0.1);
+            z-index: 0;
+        }
+        .dmaic-bubble {
+            transition: all 0.3s ease;
+        }
+        .dmaic-bubble:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <div class="header-bar"></div>
+        
+        <!-- Main Content -->
+        <div class="p-10 z-10 relative">
+            <!-- Title Section -->
+            <div class="mb-6">
+                <h1 class="text-3xl font-bold text-blue-700">Midiendo para Obtener Insights & Avanzando al Análisis</h1>
+                <div class="w-20 h-1 bg-green-500 mt-3"></div>
+            </div>
+            
+            <!-- Key Takeaways -->
+            <div class="bg-white p-5 rounded-lg shadow mb-6">
+                <h3 class="text-xl font-medium text-blue-700 mb-4">
+                    <i class="fas fa-star mr-2 text-yellow-500"></i>Puntos Clave:
+                </h3>
+                
+                <div class="grid grid-cols-2 gap-5">
+                    <div class="takeaway-item flex items-start">
+                        <div class="bg-blue-100 rounded-full w-8 h-8 flex-shrink-0 flex items-center justify-center mt-1 mr-3">
+                            <i class="fas fa-clipboard-list text-blue-600"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-medium text-blue-600">Plan de Recolección de Datos</h4>
+                            <p class="text-sm text-gray-700">Un plan claro con definiciones operacionales es crucial para obtener datos confiables.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="takeaway-item flex items-start">
+                        <div class="bg-green-100 rounded-full w-8 h-8 flex-shrink-0 flex items-center justify-center mt-1 mr-3">
+                            <i class="fas fa-balance-scale text-green-600"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-medium text-green-600">Sistema de Medición Confiable</h4>
+                            <p class="text-sm text-gray-700">La exactitud y precisión del sistema de medición afecta directamente la calidad de los datos.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="takeaway-item flex items-start">
+                        <div class="bg-blue-100 rounded-full w-8 h-8 flex-shrink-0 flex items-center justify-center mt-1 mr-3">
+                            <i class="fas fa-random text-blue-600"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-medium text-blue-600">Muestreo Efectivo</h4>
+                            <p class="text-sm text-gray-700">El muestreo puede proporcionar datos representativos de manera eficiente cuando se aplica correctamente.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="takeaway-item flex items-start">
+                        <div class="bg-green-100 rounded-full w-8 h-8 flex-shrink-0 flex items-center justify-center mt-1 mr-3">
+                            <i class="fas fa-chart-bar text-green-600"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-medium text-green-600">Estadística Descriptiva</h4>
+                            <p class="text-sm text-gray-700">Media, Mediana, Moda, Rango y Desviación Estándar ayudan a resumir y entender los datos.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- DMAIC Cycle Progression -->
+            <div class="flex justify-center mb-5">
+                <div class="bg-gray-50 rounded-full p-4 shadow-sm flex items-center space-x-3">
+                    <div class="dmaic-bubble bg-blue-600 p-3 rounded-full flex items-center h-16 w-16 justify-center text-center relative">
+                        <span class="text-xl font-bold text-white">D</span>
+                        <div class="absolute -top-1 -right-1 bg-green-500 rounded-full w-8 h-8 flex items-center justify-center border-2 border-white">
+                            <i class="fas fa-check text-white"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="dmaic-bubble bg-blue-600 p-3 rounded-full flex items-center h-16 w-16 justify-center text-center relative">
+                        <span class="text-xl font-bold text-white">M</span>
+                        <div class="absolute -top-1 -right-1 bg-green-500 rounded-full w-8 h-8 flex items-center justify-center border-2 border-white">
+                            <i class="fas fa-check text-white"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="dmaic-bubble bg-yellow-500 p-3 rounded-full flex items-center h-16 w-16 justify-center text-center relative">
+                        <span class="text-xl font-bold text-white">A</span>
+                        <div class="absolute -top-1 -right-1 bg-blue-500 rounded-full w-8 h-8 flex items-center justify-center border-2 border-white">
+                            <i class="fas fa-arrow-right text-white"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="dmaic-bubble bg-gray-200 p-3 rounded-full flex items-center h-12 w-12 justify-center text-center">
+                        <span class="text-lg font-bold text-gray-500">I</span>
+                    </div>
+                    
+                    <div class="dmaic-bubble bg-gray-200 p-3 rounded-full flex items-center h-12 w-12 justify-center text-center">
+                        <span class="text-lg font-bold text-gray-500">C</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Q&A Section -->
+            <div class="bg-blue-50 p-5 rounded-lg mb-6">
+                <div class="flex items-start">
+                    <div class="bg-blue-100 rounded-full p-3 mr-4 flex-shrink-0">
+                        <i class="fas fa-question-circle text-blue-600 text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-medium text-blue-700">Preguntas y Respuestas</h3>
+                        <p class="text-gray-700 mt-2">Momento para aclarar dudas sobre la Fase Medir y los conceptos estadísticos presentados.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Preview Next Module -->
+            <div class="preview-module bg-white p-5 rounded-lg shadow-md border-l-4 border-green-500">
+                <h3 class="text-xl font-medium text-green-700 mb-3">
+                    <i class="fas fa-forward mr-2 text-green-600"></i>Avance del Módulo 7:
+                </h3>
+                
+                <p class="text-gray-700 mb-4">Con los datos en mano, estamos listos para profundizar más. En la próxima sesión, entraremos en la fase de Análisis y aprenderemos herramientas poderosas de Análisis de Causa Raíz como:</p>
+                
+                <div class="grid grid-cols-3 gap-4">
+                    <div class="bg-blue-50 p-3 rounded-lg text-center shadow-sm border border-blue-100">
+                        <div class="bg-blue-100 rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-2">
+                            <i class="fas fa-question text-blue-600 text-xl"></i>
+                        </div>
+                        <h4 class="font-medium text-blue-700">Los 5 Por qués</h4>
+                        <p class="text-xs text-gray-600 mt-1">Metodología de interrogación para explorar relaciones causa-efecto</p>
+                    </div>
+                    
+                    <div class="bg-green-50 p-3 rounded-lg text-center shadow-sm border border-green-100">
+                        <div class="bg-green-100 rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-2">
+                            <i class="fas fa-fish-fins text-green-600 text-xl"></i>
+                        </div>
+                        <h4 class="font-medium text-green-700">Diagramas de Ishikawa</h4>
+                        <p class="text-xs text-gray-600 mt-1">También conocidos como diagramas de espina de pescado o causa-efecto</p>
+                    </div>
+                    
+                    <div class="bg-blue-50 p-3 rounded-lg text-center shadow-sm border border-blue-100">
+                        <div class="bg-blue-100 rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-2">
+                            <i class="fas fa-chart-bar text-blue-600 text-xl"></i>
+                        </div>
+                        <h4 class="font-medium text-blue-700">Gráficos de Pareto</h4>
+                        <p class="text-xs text-gray-600 mt-1">Para identificar las causas vitales que generan la mayoría de los problemas</p>
+                    </div>
+                </div>
+                
+                <div class="mt-4 bg-gray-50 p-3 rounded-lg text-center">
+                    <p class="text-gray-600 flex items-center justify-center">
+                        <i class="fas fa-analytics text-blue-500 mr-2"></i>
+                        <span>Próxima sesión: Descubriendo por qué nuestros procesos funcionan como lo hacen</span>
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Visual Elements -->
+            <div class="next-steps-icon">
+                <i class="fas fa-arrow-circle-right"></i>
+            </div>
+        </div>
+        
+        <!-- footer -->
+        <div class="company-logo">Tecniseguros | Lean Six Sigma Yellow Belt</div>
+        <div class="footer-bar"></div>
+    </div>
+<!-- 1. Navigation Buttons HTML Block -->
+<div style="position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 100; background: white; padding: 10px; border-radius: 5px; box-shadow: 0 0 10px rgba(0,0,0,0.2);">
+    <button id="prevSlideButton" onclick="goToPrevSlide()"> « Previous </button>
+    <span id="slideIndicator" style="margin: 0 15px;">Slide ? of ?</span>
+    <button id="nextSlideButton" onclick="goToNextSlide()"> Next » </button>
+</div>
+
+<!-- 2. Link to Global script.js -->
+<script src="../../script.js"></script>
+
+</body>
+</html>

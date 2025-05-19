@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breve Historia de la Calidad y Eficiencia</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@11.6.0/dist/mermaid.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background: linear-gradient(to right, #f8fafc, #f1f5f9);
+            position: relative;
+        }
+        .blue-accent {
+            background: linear-gradient(90deg, #1a365d 0%, #2a4365 100%);
+        }
+        .guru-card {
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+        }
+        .guru-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            border-bottom: 3px solid #3182ce;
+        }
+        .timeline-container {
+            width: 100%;
+            height: 180px;
+            margin-bottom: 2.8rem;
+        }
+        .origin-box {
+            transition: all 0.2s ease;
+        }
+        .origin-box:hover {
+            transform: scale(1.02);
+        }
+        .key-message {
+            background: linear-gradient(135deg, #e6f7ff 0%, #bae7ff 100%);
+        }
+        .guru-image-placeholder {
+            width: 60px;
+            height: 60px;
+            background-color: #e2e8f0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: #4a5568;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container flex flex-col">
+        <div class="blue-accent h-12 w-full shadow-md"></div>
+        
+        <div class="flex-1 p-10">
+            <h1 class="text-4xl font-bold text-blue-800 mb-6">
+                <i class="fas fa-history text-blue-600 mr-3"></i>
+                Construyendo Sobre Décadas de Sabiduría
+            </h1>
+            
+            <div class="bg-white rounded-lg p-4 shadow-md">
+                <h2 class="text-xl font-semibold text-blue-700 mb-3">Línea de Tiempo de la Calidad y Mejora Continua</h2>
+                <div class="timeline-container" id="qualityTimeline"></div>
+            </div>
+            
+            <div class="flex flex-wrap -mx-2 mt-8">
+                <div class="w-full px-2">
+                    <h2 class="text-2xl font-bold text-blue-700 mb-4">
+                        <i class="fas fa-award mr-2"></i>
+                        Gurús de la Calidad
+                    </h2>
+                    
+                    <div class="flex flex-wrap -mx-2 justify-between">
+                        <div class="w-1/3 px-2 mb-6">
+                            <div class="guru-card bg-white rounded-lg p-4 shadow-sm h-full">
+                                <h3 class="text-xl font-bold text-blue-800 mb-2">W. Edwards Deming</h3>
+                                <ul class="text-gray-700 space-y-2 pl-5 list-disc">
+                                    <li>Enfoque en sistemas y reducción de variación</li>
+                                    <li>Ciclo PDCA (Planear-Hacer-Verificar-Actuar)</li>
+                                    <li>14 puntos para la gestión</li>
+                                    <li>Énfasis en la mejora constante</li>
+                                </ul>
+                                <div class="mt-3 text-sm text-blue-600 font-semibold">
+                                    "La calidad se hace, no se controla"
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="w-1/3 px-2 mb-6">
+                            <div class="guru-card bg-white rounded-lg p-4 shadow-sm h-full">
+                                <h3 class="text-xl font-bold text-blue-800 mb-2">Joseph Juran</h3>
+                                <ul class="text-gray-700 space-y-2 pl-5 list-disc">
+                                    <li>Trilogía de la Calidad (Planificación, Control, Mejora)</li>
+                                    <li>Aptitud para el uso</li>
+                                    <li>Principio de Pareto en calidad (80/20)</li>
+                                    <li>Costos de la calidad</li>
+                                </ul>
+                                <div class="mt-3 text-sm text-blue-600 font-semibold">
+                                    "La calidad no sucede por accidente"
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="w-1/3 px-2 mb-6">
+                            <div class="guru-card bg-white rounded-lg p-4 shadow-sm h-full">
+                                <h3 class="text-xl font-bold text-blue-800 mb-2">Philip Crosby</h3>
+                                <ul class="text-gray-700 space-y-2 pl-5 list-disc">
+                                    <li>"La Calidad es Gratis"</li>
+                                    <li>Mentalidad de Cero Defectos</li>
+                                    <li>Hacerlo bien a la primera</li>
+                                    <li>Enfoque preventivo vs. correctivo</li>
+                                </ul>
+                                <div class="mt-3 text-sm text-blue-600 font-semibold">
+                                    "El estándar de desempeño es cero defectos"
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="w-full flex flex-wrap -mx-2 mt-8">
+                    <div class="w-1/2 px-2 mb-4">
+                        <div class="origin-box bg-gradient-to-r from-indigo-50 to-blue-50 rounded-lg p-5 shadow-sm">
+                            <div class="flex items-center mb-4">
+                                <div class="bg-indigo-100 rounded-full p-3 mr-3">
+                                    <i class="fas fa-industry text-indigo-600 fa-lg"></i>
+                                </div>
+                                <h3 class="text-xl font-bold text-indigo-800">Raíces de Lean</h3>
+                            </div>
+                            
+                            <div class="flex items-start mb-3">
+                                <div class="mr-3 text-indigo-500">
+                                    <i class="fas fa-car"></i>
+                                </div>
+                                <div>
+                                    <span class="font-semibold">Sistema de Producción Toyota (TPS)</span>
+                                    <p class="text-gray-700 text-sm">
+                                        Desarrollado en Japón post-WWII por Taiichi Ohno y Shigeo Shingo
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start mb-3">
+                                <div class="mr-3 text-indigo-500">
+                                    <i class="fas fa-water"></i>
+                                </div>
+                                <div>
+                                    <span class="font-semibold">Enfoque en el flujo y eliminación de desperdicios (Muda)</span>
+                                    <p class="text-gray-700 text-sm">
+                                        Just-In-Time, Jidoka, Kaizen (Mejora Continua)
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start mb-1">
+                                <div class="mr-3 text-indigo-500">
+                                    <i class="fas fa-book"></i>
+                                </div>
+                                <div>
+                                    <span class="font-semibold">Popularización en Occidente</span>
+                                    <p class="text-gray-700 text-sm">
+                                        Libro "La Máquina que Cambió el Mundo" (1990)
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="w-1/2 px-2 mb-4">
+                        <div class="origin-box bg-gradient-to-r from-green-50 to-teal-50 rounded-lg p-5 shadow-sm">
+                            <div class="flex items-center mb-4">
+                                <div class="bg-green-100 rounded-full p-3 mr-3">
+                                    <i class="fas fa-chart-line text-green-600 fa-lg"></i>
+                                </div>
+                                <h3 class="text-xl font-bold text-green-800">Raíces de Six Sigma</h3>
+                            </div>
+                            
+                            <div class="flex items-start mb-3">
+                                <div class="mr-3 text-green-500">
+                                    <i class="fas fa-mobile-alt"></i>
+                                </div>
+                                <div>
+                                    <span class="font-semibold">Motorola (mediados de 1980)</span>
+                                    <p class="text-gray-700 text-sm">
+                                        Desarrollado por el Ing. Bill Smith como respuesta a la alta tasa de defectos
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start mb-3">
+                                <div class="mr-3 text-green-500">
+                                    <i class="fas fa-chart-bar"></i>
+                                </div>
+                                <div>
+                                    <span class="font-semibold">Enfoque en reducir defectos usando métodos estadísticos</span>
+                                    <p class="text-gray-700 text-sm">
+                                        Metodología DMAIC, medición rigurosa, control estadístico
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start mb-1">
+                                <div class="mr-3 text-green-500">
+                                    <i class="fas fa-lightbulb"></i>
+                                </div>
+                                <div>
+                                    <span class="font-semibold">Popularizado por General Electric (GE)</span>
+                                    <p class="text-gray-700 text-sm">
+                                        Jack Welch lo adoptó en 1995, convirtiéndolo en estrategia corporativa
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="key-message p-4 rounded-lg shadow-md mt-4">
+                <p class="text-center text-blue-700 text-lg font-medium">
+                    <i class="fas fa-quote-left text-blue-400 mr-2"></i>
+                    LSS combina conceptos probados de industrias manufactureras y de servicios, 
+                    adaptados para cualquier proceso
+                    <i class="fas fa-quote-right text-blue-400 ml-2"></i>
+                </p>
+            </div>
+        </div>
+        
+        <div class="blue-accent h-6 w-full mt-auto"></div>
+    </div>
+    
+    <script>
+        // Initialize mermaid
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'neutral',
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true
+            }
+        });
+
+        // Define the timeline diagram
+        document.addEventListener('DOMContentLoaded', function() {
+            const diagram = `
+            timeline
+                title Evolución de los Conceptos de Calidad y Eficiencia
+                1950s : Deming introduce Control Estadístico en Japón
+                1951 : Juran publica Manual de Control de Calidad
+                1960s : Toyota desarrolla Sistema de Producción
+                1979 : Crosby publica La Calidad es Gratis
+                1980s : TQM se populariza a nivel mundial
+                1986 : Motorola desarrolla Six Sigma
+                1990s : Lean Manufacturing se extiende globalmente
+                1995 : GE adopta Six Sigma
+                2000s : Lean Six Sigma emerge como metodología combinada
+            `;
+            
+            const element = document.getElementById('qualityTimeline');
+            element.innerHTML = diagram;
+            mermaid.init(undefined, element);
+        });
+    </script>
+<!-- 1. Navigation Buttons HTML Block -->
+<div style="position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 100; background: white; padding: 10px; border-radius: 5px; box-shadow: 0 0 10px rgba(0,0,0,0.2);">
+    <button id="prevSlideButton" onclick="goToPrevSlide()"> « Previous </button>
+    <span id="slideIndicator" style="margin: 0 15px;">Slide ? of ?</span>
+    <button id="nextSlideButton" onclick="goToNextSlide()"> Next » </button>
+</div>
+
+<!-- 2. Link to Global script.js -->
+<script src="../../script.js"></script>
+</body>
+</html>

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Principio 2: Mapear la Cadena de Valor - Tecniseguros</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .slide {
+            width: 1280px;
+            min-height: 720px;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+        }
+        .header-bar {
+            background: linear-gradient(90deg, #005792 0%, #00A6A6 100%);
+            height: 12px;
+        }
+        .footer-bar {
+            background: linear-gradient(90deg, #005792 0%, #00A6A6 100%);
+            height: 8px;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+        .company-logo {
+            position: absolute;
+            bottom: 20px;
+            right: 30px;
+            font-size: 16px;
+            color: #666;
+            font-weight: 500;
+        }
+        .principle-number {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 120px;
+            font-weight: 700;
+            color: rgba(0, 87, 146, 0.05);
+            z-index: 0;
+        }
+        .process-step {
+            transition: all 0.3s ease;
+        }
+        .process-step:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .value-added {
+            border-color: #10B981;
+        }
+        .non-value-added {
+            border-color: #F97316;
+        }
+        .bottleneck {
+            border-color: #EF4444;
+        }
+        .arrow {
+            position: relative;
+        }
+        .arrow::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: -15px;
+            height: 0;
+            width: 0;
+            border: 10px solid transparent;
+            border-left-color: #D1D5DB;
+            transform: translateY(-50%);
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <div class="header-bar"></div>
+        
+        <!-- Main Content -->
+        <div class="p-10 z-10 relative">
+            <!-- Title Section -->
+            <div class="mb-6">
+                <h1 class="text-3xl font-bold text-blue-700">Principio 2: Mapear la Cadena de Valor</h1>
+                <h2 class="text-xl font-medium text-green-600 mt-1">Ver el Proceso Completo</h2>
+                <div class="w-20 h-1 bg-blue-500 mt-3"></div>
+            </div>
+            
+            <!-- Core Idea Section -->
+            <div class="mb-6 bg-blue-50 p-4 rounded-lg">
+                <h3 class="text-lg font-medium text-blue-700 mb-2">
+                    <i class="fas fa-lightbulb mr-2 text-yellow-500"></i>Idea Central:
+                </h3>
+                <p class="text-gray-700">Identificar todos los pasos (tanto los que añaden valor como los que no) actualmente necesarios para entregar el valor definido por el cliente, desde el inicio hasta el final.</p>
+            </div>
+            
+            <!-- Value Stream Definition -->
+            <div class="grid grid-cols-2 gap-6 mb-6">
+                <div class="bg-white p-5 rounded-lg shadow border-l-4 border-blue-500">
+                    <h3 class="text-lg font-medium text-blue-700 mb-2">Cadena de Valor:</h3>
+                    <p class="text-gray-700">La secuencia completa de actividades para diseñar, producir y entregar un producto o servicio.</p>
+                    <div class="mt-3 flex items-center">
+                        <div class="h-6 w-6 rounded-full bg-blue-100 flex items-center justify-center mr-2">
+                            <i class="fas fa-info text-blue-600 text-xs"></i>
+                        </div>
+                        <p class="text-sm text-blue-600">Abarca todo el proceso de principio a fin, no solo partes aisladas.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-5 rounded-lg shadow border-l-4 border-green-500">
+                    <h3 class="text-lg font-medium text-green-700 mb-2">Propósito:</h3>
+                    <ul class="list-disc ml-5 text-gray-700 space-y-1">
+                        <li>Visualizar el flujo completo</li>
+                        <li>Identificar desperdicios (DOWNTIME)</li>
+                        <li>Detectar cuellos de botella y demoras</li>
+                        <li>Distinguir entre actividades que agregan y no agregan valor</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Value Stream Mapping Simplified -->
+            <div class="mb-6">
+                <h3 class="text-lg font-medium text-blue-700 mb-3">
+                    <i class="fas fa-project-diagram mr-2 text-blue-500"></i>Mapeo de la Cadena de Valor (VSM) Simplificado:
+                </h3>
+                <p class="text-gray-700 mb-4">Para nivel Yellow Belt, el enfoque está en el concepto: ver el flujo de principio a fin, no en crear mapas complejos.</p>
+                
+                <!-- Simple Flow Chart Example -->
+                <div class="bg-gray-50 p-4 rounded-lg">
+                    <h4 class="text-center text-gray-700 font-medium mb-4">Ejemplo: Proceso de Nueva Póliza</h4>
+                    <div class="flex justify-between items-center">
+                        <!-- Step 1 -->
+                        <div class="process-step arrow bg-white rounded-lg p-3 shadow-sm border-b-4 value-added flex-1 mx-1 text-center">
+                            <div class="bg-blue-100 rounded-full w-8 h-8 flex items-center justify-center mx-auto mb-1">
+                                <i class="fas fa-file-alt text-blue-600"></i>
+                            </div>
+                            <p class="text-sm font-medium">Solicitud de Cliente</p>
+                            <span class="text-xs text-green-600">Agrega valor</span>
+                        </div>
+                        
+                        <!-- Step 2 -->
+                        <div class="process-step arrow bg-white rounded-lg p-3 shadow-sm border-b-4 non-value-added flex-1 mx-1 text-center">
+                            <div class="bg-orange-100 rounded-full w-8 h-8 flex items-center justify-center mx-auto mb-1">
+                                <i class="fas fa-clock text-orange-600"></i>
+                            </div>
+                            <p class="text-sm font-medium">Espera en Cola</p>
+                            <span class="text-xs text-orange-600">No agrega valor</span>
+                        </div>
+                        
+                        <!-- Step 3 -->
+                        <div class="process-step arrow bg-white rounded-lg p-3 shadow-sm border-b-4 value-added flex-1 mx-1 text-center">
+                            <div class="bg-blue-100 rounded-full w-8 h-8 flex items-center justify-center mx-auto mb-1">
+                                <i class="fas fa-search text-blue-600"></i>
+                            </div>
+                            <p class="text-sm font-medium">Evaluación de Riesgos</p>
+                            <span class="text-xs text-green-600">Agrega valor</span>
+                        </div>
+                        
+                        <!-- Step 4 -->
+                        <div class="process-step arrow bg-white rounded-lg p-3 shadow-sm border-b-4 bottleneck flex-1 mx-1 text-center">
+                            <div class="bg-red-100 rounded-full w-8 h-8 flex items-center justify-center mx-auto mb-1">
+                                <i class="fas fa-exclamation-triangle text-red-600"></i>
+                            </div>
+                            <p class="text-sm font-medium">Aprobación</p>
+                            <span class="text-xs text-red-600">Cuello de botella</span>
+                        </div>
+                        
+                        <!-- Step 5 -->
+                        <div class="process-step arrow bg-white rounded-lg p-3 shadow-sm border-b-4 non-value-added flex-1 mx-1 text-center">
+                            <div class="bg-orange-100 rounded-full w-8 h-8 flex items-center justify-center mx-auto mb-1">
+                                <i class="fas fa-copy text-orange-600"></i>
+                            </div>
+                            <p class="text-sm font-medium">Doble Ingreso de Datos</p>
+                            <span class="text-xs text-orange-600">No agrega valor</span>
+                        </div>
+                        
+                        <!-- Step 6 -->
+                        <div class="process-step bg-white rounded-lg p-3 shadow-sm border-b-4 value-added flex-1 mx-1 text-center">
+                            <div class="bg-blue-100 rounded-full w-8 h-8 flex items-center justify-center mx-auto mb-1">
+                                <i class="fas fa-check-circle text-blue-600"></i>
+                            </div>
+                            <p class="text-sm font-medium">Emisión de Póliza</p>
+                            <span class="text-xs text-green-600">Agrega valor</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Legend -->
+                    <div class="flex justify-center mt-4">
+                        <div class="flex items-center mr-4">
+                            <div class="w-3 h-3 bg-green-500 rounded-sm mr-1"></div>
+                            <span class="text-xs text-gray-600">Agrega valor</span>
+                        </div>
+                        <div class="flex items-center mr-4">
+                            <div class="w-3 h-3 bg-orange-500 rounded-sm mr-1"></div>
+                            <span class="text-xs text-gray-600">No agrega valor</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-3 h-3 bg-red-500 rounded-sm mr-1"></div>
+                            <span class="text-xs text-gray-600">Cuello de botella</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Practical Example -->
+            <div class="bg-green-50 p-5 rounded-lg">
+                <h3 class="text-lg font-medium text-green-700 mb-2">
+                    <i class="fas fa-briefcase mr-2 text-green-600"></i>Ejemplo Práctico:
+                </h3>
+                <div class="flex">
+                    <i class="fas fa-quote-left text-green-300 text-2xl mr-2 mt-1"></i>
+                    <p class="text-gray-700">Mapear el proceso de reclamos podría revelar que el expediente de reclamo espera en 3 colas diferentes durante períodos significativos <span class="text-red-600 font-medium">(Desperdicio de Espera)</span> y requiere doble entrada de datos entre sistemas <span class="text-red-600 font-medium">(Desperdicio de Sobre-procesamiento)</span>.</p>
+                </div>
+                <div class="mt-3 bg-white p-2 rounded border border-green-200">
+                    <p class="text-sm text-gray-600"><i class="fas fa-lightbulb text-yellow-500 mr-1"></i> Al visualizar todo el proceso, los desperdicios que antes estaban ocultos se hacen evidentes.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Visual Elements -->
+        <div class="principle-number">2</div>
+        
+        <!-- footer -->
+        <div class="company-logo">Tecniseguros | Lean Six Sigma Yellow Belt</div>
+        <div class="footer-bar"></div>
+    </div>
+<!-- 1. Navigation Buttons HTML Block -->
+<div style="position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 100; background: white; padding: 10px; border-radius: 5px; box-shadow: 0 0 10px rgba(0,0,0,0.2);">
+    <button id="prevSlideButton" onclick="goToPrevSlide()"> « Previous </button>
+    <span id="slideIndicator" style="margin: 0 15px;">Slide ? of ?</span>
+    <button id="nextSlideButton" onclick="goToNextSlide()"> Next » </button>
+</div>
+
+<!-- 2. Link to Global script.js -->
+<script src="../../script.js"></script>
+</body>
+</html>

@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Símbolos Básicos de Mapeo de Procesos - Tecniseguros</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .slide {
+            width: 1280px;
+            min-height: 720px;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+        }
+        .header-bar {
+            background: linear-gradient(90deg, #005792 0%, #00A6A6 100%);
+            height: 12px;
+        }
+        .footer-bar {
+            background: linear-gradient(90deg, #005792 0%, #00A6A6 100%);
+            height: 8px;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+        .company-logo {
+            position: absolute;
+            bottom: 20px;
+            right: 30px;
+            font-size: 16px;
+            color: #666;
+            font-weight: 500;
+        }
+        .symbol-card {
+            transition: all 0.3s ease;
+        }
+        .symbol-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+        .shape-oval {
+            width: 120px;
+            height: 60px;
+            border-radius: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .shape-rectangle {
+            width: 120px;
+            height: 60px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .shape-diamond {
+            width: 80px;
+            height: 80px;
+            transform: rotate(45deg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .shape-diamond span {
+            transform: rotate(-45deg);
+        }
+        .shape-arrow {
+            width: 80px;
+            height: 10px;
+            position: relative;
+        }
+        .shape-arrow::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 0;
+            height: 0;
+            border-left: 15px solid #00A6A6; /* Corrected from #00A6A6; to #00A6A6 */
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+        }
+        .shape-delay {
+            width: 80px;
+            height: 60px;
+            border-radius: 0 30px 30px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .shape-circle {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .shape-document {
+            width: 80px;
+            height: 60px;
+            position: relative;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .shape-document::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 20px;
+            height: 20px;
+            border-top-left-radius: 10px;
+            background-color: #F3F4F6;
+        }
+        .flowing-arrows {
+            /* position: absolute; -- Removed */
+            /* bottom: 40px;       -- Removed */
+            /* left: 50%;          -- Removed */
+            /* transform: translateX(-50%); -- Removed */
+            /* width: 100%;        -- Removed */
+            text-align: center;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 1.5rem; /* Added for spacing from element above */
+            /* p-4 class for padding is on the HTML element */
+        }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <div class="header-bar"></div>
+        
+        <!-- Main Content -->
+        <div class="p-10 z-10 relative">
+            <!-- Title Section -->
+            <div class="mb-6">
+                <h1 class="text-3xl font-bold text-blue-700">El Lenguaje de los Mapas de Procesos: Símbolos Básicos</h1>
+                <div class="w-20 h-1 bg-blue-500 mt-3"></div>
+            </div>
+            
+            <!-- Symbols Grid -->
+            <div class="grid grid-cols-3 gap-6">
+                <!-- Oval (Terminator) -->
+                <div class="symbol-card bg-white p-4 rounded-lg shadow-md">
+                    <div class="flex justify-center mb-4">
+                        <div class="shape-oval bg-blue-100 border-2 border-blue-500">
+                            <span class="text-blue-700 font-medium">Inicio/Fin</span>
+                        </div>
+                    </div>
+                    <h3 class="text-center text-lg font-medium text-blue-700 mb-2">Óvalo (Terminador)</h3>
+                    <p class="text-sm text-gray-600 text-center">Indica el inicio o fin del proceso.</p>
+                    <div class="bg-blue-50 mt-2 p-2 rounded text-xs text-center text-blue-700">
+                        Ejemplos: "Inicio del Proceso", "Fin del Proceso"
+                    </div>
+                </div>
+                
+                <!-- Rectangle (Process) -->
+                <div class="symbol-card bg-white p-4 rounded-lg shadow-md">
+                    <div class="flex justify-center mb-4">
+                        <div class="shape-rectangle bg-green-100 border-2 border-green-500">
+                            <span class="text-green-700 font-medium">Actividad</span>
+                        </div>
+                    </div>
+                    <h3 class="text-center text-lg font-medium text-green-700 mb-2">Rectángulo (Proceso)</h3>
+                    <p class="text-sm text-gray-600 text-center">Representa una tarea o actividad específica.</p>
+                    <div class="bg-green-50 mt-2 p-2 rounded text-xs text-center text-green-700">
+                        Formato Verbo-Sustantivo: "Revisar Solicitud", "Ingresar Datos"
+                    </div>
+                </div>
+                
+                <!-- Diamond (Decision) -->
+                <div class="symbol-card bg-white p-4 rounded-lg shadow-md">
+                    <div class="flex justify-center mb-4">
+                        <div class="shape-diamond bg-blue-100 border-2 border-blue-500">
+                            <span class="text-blue-700 font-medium text-xs">¿Decisión?</span>
+                        </div>
+                    </div>
+                    <h3 class="text-center text-lg font-medium text-blue-700 mb-2">Rombo (Decisión)</h3>
+                    <p class="text-sm text-gray-600 text-center">Punto donde se toma una decisión con diferentes caminos.</p>
+                    <div class="bg-blue-50 mt-2 p-2 rounded text-xs text-center text-blue-700">
+                        Típicamente con ramas "Sí/No": "¿Solicitud Completa?", "¿Cliente Aprueba?"
+                    </div>
+                </div>
+                
+                <!-- Arrow (Flowline) -->
+                <div class="symbol-card bg-white p-4 rounded-lg shadow-md">
+                    <div class="flex justify-center mb-4">
+                        <div class="shape-arrow bg-green-500"></div>
+                    </div>
+                    <h3 class="text-center text-lg font-medium text-green-700 mb-2">Flecha (Línea de Flujo)</h3>
+                    <p class="text-sm text-gray-600 text-center">Muestra la dirección del flujo y conecta los símbolos.</p>
+                    <div class="bg-green-50 mt-2 p-2 rounded text-xs text-center text-green-700">
+                        Indica el orden y la secuencia de las actividades del proceso
+                    </div>
+                </div>
+                
+                <!-- D-Shape (Delay) -->
+                <div class="symbol-card bg-white p-4 rounded-lg shadow-md">
+                    <div class="flex justify-center mb-4">
+                        <div class="shape-delay bg-blue-100 border-2 border-blue-500">
+                            <span class="text-blue-700 font-medium">Espera</span>
+                        </div>
+                    </div>
+                    <h3 class="text-center text-lg font-medium text-blue-700 mb-2">Forma-D (Demora)</h3>
+                    <p class="text-sm text-gray-600 text-center">Un período de espera o demora en el proceso.</p>
+                    <div class="bg-blue-50 mt-2 p-2 rounded text-xs text-center text-blue-700">
+                        Ejemplo: "Esperar Aprobación", "En cola para revisión"
+                    </div>
+                </div>
+                
+                <!-- Optional Symbols Combined (Circle & Document) -->
+                <div class="symbol-card bg-white p-4 rounded-lg shadow-md">
+                    <div class="grid grid-cols-2 gap-2 mb-4">
+                        <div class="flex flex-col items-center">
+                            <div class="shape-circle bg-gray-100 border-2 border-gray-400">
+                                <span class="text-gray-700 font-medium">1</span>
+                            </div>
+                            <p class="text-xs text-gray-500 mt-1">Conector</p>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <div class="shape-document bg-gray-100 border-2 border-gray-400">
+                                <span class="text-gray-700 font-medium">Doc</span>
+                            </div>
+                            <p class="text-xs text-gray-500 mt-1">Documento</p>
+                        </div>
+                    </div>
+                    <h3 class="text-center text-lg font-medium text-gray-700 mb-2">Símbolos Adicionales</h3>
+                    <p class="text-sm text-gray-600 text-center">Conectores para unir partes del diagrama y representación de documentos.</p>
+                    <div class="bg-gray-100 mt-2 p-2 rounded text-xs text-center text-gray-700">
+                        <span class="italic">Opcionales para mapas básicos de nivel Yellow Belt</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Best Practice Note -->
+            <div class="mt-6 bg-yellow-50 p-4 rounded-lg flex items-start">
+                <div class="bg-yellow-100 rounded-full p-2 mr-3 flex-shrink-0 mt-1">
+                    <i class="fas fa-lightbulb text-yellow-500"></i>
+                </div>
+                <div>
+                    <h3 class="text-lg font-medium text-yellow-700 mb-1">Consistencia es Clave</h3>
+                    <p class="text-gray-700">Utilizar símbolos estándar hace que los mapas sean universalmente comprensibles y facilita la comunicación entre equipos y departamentos. Mantenga el mismo estilo y convenciones en todos sus mapas de procesos.</p>
+                </div>
+            </div>
+            
+            <!-- Simple Example Flow -->
+            <div class="flowing-arrows p-4">
+                <div class="flex items-center justify-center space-x-3">
+                    <div class="shape-oval bg-blue-100 border-2 border-blue-500" style="width: 80px; height: 40px">
+                        <span class="text-blue-700 font-medium text-xs">Inicio</span>
+                    </div>
+                    <i class="fas fa-arrow-right text-green-500"></i>
+                    <div class="shape-rectangle bg-green-100 border-2 border-green-500" style="width: 80px; height: 40px">
+                        <span class="text-green-700 font-medium text-xs">Procesar</span>
+                    </div>
+                    <i class="fas fa-arrow-right text-green-500"></i>
+                    <div style="width: 60px; height: 60px">
+                        <div class="shape-diamond bg-blue-100 border-2 border-blue-500" style="width: 60px; height: 60px">
+                            <span class="text-blue-700 font-medium text-xs">¿OK?</span>
+                        </div>
+                    </div>
+                    <i class="fas fa-arrow-right text-green-500"></i>
+                    <div class="shape-oval bg-blue-100 border-2 border-blue-500" style="width: 80px; height: 40px">
+                        <span class="text-blue-700 font-medium text-xs">Fin</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- footer -->
+        <div class="company-logo">Tecniseguros | Lean Six Sigma Yellow Belt</div>
+        <div class="footer-bar"></div>
+    </div>
+<!-- 1. Navigation Buttons HTML Block -->
+<div style="position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 100; background: white; padding: 10px; border-radius: 5px; box-shadow: 0 0 10px rgba(0,0,0,0.2);">
+    <button id="prevSlideButton" onclick="goToPrevSlide()"> « Previous </button>
+    <span id="slideIndicator" style="margin: 0 15px;">Slide ? of ?</span>
+    <button id="nextSlideButton" onclick="goToNextSlide()"> Next » </button>
+</div>
+
+<!-- 2. Link to Global script.js -->
+<script src="../../script.js"></script>
+</body>
+</html>

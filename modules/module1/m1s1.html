@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introducción a Lean Six Sigma</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(120deg, #edf2f7, #e2e8f0);
+            margin: 0;
+            padding: 0;
+        }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            background: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .logo-container { /* New class for logo container */
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .blue-accent {
+            background: linear-gradient(90deg, #1a365d 0%, #2a4365 100%);
+        }
+        .title-text {
+            color: #2a4365;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+        .subtitle-gradient {
+            background: linear-gradient(90deg, #3182ce, #2b6cb0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container flex flex-col">
+        <div class="flex justify-between items-center px-16 pt-10">
+            <div class="logo-container w-64">
+                <img src="logotecniseguros.png" alt="TECNISEGUROS Logo" class="max-h-16 max-w-full">
+            </div>
+            <div class="logo-container w-64">
+                <img src="logouvg.png" alt="UVG Logo" class="max-h-16 max-w-full">
+            </div>
+        </div>
+        
+        <div class="blue-accent h-2 mx-16 my-8 rounded-full"></div>
+        
+        <div class="flex flex-col items-center justify-center flex-grow px-16 text-center">
+            <h1 class="text-5xl font-bold mb-6 title-text">Lean Six Sigma Yellow Belt</h1>
+            <h2 class="text-4xl mb-8 subtitle-gradient font-semibold">Principios y Herramientas</h2>
+            
+            <div class="bg-gray-100 rounded-lg py-6 px-12 shadow-md w-4/5 mt-4">
+                <h3 class="text-3xl font-semibold text-gray-700 mb-3">Módulo 1</h3>
+                <h4 class="text-4xl title-text font-bold">Introducción a Lean Six Sigma</h4>
+            </div>
+        </div>
+        
+        <div class="mb-10 mx-16">
+            <div class="flex justify-between items-center">
+                <div class="text-left">
+                    <p class="text-xl font-semibold text-gray-700">Facilitador: <span class="text-blue-700">Ing. MSc José Antonio Medrano, LSS Black Belt</span></p>
+                </div>
+                <div class="text-right">
+                    <p class="text-xl font-semibold text-gray-700"><i class="far fa-calendar-alt mr-2"></i> <span id="current-date">2023</span></p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="blue-accent h-8 w-full mt-auto"></div>
+    </div>
+
+    
+<div style="position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 100; background: white; padding: 10px; border-radius: 5px; box-shadow: 0 0 10px rgba(0,0,0,0.2);">
+    <button id="prevSlideButton" onclick="goToPrevSlide()"> « Previous </button>
+    <span id="slideIndicator" style="margin: 0 15px;">Slide ? of ?</span>
+    <button id="nextSlideButton" onclick="goToNextSlide()"> Next » </button>
+</div>
+<script>
+        // Set the current year dynamically
+        document.getElementById('current-date').textContent = new Date().getFullYear();
+    </script>
+<script src="../../script.js"></script> <!-- Links to the script.js in the root folder -->
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 10: Presentación de Proyecto y Revisión del Curso</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        .slide {
+            width: 1280px;
+            min-height: 720px;
+            position: relative;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            color: #343a40;
+            overflow: hidden;
+        }
+        .slide-header {
+            height: 80px;
+            background-color: #0056b3;
+            color: white;
+        }
+        .slide-content {
+            min-height: 560px;
+        }
+        .slide-footer {
+            height: 80px;
+            background-color: #0056b3;
+        }
+        .icon-circle {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            background-color: #0056b3;
+            color: white;
+            font-size: 2rem;
+        }
+        .feature-item {
+            display: flex;
+            align-items: center;
+            margin: 12px 0;
+        }
+        .feature-icon {
+            background-color: #e9ecef;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: #0056b3;
+        }
+        .lss-graphic {
+            position: absolute;
+            bottom: -30px;
+            right: -30px;
+            opacity: 0.1;
+            width: 400px;
+            height: 400px;
+            background: conic-gradient(from 0deg, #0056b3, #4da6ff, #0056b3);
+            border-radius: 50%;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide flex flex-col">
+        <!-- header -->
+        <div class="slide-header flex items-center justify-between px-10">
+            <h2 class="text-xl font-bold">Lean Six Sigma Yellow Belt</h2>
+            <img src="../../assets/images/logotecniseguros.png" alt="Logo Tecniseguros" class="h-10">
+        </div>
+        
+        <!-- Main Content -->
+        <div class="slide-content flex flex-col p-10 relative z-10">
+            <div class="text-center mb-8">
+                <h1 class="text-4xl font-bold text-blue-800 mb-2">Módulo 10</h1>
+                <h2 class="text-3xl font-semibold">Ideas de Proyecto, Revisión y Próximos Pasos</h2>
+                <div class="w-32 h-1 bg-yellow-500 mx-auto my-4"></div>
+            </div>
+            
+            <div class="grid grid-cols-2 gap-8">
+                <div>
+                    <div class="bg-blue-100 p-4 rounded-lg mb-6">
+                        <h3 class="text-xl font-semibold mb-2">Recapitulación de Módulo 9</h3>
+                        <p class="text-sm">Cubrimos las fases de Mejora (desarrollando e implementando soluciones) y Control (manteniendo ganancias a través de la estandarización y monitoreo), completando el ciclo DMAIC.</p>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4">Objetivo</h3>
+                        <p class="text-sm">Consolidar el aprendizaje a través de la aplicación práctica, revisar conceptos fundamentales y discutir cómo continuar el viaje de mejora.</p>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Enfoque de Hoy</h3>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fas fa-presentation"></i></div>
+                        <div class="text-sm font-medium">Presentaciones de Ideas de Proyecto</div>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                        <div class="text-sm font-medium">Resumen del Curso y Puntos Clave</div>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fas fa-comments"></i></div>
+                        <div class="text-sm font-medium">Preguntas y Respuestas</div>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fas fa-road"></i></div>
+                        <div class="text-sm font-medium">Próximos Pasos para LSS en Tecniseguros</div>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fas fa-clipboard-check"></i></div>
+                        <div class="text-sm font-medium">Cierre y Retroalimentación</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Background decorative elements -->
+            <div class="absolute bottom-0 left-0 opacity-10">
+                <i class="fas fa-graduation-cap text-9xl text-blue-800"></i>
+            </div>
+            
+            <div class="lss-graphic"></div>
+        </div>
+        
+        <!-- footer -->
+        <div class="slide-footer flex items-center justify-between px-10 mt-auto">
+            <div class="text-sm text-white">Tecniseguros</div>
+            <div class="flex items-center text-white">
+                <div class="mr-4 text-sm">Lean Six Sigma Yellow Belt</div>
+                <div class="text-yellow-300"><i class="fas fa-certificate"></i></div>
+            </div>
+        </div>
+    </div>
+<!-- 1. Navigation Buttons HTML Block -->
+<div style="position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 100; background: white; padding: 10px; border-radius: 5px; box-shadow: 0 0 10px rgba(0,0,0,0.2);">
+    <button id="prevSlideButton" onclick="goToPrevSlide()"> « Previous </button>
+    <span id="slideIndicator" style="margin: 0 15px;">Slide ? of ?</span>
+    <button id="nextSlideButton" onclick="goToNextSlide()"> Next » </button>
+</div>
+
+<!-- 2. Link to Global script.js -->
+<script src="../../script.js"></script>
+
+</body>
+</html>

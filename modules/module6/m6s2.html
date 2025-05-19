@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Fase Medir - Propósito y Preguntas Clave - Tecniseguros</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .slide {
+            width: 1280px;
+            min-height: 720px;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+        }
+        .header-bar {
+            background: linear-gradient(90deg, #005792 0%, #00A6A6 100%);
+            height: 12px;
+        }
+        .footer-bar {
+            background: linear-gradient(90deg, #005792 0%, #00A6A6 100%);
+            height: 8px;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+        .company-logo {
+            position: absolute;
+            bottom: 20px;
+            right: 30px;
+            font-size: 16px;
+            color: #666;
+            font-weight: 500;
+        }
+        .purpose-item {
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+        }
+        .purpose-item:hover {
+            transform: translateX(5px);
+            border-left-color: #00A6A6;
+        }
+        .question-item {
+            transition: all 0.3s ease;
+        }
+        .question-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+        .dmaic-circle {
+            width: 300px; /* Width remains 300px for circular appearance */
+            height: 340px; /* MODIFIED: Increased height */
+            border-radius: 150px / 170px; /* Elliptical border-radius if needed, or just keep it slightly oval */
+            /* For a true circle appearance with different width/height, consider making width also 340px, or accept it's slightly oval */
+            /* Or, keep border-radius: 50% if a perfect circle shape is less important than the background fill */
+            border-radius: 50%; /* This will make it appear as a circle based on its width if height is different. */
+                              /* If you want it to look like a circle that is 340px tall, width should also be 340px */
+                              /* Keeping width 300px and height 340px, it will be an oval. */
+                              /* Let's adjust width to 340px too for a larger circular background */
+            width: 340px; /* MODIFIED to match height for a circle */
+
+
+            position: relative;
+            background: linear-gradient(135deg, #e6f7ff 0%, #f0f9ff 100%);
+            border: 2px solid #e0f2fe;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
+        }
+        .phase {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            background: white;
+            font-weight: bold;
+            z-index: 2; 
+        }
+
+        /* Pentagon for 340x340 container. Center (170,170). Radius R=100px. */
+        /* Normal bubble 60x60 (lw=30). M bubble 70x70 (Mw=35) */
+        /* Left positions need to be adjusted for new center (170,170) if dmaic-circle width changed */
+        /* Original X positions were for a 300px wide circle with center X = 150.
+           New X positions for a 340px wide circle with center X = 170. Add 20px to original left. */
+        .d-phase {
+            top: 40px;    /* MODIFIED (170-100-30) */
+            left: 140px;  /* MODIFIED (170-30) (was 120 for 150 center) */
+            background: #b3e0ff;
+            color: #005792;
+        }
+        .m-phase {
+            top: 104.1px; /* MODIFIED (170-30.9-35) */
+            left: 230.1px; /* MODIFIED (170+100*cos(-18)-35 = 170+95.1-35 = 230.1) (was 210.1 for 150 center) */
+            background: #005792;
+            color: white;
+            font-size: 24px;
+            width: 70px;
+            height: 70px;
+            z-index: 3;
+            box-shadow: 0 0 15px rgba(0, 87, 146, 0.5);
+        }
+        .a-phase {
+            top: 220.9px; /* MODIFIED (170+80.9-30) */
+            left: 198.8px; /* MODIFIED (170+100*cos(54)-30 = 170+58.8-30 = 198.8) (was 178.8 for 150 center) */
+            background: #b3e0ff;
+            color: #005792;
+        }
+        .i-phase {
+            top: 220.9px; /* MODIFIED (170+80.9-30) */
+            left: 81.2px;  /* MODIFIED (170+100*cos(126)-30 = 170-58.8-30 = 81.2) (was 61.2 for 150 center) */
+            background: #b3e0ff;
+            color: #005792;
+        }
+        .c-phase {
+            top: 109.1px; /* MODIFIED (170-30.9-30) */
+            left: 44.9px;  /* MODIFIED (170+100*cos(198)-30 = 170-95.1-30 = 44.9) (was 24.9 for 150 center) */
+            background: #b3e0ff;
+            color: #005792;
+        }
+
+        .baseline-chart {
+            position: absolute;
+            bottom: 0px; /* MODIFIED: Positioned at the very bottom of the taller circle */
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px; /* Width of chart itself is fine */
+            height: 55px; 
+            display: flex;
+            align-items: flex-end;
+            z-index: 1; 
+        }
+        .bar {
+            width: 12px;
+            background-color: #b3e0ff;
+            margin: 0 2px;
+            border-top-left-radius: 2px;
+            border-top-right-radius: 2px;
+        }
+        .baseline-line {
+            position: absolute;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: #00A6A6;
+            bottom: 30px; 
+        }
+        .quote-box {
+            border-left: 4px solid #00A6A6;
+            background-color: #f0f9ff;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <div class="header-bar"></div>
+        
+        <!-- Main Content -->
+        <div class="p-10 z-10 relative">
+            <!-- Title Section -->
+            <div class="mb-6">
+                <h1 class="text-3xl font-bold text-blue-700">Fase Medir: Entendiendo el Desempeño Actual con Datos</h1>
+                <div class="w-20 h-1 bg-blue-500 mt-3"></div>
+            </div>
+            
+            <div class="grid grid-cols-2 gap-8">
+                <!-- Left Column: Purpose & Key Questions -->
+                <div>
+                    <!-- Purpose of Measure Phase -->
+                    <div class="mb-6">
+                        <h2 class="text-xl font-medium text-blue-700 mb-4">
+                            <i class="fas fa-bullseye mr-2 text-blue-600"></i>Propósito de la Fase Medir:
+                        </h2>
+                        
+                        <div class="space-y-3">
+                            <div class="purpose-item bg-white p-3 rounded-lg shadow-sm pl-4">
+                                <p class="text-gray-700"><i class="fas fa-chart-line text-green-500 mr-2"></i>Establecer una línea base del desempeño actual del proceso.</p>
+                            </div>
+                            <div class="purpose-item bg-white p-3 rounded-lg shadow-sm pl-4">
+                                <p class="text-gray-700"><i class="fas fa-database text-green-500 mr-2"></i>Recolectar datos confiables relacionados con el problema definido en el Acta y los CTQs.</p>
+                            </div>
+                            <div class="purpose-item bg-white p-3 rounded-lg shadow-sm pl-4">
+                                <p class="text-gray-700"><i class="fas fa-search-location text-green-500 mr-2"></i>Identificar dónde en el proceso están ocurriendo los problemas.</p>
+                            </div>
+                            <div class="purpose-item bg-white p-3 rounded-lg shadow-sm pl-4">
+                                <p class="text-gray-700"><i class="fas fa-flag-checkered text-green-500 mr-2"></i>Proporcionar un punto de partida para medir la mejora.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Key Questions -->
+                    <div>
+                        <h2 class="text-xl font-medium text-blue-700 mb-4">
+                            <i class="fas fa-question-circle mr-2 text-blue-600"></i>Preguntas Clave en Medir:
+                        </h2>
+                        <div class="grid grid-cols-1 gap-3">
+                            <div class="question-item bg-white p-3 rounded-lg shadow-sm border-l-4 border-blue-400">
+                                <p class="text-gray-700">¿Cómo está funcionando el proceso en este momento? <span class="italic text-blue-600">(Línea Base)</span></p>
+                            </div>
+                            <div class="question-item bg-white p-3 rounded-lg shadow-sm border-l-4 border-green-400">
+                                <p class="text-gray-700">¿Qué datos necesitamos recolectar para entender el problema?</p>
+                            </div>
+                            <div class="question-item bg-white p-3 rounded-lg shadow-sm border-l-4 border-blue-400">
+                                <p class="text-gray-700">¿Es confiable nuestro método de recolección de datos?</p>
+                            </div>
+                            <div class="question-item bg-white p-3 rounded-lg shadow-sm border-l-4 border-green-400">
+                                <p class="text-gray-700">¿Cuáles son las métricas clave que reflejan el desempeño del proceso y la satisfacción del cliente?</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right Column: DMAIC Cycle & Visual -->
+                <div>
+                    <!-- DMAIC Cycle Visual -->
+                    <div class="flex justify-center mb-6">
+                        <div class="dmaic-circle">
+                            <!-- SVG for Connecting Lines - Adjusted for 340x340 circle, center (170,170) -->
+                            <!-- Bubble centers Y: D(70), M(139.1), A(250.9), I(250.9), C(139.1) -->
+                            <!-- Bubble centers X: D(170), M(265.1), A(228.8), I(111.2), C(74.9) -->
+                            <svg style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1;" viewBox="0 0 340 340" xmlns="http://www.w3.org/2000/svg">
+                                <line x1="170"   y1="70"    x2="265.1" y2="139.1" stroke="#d1d5db" stroke-width="2"/> <!-- D to M -->
+                                <line x1="265.1" y1="139.1" x2="228.8" y2="250.9" stroke="#d1d5db" stroke-width="2"/> <!-- M to A -->
+                                <line x1="228.8" y1="250.9" x2="111.2" y2="250.9" stroke="#d1d5db" stroke-width="2"/> <!-- A to I -->
+                                <line x1="111.2" y1="250.9" x2="74.9"  y2="139.1" stroke="#d1d5db" stroke-width="2"/> <!-- I to C -->
+                                <line x1="74.9"  y1="139.1" x2="170"   y2="70"    stroke="#d1d5db" stroke-width="2"/> <!-- C to D -->
+                            </svg>
+
+                            <div class="phase d-phase">D</div>
+                            <div class="phase m-phase">M</div>
+                            <div class="phase a-phase">A</div>
+                            <div class="phase i-phase">I</div>
+                            <div class="phase c-phase">C</div>
+                            
+                            <div class="baseline-chart">
+                                <div class="bar" style="height: 30px;"></div>
+                                <div class="bar" style="height: 45px;"></div>
+                                <div class="bar" style="height: 20px;"></div>
+                                <div class="bar" style="height: 50px;"></div>
+                                <div class="bar" style="height: 25px;"></div>
+                                <div class="bar" style="height: 40px;"></div>
+                                <div class="bar" style="height: 35px;"></div>
+                                <div class="bar" style="height: 45px;"></div>
+                                <div class="bar" style="height: 30px;"></div>
+                                <div class="bar" style="height: 20px;"></div>
+                                <div class="baseline-line"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="quote-box p-4 rounded-lg mb-5">
+                        <p class="text-gray-700 italic font-medium">
+                            <i class="fas fa-quote-left text-green-300 mr-2"></i>
+                            Sin una buena medición, solo estamos adivinando sobre la magnitud del problema y si nuestras soluciones funcionan.
+                        </p>
+                    </div>
+                    
+                    <div class="bg-white p-5 rounded-lg shadow-md">
+                        <h3 class="font-medium text-blue-700 mb-3 flex items-center">
+                            <i class="fas fa-clipboard-check text-blue-600 mr-2"></i>Beneficios de la Medición:
+                        </h3>
+                        <div class="grid grid-cols-2 gap-3">
+                            <div class="bg-blue-50 p-3 rounded-lg border border-blue-100">
+                                <div class="flex items-center mb-2">
+                                    <div class="bg-blue-100 rounded-full p-2 mr-3 flex-shrink-0">
+                                        <i class="fas fa-bullseye text-blue-600"></i>
+                                    </div>
+                                    <p class="text-sm font-medium text-blue-700">Objetividad</p>
+                                </div>
+                                <p class="text-xs text-gray-600 ml-11">Sustituye percepciones con hechos medibles</p>
+                            </div>
+                            <div class="bg-green-50 p-3 rounded-lg border border-green-100">
+                                <div class="flex items-center mb-2">
+                                    <div class="bg-green-100 rounded-full p-2 mr-3 flex-shrink-0">
+                                        <i class="fas fa-search text-green-600"></i>
+                                    </div>
+                                    <p class="text-sm font-medium text-green-700">Visibilidad</p>
+                                </div>
+                                <p class="text-xs text-gray-600 ml-11">Hace visible lo que antes estaba oculto</p>
+                            </div>
+                            <div class="bg-blue-50 p-3 rounded-lg border border-blue-100">
+                                <div class="flex items-center mb-2">
+                                    <div class="bg-blue-100 rounded-full p-2 mr-3 flex-shrink-0">
+                                        <i class="fas fa-chart-bar text-blue-600"></i>
+                                    </div>
+                                    <p class="text-sm font-medium text-blue-700">Cuantificación</p>
+                                </div>
+                                <p class="text-xs text-gray-600 ml-11">Determina la magnitud real del problema</p>
+                            </div>
+                            <div class="bg-green-50 p-3 rounded-lg border border-green-100">
+                                <div class="flex items-center mb-2">
+                                    <div class="bg-green-100 rounded-full p-2 mr-3 flex-shrink-0">
+                                        <i class="fas fa-check-double text-green-600"></i>
+                                    </div>
+                                    <p class="text-sm font-medium text-green-700">Validación</p>
+                                </div>
+                                <p class="text-xs text-gray-600 ml-11">Confirma si las soluciones funcionan</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-blue-50 p-3 rounded-lg mt-6">
+                <div class="flex items-center">
+                    <div class="bg-blue-100 rounded-full p-2 mr-3">
+                        <i class="fas fa-lightbulb text-yellow-500 text-xl"></i>
+                    </div>
+                    <p class="text-gray-700"><span class="font-medium text-blue-600">En Tecniseguros:</span> La medición nos permite pasar de "creemos que el proceso de emisión de pólizas es lento" a "el proceso de emisión toma en promedio 4.7 días con una desviación estándar de 1.2 días".</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="company-logo">Tecniseguros | Lean Six Sigma Yellow Belt</div>
+        <div class="footer-bar"></div>
+    </div>
+<!-- 1. Navigation Buttons HTML Block -->
+<div style="position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 100; background: white; padding: 10px; border-radius: 5px; box-shadow: 0 0 10px rgba(0,0,0,0.2);">
+    <button id="prevSlideButton" onclick="goToPrevSlide()"> « Previous </button>
+    <span id="slideIndicator" style="margin: 0 15px;">Slide ? of ?</span>
+    <button id="nextSlideButton" onclick="goToNextSlide()"> Next » </button>
+</div>
+
+<!-- 2. Link to Global script.js -->
+<script src="../../script.js"></script>
+
+</body>
+</html>

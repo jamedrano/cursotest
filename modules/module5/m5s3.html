@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tipos de Mapas de Procesos - Tecniseguros</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .slide {
+            width: 1280px;
+            min-height: 720px;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+        }
+        .header-bar {
+            background: linear-gradient(90deg, #005792 0%, #00A6A6 100%);
+            height: 12px;
+        }
+        .footer-bar {
+            background: linear-gradient(90deg, #005792 0%, #00A6A6 100%);
+            height: 8px;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+        .company-logo {
+            position: absolute;
+            bottom: 20px;
+            right: 30px;
+            font-size: 16px;
+            color: #666;
+            font-weight: 500;
+        }
+        .map-type {
+            transition: all 0.3s ease;
+        }
+        .map-type:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+        .sipoc-box {
+            background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%);
+        }
+        .flowchart-box {
+            background: linear-gradient(135deg, #ECFDF5 0%, #D1FAE5 100%);
+        }
+        .swimlane-box {
+            background: linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 100%);
+            border: 2px solid #FCD34D;
+        }
+        .vsm-box {
+            background: linear-gradient(135deg, #F3F4F6 0%, #E5E7EB 100%);
+        }
+        .process-step {
+            min-width: 120px;
+            min-height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .decision {
+            width: 100px;
+            height: 60px;
+            transform: rotate(45deg);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .decision span {
+            transform: rotate(-45deg);
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+        .arrow {
+            position: relative;
+            width: 30px;
+        }
+        .arrow::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: 5px;
+            width: 0;
+            height: 0;
+            border: 6px solid transparent;
+            border-left-color: #94A3B8;
+            transform: translateY(-50%);
+        }
+        .arrow-line {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 6px;
+            height: 2px;
+            background-color: #94A3B8;
+            transform: translateY(-50%);
+        }
+        .department-lane {
+            position: relative;
+        }
+        .department-label {
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
+            text-align: center;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <div class="header-bar"></div>
+        
+        <!-- Main Content -->
+        <div class="p-10 z-10 relative">
+            <!-- Title Section -->
+            <div class="mb-6">
+                <h1 class="text-3xl font-bold text-blue-700">Tipos de Mapas de Procesos</h1>
+                <h2 class="text-xl text-green-600 mt-1">Eligiendo el Mapa Correcto para el Trabajo</h2>
+                <div class="w-20 h-1 bg-blue-500 mt-3"></div>
+            </div>
+            
+            <div class="grid grid-cols-2 gap-4">
+                <!-- Left Column: Map Types -->
+                <div>
+                    <!-- SIPOC -->
+                    <div class="map-type sipoc-box rounded-lg p-4 mb-4">
+                        <div class="flex items-center mb-2">
+                            <div class="bg-blue-100 rounded-full p-2 mr-3">
+                                <i class="fas fa-sitemap text-blue-600"></i>
+                            </div>
+                            <h3 class="font-medium text-blue-800">SIPOC (Del Módulo 4)</h3>
+                        </div>
+                        <p class="text-sm text-gray-700 ml-11">Vista de más alto nivel, define los límites del proceso.</p>
+                        <div class="flex mt-2 bg-white rounded p-2">
+                            <div class="flex-1 text-center text-xs font-medium border-r border-gray-200 p-1">S<br>Proveedores</div>
+                            <div class="flex-1 text-center text-xs font-medium border-r border-gray-200 p-1">I<br>Entradas</div>
+                            <div class="flex-1 text-center text-xs font-medium border-r border-gray-200 p-1">P<br>Proceso</div>
+                            <div class="flex-1 text-center text-xs font-medium border-r border-gray-200 p-1">O<br>Salidas</div>
+                            <div class="flex-1 text-center text-xs font-medium p-1">C<br>Clientes</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Basic Flowchart -->
+                    <div class="map-type flowchart-box rounded-lg p-4 mb-4">
+                        <div class="flex items-center mb-2">
+                            <div class="bg-green-100 rounded-full p-2 mr-3">
+                                <i class="fas fa-project-diagram text-green-600"></i>
+                            </div>
+                            <h3 class="font-medium text-green-800">Diagrama de Flujo Básico</h3>
+                        </div>
+                        <p class="text-sm text-gray-700 ml-11">Muestra pasos secuenciales y puntos de decisión. Ideal para procesos simples y lineales.</p>
+                        <div class="flex items-center justify-center mt-2">
+                            <div class="process-step bg-white rounded border border-green-200 text-xs">
+                                Iniciar Proceso
+                            </div>
+                            <div class="arrow mx-1">
+                                <div class="arrow-line"></div>
+                            </div>
+                            <div class="decision bg-white rounded-lg border border-green-200">
+                                <span>¿Completo?</span>
+                            </div>
+                            <div class="arrow mx-1">
+                                <div class="arrow-line"></div>
+                            </div>
+                            <div class="process-step bg-white rounded border border-green-200 text-xs">
+                                Finalizar
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Value Stream Map -->
+                    <div class="map-type vsm-box rounded-lg p-4">
+                        <div class="flex items-center mb-2">
+                            <div class="bg-gray-200 rounded-full p-2 mr-3">
+                                <i class="fas fa-stream text-gray-600"></i>
+                            </div>
+                            <h3 class="font-medium text-gray-700">Mapa de Flujo de Valor (VSM)</h3>
+                        </div>
+                        <p class="text-sm text-gray-700 ml-11">Mapa más avanzado que muestra el flujo de material/información, cajas de datos para métricas y tiempo de valor añadido vs. no valor añadido.</p>
+                        <div class="bg-white rounded p-2 mt-2 text-xs text-center text-gray-500 italic">
+                            (Se menciona como referencia - Normalmente los Yellow Belts apoyan en VSM pero no los crean)
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right Column: Swimlane Focus -->
+                <div>
+                    <!-- Swimlane Flowchart -->
+                    <div class="map-type swimlane-box rounded-lg p-4 mb-2 relative">
+                        <div class="absolute top-2 right-2 bg-yellow-500 text-white text-xs py-1 px-2 rounded-full">
+                            ¡Nuestro enfoque hoy!
+                        </div>
+                        <div class="flex items-center mb-3">
+                            <div class="bg-yellow-100 rounded-full p-2 mr-3">
+                                <i class="fas fa-columns text-yellow-600"></i>
+                            </div>
+                            <h3 class="font-medium text-yellow-800">Diagrama de Flujo con Carriles (Swimlanes)</h3>
+                        </div>
+                        <div class="text-sm text-gray-700 ml-11 space-y-2">
+                            <p><span class="font-medium">Muestra pasos Y quién</span> (departamento, rol, sistema) es responsable de cada paso.</p>
+                            <p>Excelente para visualizar:</p>
+                            <ul class="list-disc ml-5 text-sm space-y-1">
+                                <li>Transferencias entre departamentos</li>
+                                <li>Procesos entre múltiples funciones</li>
+                                <li>Demoras entre "carriles"</li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Swimlane Example -->
+                        <div class="bg-white rounded-lg border border-yellow-200 mt-3 overflow-hidden">
+                            <div class="bg-yellow-100 py-2 px-3 border-b border-yellow-200">
+                                <p class="text-sm font-medium text-yellow-800">Ejemplo: Proceso de reclamos</p>
+                            </div>
+                            <div class="p-2">
+                                <div class="department-lane h-10 border-b border-yellow-200 relative">
+                                    <div class="department-label bg-yellow-50 border-r border-yellow-200 text-xs text-yellow-800">
+                                        Cliente
+                                    </div>
+                                    <div class="ml-[100px] flex items-center h-full">
+                                        <div class="process-step bg-blue-50 rounded text-xs px-2 ml-2 border border-blue-200">
+                                            Envía reclamo
+                                        </div>
+                                        <div class="arrow mx-1">
+                                            <div class="arrow-line"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="department-lane h-10 border-b border-yellow-200 relative">
+                                    <div class="department-label bg-yellow-50 border-r border-yellow-200 text-xs text-yellow-800">
+                                        Servicio al Cliente
+                                    </div>
+                                    <div class="ml-[100px] flex items-center h-full">
+                                        <div class="process-step bg-green-50 rounded text-xs px-2 border border-green-200">
+                                            Registra reclamo
+                                        </div>
+                                        <div class="arrow mx-1">
+                                            <div class="arrow-line"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="department-lane h-10 border-b border-yellow-200 relative">
+                                    <div class="department-label bg-yellow-50 border-r border-yellow-200 text-xs text-yellow-800">
+                                        Ajustador
+                                    </div>
+                                    <div class="ml-[100px] flex items-center h-full">
+                                        <div class="process-step bg-blue-50 rounded text-xs px-2 border border-blue-200">
+                                            Evalúa reclamo
+                                        </div>
+                                        <div class="arrow mx-1">
+                                            <div class="arrow-line"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="department-lane h-10 relative">
+                                    <div class="department-label bg-yellow-50 border-r border-yellow-200 text-xs text-yellow-800">
+                                        Pagos
+                                    </div>
+                                    <div class="ml-[100px] flex items-center h-full">
+                                        <div class="process-step bg-green-50 rounded text-xs px-2 border border-green-200">
+                                            Procesa pago
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- High-Level vs. Detailed -->
+                    <div class="bg-blue-50 p-4 rounded-lg">
+                        <h3 class="font-medium text-blue-700 mb-2 flex items-center">
+                            <i class="fas fa-search mr-2"></i>Mapas Alto Nivel vs. Detallados:
+                        </h3>
+                        <div class="flex items-center">
+                            <div class="w-1/2 p-2">
+                                <div class="bg-white rounded p-2 border border-blue-200">
+                                    <p class="text-sm font-medium text-blue-700 mb-1">Comience con alto nivel</p>
+                                    <p class="text-xs text-gray-600">Visión general del proceso completo</p>
+                                </div>
+                            </div>
+                            <div class="w-8 flex justify-center">
+                                <i class="fas fa-arrow-right text-blue-400"></i>
+                            </div>
+                            <div class="w-1/2 p-2">
+                                <div class="bg-white rounded p-2 border border-blue-200">
+                                    <p class="text-sm font-medium text-blue-700 mb-1">Profundice en áreas problemáticas</p>
+                                    <p class="text-xs text-gray-600">Más detalles solo donde es necesario</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Insurance Context Note -->
+            <div class="bg-green-50 p-3 rounded-lg mt-4 flex items-center">
+                <div class="bg-green-100 rounded-full p-2 mr-3 flex-shrink-0">
+                    <i class="fas fa-lightbulb text-yellow-500"></i>
+                </div>
+                <p class="text-gray-700"><span class="font-medium text-green-700">Nota importante:</span> Los mapas con carriles (swimlanes) son particularmente útiles para los procesos de servicio/oficina comunes en el sector de seguros, donde múltiples departamentos están involucrados en atender las necesidades del cliente.</p>
+            </div>
+        </div>
+        
+        <!-- footer -->
+        <div class="company-logo">Tecniseguros | Lean Six Sigma Yellow Belt</div>
+        <div class="footer-bar"></div>
+    </div>
+<!-- 1. Navigation Buttons HTML Block -->
+<div style="position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 100; background: white; padding: 10px; border-radius: 5px; box-shadow: 0 0 10px rgba(0,0,0,0.2);">
+    <button id="prevSlideButton" onclick="goToPrevSlide()"> « Previous </button>
+    <span id="slideIndicator" style="margin: 0 15px;">Slide ? of ?</span>
+    <button id="nextSlideButton" onclick="goToNextSlide()"> Next » </button>
+</div>
+
+<!-- 2. Link to Global script.js -->
+<script src="../../script.js"></script>
+</body>
+</html>

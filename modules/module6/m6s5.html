@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análisis del Sistema de Medición (MSA) - Tecniseguros</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .slide {
+            width: 1280px;
+            min-height: 720px;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+        }
+        .header-bar {
+            background: linear-gradient(90deg, #005792 0%, #00A6A6 100%);
+            height: 12px;
+        }
+        .footer-bar {
+            background: linear-gradient(90deg, #005792 0%, #00A6A6 100%);
+            height: 8px;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+        .company-logo {
+            position: absolute;
+            bottom: 20px;
+            right: 30px;
+            font-size: 16px;
+            color: #666;
+            font-weight: 500;
+        }
+        .msa-item {
+            transition: all 0.3s ease;
+        }
+        .msa-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+        .target {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            position: relative;
+            margin: 0 auto;
+        }
+        .target-ring-outer {
+            position: absolute;
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            border: 2px solid #64748b;
+        }
+        .target-ring-middle {
+            position: absolute;
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            border: 2px solid #64748b;
+            top: 25px;
+            left: 25px;
+        }
+        .target-ring-inner {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid #64748b;
+            background-color: #64748b;
+            top: 50px;
+            left: 50px;
+        }
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #ef4444;
+            position: absolute;
+            transform: translate(-50%, -50%);
+        }
+        .scale-visual {
+            width: 180px;
+            height: 40px;
+            background: linear-gradient(90deg, #e2e8f0, #e2e8f0);
+            position: relative;
+            border-radius: 4px;
+            border: 1px solid #94a3b8;
+            margin: 0 auto;
+        }
+        .scale-pointer {
+            width: 4px;
+            height: 20px;
+            background-color: #ef4444;
+            position: absolute;
+            bottom: -10px;
+            transform: translateX(-50%);
+        }
+        .scale-marker {
+            width: 2px;
+            height: 10px;
+            background-color: #94a3b8;
+            position: absolute;
+            bottom: 0;
+            transform: translateX(-50%);
+        }
+        .scale-label {
+            position: absolute;
+            bottom: -25px;
+            transform: translateX(-50%);
+            font-size: 10px;
+            color: #64748b;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <div class="header-bar"></div>
+        
+        <!-- Main Content -->
+        <div class="p-10 z-10 relative">
+            <!-- Title Section -->
+            <div class="mb-5">
+                <h1 class="text-3xl font-bold text-blue-700">MSA: ¿Es Confiable Nuestro Sistema de Medición?</h1>
+                <div class="w-20 h-1 bg-blue-500 mt-3"></div>
+            </div>
+            
+            <!-- Garbage In, Garbage Out Section -->
+            <div class="bg-yellow-50 p-4 rounded-lg mb-5">
+                <div class="flex items-center">
+                    <div class="bg-yellow-100 rounded-full p-2 mr-3 flex-shrink-0">
+                        <i class="fas fa-exclamation-triangle text-yellow-600 text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-medium text-yellow-700">"Basura Entra, Basura Sale"</h3>
+                        <p class="text-gray-700">Si la forma en que medimos es defectuosa, nuestros datos y conclusiones también lo serán.</p>
+                    </div>
+                </div>
+                <div class="mt-2 pl-12">
+                    <p class="text-gray-700"><span class="font-medium">MSA pregunta:</span> ¿Cuánto de la variación observada se debe al proceso mismo y cuánto se debe al sistema de medición?</p>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-2 gap-6 mb-5">
+                <!-- Left Column: Key MSA Concepts -->
+                <div>
+                    <h3 class="text-lg font-medium text-blue-700 mb-3">
+                        <i class="fas fa-balance-scale mr-2 text-blue-600"></i>Conceptos Clave MSA para Yellow Belts:
+                    </h3>
+                    
+                    <!-- Accuracy -->
+                    <div class="msa-item bg-white p-4 rounded-lg shadow-sm mb-4 border-l-4 border-blue-500">
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 rounded-full p-2 mr-3 flex-shrink-0 mt-1">
+                                <i class="fas fa-bullseye text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-800">Exactitud (Sesgo)</h4>
+                                <p class="text-sm text-gray-600 mt-1">¿Está nuestro sistema de medición, en promedio, cerca del valor verdadero?</p>
+                                <div class="mt-3 flex items-center">
+                                    <div class="flex-1">
+                                        <div class="scale-visual">
+                                            <div class="scale-marker" style="left: 30%"></div>
+                                            <div class="scale-marker" style="left: 50%"></div>
+                                            <div class="scale-marker" style="left: 70%"></div>
+                                            <div class="scale-pointer" style="left: 70%"></div>
+                                            <div class="scale-label" style="left: 30%">Bajo</div>
+                                            <div class="scale-label" style="left: 50%">Real</div>
+                                            <div class="scale-label" style="left: 70%">Alto</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="text-xs text-gray-500 mt-4 italic">Ejemplo: ¿Una balanza muestra consistentemente 2kg de más?</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Precision -->
+                    <div class="msa-item bg-white p-4 rounded-lg shadow-sm border-l-4 border-green-500">
+                        <div class="flex items-start">
+                            <div class="bg-green-100 rounded-full p-2 mr-3 flex-shrink-0 mt-1">
+                                <i class="fas fa-crosshairs text-green-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-800">Precisión (Variación)</h4>
+                                <div class="grid grid-cols-2 gap-3 mt-3">
+                                    <div class="bg-blue-50 p-3 rounded-lg">
+                                        <p class="text-sm font-medium text-blue-700">Repetibilidad</p>
+                                        <p class="text-xs text-gray-600 mt-1">¿Puede la misma persona obtener el mismo resultado midiendo el mismo elemento varias veces con el mismo dispositivo?</p>
+                                        <p class="text-xs text-blue-600 mt-1 italic">Consistencia de un evaluador</p>
+                                    </div>
+                                    <div class="bg-green-50 p-3 rounded-lg">
+                                        <p class="text-sm font-medium text-green-700">Reproducibilidad</p>
+                                        <p class="text-xs text-gray-600 mt-1">¿Pueden diferentes personas obtener el mismo resultado midiendo el mismo elemento con el mismo dispositivo?</p>
+                                        <p class="text-xs text-green-600 mt-1 italic">Consistencia entre evaluadores</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right Column: Visuals -->
+                <div>
+                    <h3 class="text-lg font-medium text-green-700 mb-3 text-center">
+                        <i class="fas fa-eye mr-2 text-green-600"></i>Visualizando Exactitud vs Precisión
+                    </h3>
+                    
+                    <div class="grid grid-cols-2 gap-4">
+                        <!-- Accurate & Precise -->
+                        <div class="bg-white p-3 rounded-lg shadow-sm">
+                            <h4 class="text-sm font-medium text-center text-gray-800 mb-2">Exacto & Preciso</h4>
+                            <div class="target mb-2">
+                                <div class="target-ring-outer"></div>
+                                <div class="target-ring-middle"></div>
+                                <div class="target-ring-inner"></div>
+                                
+                                <!-- Dots clustered in center -->
+                                <div class="dot" style="top: 50%; left: 50%;"></div>
+                                <div class="dot" style="top: 47%; left: 53%;"></div>
+                                <div class="dot" style="top: 52%; left: 48%;"></div>
+                                <div class="dot" style="top: 49%; left: 51%;"></div>
+                                <div class="dot" style="top: 51%; left: 49%;"></div>
+                            </div>
+                            <p class="text-xs text-center text-green-600 font-medium">✓ Ideal</p>
+                        </div>
+                        
+                        <!-- Precise but not Accurate -->
+                        <div class="bg-white p-3 rounded-lg shadow-sm">
+                            <h4 class="text-sm font-medium text-center text-gray-800 mb-2">Preciso pero no Exacto</h4>
+                            <div class="target mb-2">
+                                <div class="target-ring-outer"></div>
+                                <div class="target-ring-middle"></div>
+                                <div class="target-ring-inner"></div>
+                                
+                                <!-- Dots clustered but off-center -->
+                                <div class="dot" style="top: 30%; left: 70%;"></div>
+                                <div class="dot" style="top: 28%; left: 72%;"></div>
+                                <div class="dot" style="top: 31%; left: 68%;"></div>
+                                <div class="dot" style="top: 29%; left: 71%;"></div>
+                                <div class="dot" style="top: 32%; left: 69%;"></div>
+                            </div>
+                            <p class="text-xs text-center text-orange-500 font-medium">⚠ Sesgo consistente</p>
+                        </div>
+                        
+                        <!-- Accurate but not Precise -->
+                        <div class="bg-white p-3 rounded-lg shadow-sm">
+                            <h4 class="text-sm font-medium text-center text-gray-800 mb-2">Exacto pero no Preciso</h4>
+                            <div class="target mb-2">
+                                <div class="target-ring-outer"></div>
+                                <div class="target-ring-middle"></div>
+                                <div class="target-ring-inner"></div>
+                                
+                                <!-- Dots scattered around center -->
+                                <div class="dot" style="top: 50%; left: 50%;"></div>
+                                <div class="dot" style="top: 35%; left: 60%;"></div>
+                                <div class="dot" style="top: 65%; left: 40%;"></div>
+                                <div class="dot" style="top: 40%; left: 35%;"></div>
+                                <div class="dot" style="top: 60%; left: 65%;"></div>
+                            </div>
+                            <p class="text-xs text-center text-orange-500 font-medium">⚠ Alta variabilidad</p>
+                        </div>
+                        
+                        <!-- Not Accurate or Precise -->
+                        <div class="bg-white p-3 rounded-lg shadow-sm">
+                            <h4 class="text-sm font-medium text-center text-gray-800 mb-2">Ni Exacto ni Preciso</h4>
+                            <div class="target mb-2">
+                                <div class="target-ring-outer"></div>
+                                <div class="target-ring-middle"></div>
+                                <div class="target-ring-inner"></div>
+                                
+                                <!-- Dots scattered off-center -->
+                                <div class="dot" style="top: 25%; left: 75%;"></div>
+                                <div class="dot" style="top: 35%; left: 85%;"></div>
+                                <div class="dot" style="top: 15%; left: 65%;"></div>
+                                <div class="dot" style="top: 30%; left: 60%;"></div>
+                                <div class="dot" style="top: 20%; left: 80%;"></div>
+                            </div>
+                            <p class="text-xs text-center text-red-500 font-medium">✗ Problemático</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Importance for Tecniseguros & Practical Example -->
+            <div class="grid grid-cols-2 gap-6">
+                <div class="bg-blue-50 p-4 rounded-lg">
+                    <h3 class="text-lg font-medium text-blue-700 mb-2 flex items-center">
+                        <i class="fas fa-building mr-2"></i>Importancia para Tecniseguros:
+                    </h3>
+                    <ul class="text-gray-700 space-y-2 ml-6 list-disc">
+                        <li>Asegurar la entrada consistente de datos</li>
+                        <li>Interpretación consistente de formularios</li>
+                        <li>Informes de sistemas confiables</li>
+                        <li>Evaluaciones de riesgo coherentes</li>
+                    </ul>
+                </div>
+                
+                <div class="bg-green-50 p-4 rounded-lg">
+                    <h3 class="text-lg font-medium text-green-700 mb-2 flex items-center">
+                        <i class="fas fa-lightbulb text-yellow-500 mr-2"></i>Ejemplo Práctico:
+                    </h3>
+                    <p class="text-gray-700">
+                        "Si dos agentes de Tecniseguros evalúan la 'completitud' de una nueva solicitud de póliza de manera diferente (uno dice 'completa', otro encuentra 3 elementos faltantes), nuestro sistema de medición para 'completitud de solicitud' tiene un problema de <span class="font-bold text-red-600">reproducibilidad</span>."
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- footer -->
+        <div class="company-logo">Tecniseguros | Lean Six Sigma Yellow Belt</div>
+        <div class="footer-bar"></div>
+    </div>
+<!-- 1. Navigation Buttons HTML Block -->
+<div style="position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 100; background: white; padding: 10px; border-radius: 5px; box-shadow: 0 0 10px rgba(0,0,0,0.2);">
+    <button id="prevSlideButton" onclick="goToPrevSlide()"> « Previous </button>
+    <span id="slideIndicator" style="margin: 0 15px;">Slide ? of ?</span>
+    <button id="nextSlideButton" onclick="goToNextSlide()"> Next » </button>
+</div>
+
+<!-- 2. Link to Global script.js -->
+<script src="../../script.js"></script>
+
+</body>
+</html>

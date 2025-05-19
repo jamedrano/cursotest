@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad: Lluvia de Ideas de Soluciones y Priorización</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+        }
+        .slide {
+            width: 1280px;
+            min-height: 720px;
+            background-color: white;
+            margin: 0 auto;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+        }
+        .top-bar {
+            height: 12px;
+            background: linear-gradient(90deg, #1e40af, #3b82f6, #93c5fd);
+        }
+        .activity-section {
+            border-radius: 10px;
+            background-color: #f8fafc;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease;
+        }
+        .activity-section:hover {
+            transform: translateY(-3px);
+        }
+        .step {
+            position: relative;
+            padding-left: 40px;
+            margin-bottom: 10px;
+        }
+        .step-number {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: #3b82f6;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        .matrix-box {
+            width: 380px;
+            height: 380px;
+            position: relative;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .matrix-quadrant {
+            position: absolute;
+            width: 50%;
+            height: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 10px;
+            transition: all 0.3s ease;
+        }
+        .timer-container {
+            width: 120px;
+            height: 120px;
+            position: relative;
+        }
+        .timer-circle {
+            fill: none;
+            stroke: #e2e8f0;
+            stroke-width: 8;
+        }
+        .timer-circle-fill {
+            fill: none;
+            stroke: #3b82f6;
+            stroke-width: 8;
+            stroke-linecap: round;
+            transform-origin: center;
+            transform: rotate(-90deg);
+            transition: stroke-dashoffset 1s linear;
+        }
+        .role-card {
+            border-left: 4px solid;
+            padding: 8px 12px;
+            margin-bottom: 10px;
+            background-color: white;
+            border-radius: 0 6px 6px 0;
+            transition: transform 0.2s ease;
+        }
+        .role-card:hover {
+            transform: translateX(5px);
+        }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <div class="top-bar"></div>
+        <div class="flex flex-col h-full">
+            <!-- header Section -->
+            <header class="px-16 pt-8 pb-4">
+                <div class="flex justify-between items-center">
+                    <h1 class="text-4xl font-bold text-blue-700">Actividad: Lluvia de Ideas y Priorización</h1>
+                    <img src="../../assets/images/logotecniseguros.png" alt="Logo Tecniseguros" class="h-12">
+                </div>
+                <p class="text-lg text-gray-600">Desarrollando y seleccionando soluciones efectivas en equipo</p>
+            </header>
+
+            <!-- Main Content -->
+            <main class="px-16 py-4 flex-1 flex">
+                <!-- Left Column - Instructions -->
+                <div class="w-1/2 pr-6">
+                    <div class="activity-section p-6 h-full flex flex-col">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-blue-100 text-blue-600 p-3 rounded-full mr-4">
+                                <i class="fas fa-users-gear text-2xl"></i>
+                            </div>
+                            <h2 class="text-2xl font-bold text-gray-800">Instrucciones</h2>
+                        </div>
+                        
+                        <div class="space-y-5 mb-6">
+                            <div class="step">
+                                <div class="step-number">1</div>
+                                <h3 class="font-bold text-gray-800 mb-1">Formar equipos pequeños</h3>
+                                <p class="text-gray-600">3-5 personas por grupo para facilitar la participación de todos</p>
+                            </div>
+                            
+                            <div class="step">
+                                <div class="step-number">2</div>
+                                <h3 class="font-bold text-gray-800 mb-1">Recordar una causa raíz</h3>
+                                <p class="text-gray-600">Identificada en las actividades del Módulo 7 (5 Porqués o Diagrama de Ishikawa)</p>
+                            </div>
+                            
+                            <div class="step">
+                                <div class="step-number">3</div>
+                                <h3 class="font-bold text-gray-800 mb-1">Generar 3-5 soluciones potenciales</h3>
+                                <p class="text-gray-600">Que puedan resolver esa causa raíz específica</p>
+                            </div>
+                            
+                            <div class="step">
+                                <div class="step-number">4</div>
+                                <h3 class="font-bold text-gray-800 mb-1">Analizar el impacto y esfuerzo</h3>
+                                <p class="text-gray-600">Discutir brevemente y clasificar cada solución como Alto/Bajo para ambas dimensiones</p>
+                            </div>
+                            
+                            <div class="step">
+                                <div class="step-number">5</div>
+                                <h3 class="font-bold text-gray-800 mb-1">Ubicar las ideas en la matriz</h3>
+                                <p class="text-gray-600">Identificar las potenciales "Victorias Rápidas"</p>
+                            </div>
+                            
+                            <div class="step">
+                                <div class="step-number">6</div>
+                                <h3 class="font-bold text-gray-800 mb-1">Prepararse para compartir</h3>
+                                <p class="text-gray-600">Seleccionar una solución para presentarla al grupo</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Timer Section -->
+                        <div class="flex items-center justify-center bg-white rounded-lg p-4 mt-auto">
+                            <div class="timer-container mr-4">
+                                <svg viewBox="0 0 100 100" class="w-full h-full">
+                                    <circle cx="50" cy="50" r="45" class="timer-circle" />
+                                    <circle cx="50" cy="50" r="45" class="timer-circle-fill" 
+                                            stroke-dasharray="282.74" 
+                                            stroke-dashoffset="0" />
+                                </svg>
+                                <div class="absolute inset-0 flex items-center justify-center flex-col">
+                                    <span class="text-3xl font-bold text-blue-700">15</span>
+                                    <span class="text-sm">minutos</span>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold text-gray-800">Tiempo para la actividad</h4>
+                                <p class="text-gray-600 text-sm">15 minutos para discusión</p>
+                                <p class="text-gray-600 text-sm">+ 5-10 minutos para compartir resultados</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right Column - Matrix and Tips -->
+                <div class="w-1/2 pl-6">
+                    <div class="h-full flex flex-col space-y-4">
+                        <!-- Matrix Section -->
+                        <div class="activity-section p-6 flex-grow flex flex-col items-center justify-center">
+                            <h3 class="text-xl font-bold text-gray-800 mb-4 text-center">Matriz de Impacto/Esfuerzo</h3>
+                            
+                            <div class="matrix-box mb-4">
+                                <!-- Axis Labels -->
+                                <div class="absolute top-2 left-1/2 transform -translate-x-1/2 font-semibold text-gray-600 text-sm">
+                                    BAJO ESFUERZO
+                                </div>
+                                <div class="absolute bottom-2 left-1/2 transform -translate-x-1/2 font-semibold text-gray-600 text-sm">
+                                    ALTO ESFUERZO
+                                </div>
+                                <div class="absolute left-2 top-1/2 transform -translate-y-1/2 -rotate-90 font-semibold text-gray-600 text-sm">
+                                    BAJO IMPACTO
+                                </div>
+                                <div class="absolute right-2 top-1/2 transform -translate-y-1/2 rotate-90 font-semibold text-gray-600 text-sm">
+                                    ALTO IMPACTO
+                                </div>
+                                
+                                <!-- Quadrants -->
+                                <div class="matrix-quadrant bg-green-100" style="top: 0; left: 0;">
+                                    <h4 class="font-bold text-green-700 text-lg">VICTORIAS RÁPIDAS</h4>
+                                </div>
+                                
+                                <div class="matrix-quadrant bg-blue-100" style="top: 0; right: 0;">
+                                    <h4 class="font-bold text-blue-700 text-lg">PROYECTOS MAYORES</h4>
+                                </div>
+                                
+                                <div class="matrix-quadrant bg-yellow-100" style="bottom: 0; left: 0;">
+                                    <h4 class="font-bold text-yellow-700 text-lg">TAREAS DE RELLENO</h4>
+                                </div>
+                                
+                                <div class="matrix-quadrant bg-red-100" style="bottom: 0; right: 0;">
+                                    <h4 class="font-bold text-red-700 text-lg">RECONSIDERAR</h4>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-white p-3 rounded-lg shadow-sm border border-gray-200 w-full">
+                                <p class="text-sm text-center text-gray-700">
+                                    <span class="font-bold">Considere:</span> ¿Qué tan bien la solución aborda la causa raíz? 
+                                    ¿Cuánto esfuerzo requiere implementarla en Tecniseguros?
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <!-- Tips Section -->
+                        <div class="activity-section p-6">
+                            <div class="flex items-center mb-4">
+                                <div class="bg-blue-100 text-blue-600 p-2 rounded-full mr-3">
+                                    <i class="fas fa-lightbulb text-xl"></i>
+                                </div>
+                                <h3 class="text-xl font-bold text-gray-800">Roles y consejos</h3>
+                            </div>
+                            
+                            <div class="space-y-2">
+                                <div class="role-card border-blue-500">
+                                    <div class="flex items-center">
+                                        <i class="fas fa-user-tie text-blue-500 mr-2"></i>
+                                        <span class="font-bold text-sm text-gray-800">Facilitador</span>
+                                    </div>
+                                    <p class="text-xs text-gray-600 ml-6">Guía la discusión y asegura que todos participen</p>
+                                </div>
+                                
+                                <div class="role-card border-green-500">
+                                    <div class="flex items-center">
+                                        <i class="fas fa-clipboard-list text-green-500 mr-2"></i>
+                                        <span class="font-bold text-sm text-gray-800">Anotador</span>
+                                    </div>
+                                    <p class="text-xs text-gray-600 ml-6">Registra las soluciones y su clasificación</p>
+                                </div>
+                                
+                                <div class="role-card border-amber-500">
+                                    <div class="flex items-center">
+                                        <i class="fas fa-hourglass-half text-amber-500 mr-2"></i>
+                                        <span class="font-bold text-sm text-gray-800">Controlador de tiempo</span>
+                                    </div>
+                                    <p class="text-xs text-gray-600 ml-6">Ayuda al grupo a mantenerse dentro del tiempo</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+<!-- 1. Navigation Buttons HTML Block -->
+<div style="position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 100; background: white; padding: 10px; border-radius: 5px; box-shadow: 0 0 10px rgba(0,0,0,0.2);">
+    <button id="prevSlideButton" onclick="goToPrevSlide()"> « Previous </button>
+    <span id="slideIndicator" style="margin: 0 15px;">Slide ? of ?</span>
+    <button id="nextSlideButton" onclick="goToNextSlide()"> Next » </button>
+</div>
+
+<!-- 2. Link to Global script.js -->
+<script src="../../script.js"></script>
+</body>
+</html>

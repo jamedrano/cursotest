@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad: Buscando el Desperdicio</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background: linear-gradient(135deg, #e6fffa 0%, #ebf4ff 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .blue-accent {
+            background: linear-gradient(90deg, #1a365d 0%, #2a4365 100%);
+        }
+        .process-card {
+            transition: all 0.3s ease;
+            border: 1px solid #e2e8f0;
+        }
+        .process-card:hover {
+            transform: scale(1.02);
+            border-color: #4299e1;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        .step {
+            position: relative;
+            padding-left: 40px;
+        }
+        .step-number {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 30px;
+            height: 30px;
+            background-color: #3182ce;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        .waste-tag {
+            transition: all 0.2s ease;
+        }
+        .waste-tag:hover {
+            transform: translateY(-3px);
+        }
+        .note-bg {
+            position: relative;
+        }
+        .note-bg::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://cdn.jsdelivr.net/gh/userix/demo-assets/sticky-note-bg.svg') no-repeat center center;
+            background-size: cover;
+            opacity: 0.1;
+            z-index: 0;
+        }
+        .activity-timer {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        .pattern-bg {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 300px;
+            background-image: 
+                linear-gradient(rgba(66, 153, 225, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(66, 153, 225, 0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+            z-index: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container flex flex-col">
+        <!-- header -->
+        <div class="blue-accent h-12 w-full shadow-md"></div>
+        
+        <!-- Decorative pattern -->
+        <div class="pattern-bg"></div>
+        
+        <!-- Main content -->
+        <div class="flex-1 p-8 z-10">
+            <!-- Title -->
+            <h1 class="text-4xl font-bold text-blue-800 mb-6 flex items-center">
+                <i class="fas fa-search text-blue-600 mr-3"></i>
+                Actividad: ¡Encontremos los Desperdicios!
+            </h1>
+            
+            <div class="flex space-x-6">
+                <!-- Left column: Instructions -->
+                <div class="w-2/5">
+                    <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+                        <h2 class="text-2xl font-bold text-blue-700 mb-4">
+                            Instrucciones
+                        </h2>
+                        
+                        <div class="space-y-5">
+                            <div class="step">
+                                <div class="step-number">1</div>
+                                <p class="font-medium text-gray-800">Formen grupos pequeños (3-4 personas)</p>
+                            </div>
+                            
+                            <div class="step">
+                                <div class="step-number">2</div>
+                                <p class="font-medium text-gray-800">Elijan un proceso común de Tecniseguros con el que estén familiarizados</p>
+                            </div>
+                            
+                            <div class="step">
+                                <div class="step-number">3</div>
+                                <p class="font-medium text-gray-800">Identifiquen ejemplos de los 8 Desperdicios (DOWNTIME) que observen en ese proceso</p>
+                            </div>
+                            
+                            <div class="step">
+                                <div class="step-number">4</div>
+                                <p class="font-medium text-gray-800">Anótenlos usando notas adhesivas, pizarra o herramienta digital designada</p>
+                            </div>
+                            
+                            <div class="step">
+                                <div class="step-number">5</div>
+                                <p class="font-medium text-gray-800">Prepárense para compartir 1-2 ejemplos clave con el grupo</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Timer -->
+                    <div class="bg-indigo-100 rounded-lg p-4 flex items-center justify-center">
+                        <div class="activity-timer bg-indigo-600 text-white font-bold text-xl py-3 px-8 rounded-full flex items-center shadow-lg">
+                            <i class="far fa-clock mr-3 text-2xl"></i>
+                            <span>Tiempo: 15 minutos</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right column: Examples and visualization -->
+                <div class="w-3/5">
+                    <!-- Process examples -->
+                    <h3 class="text-xl font-bold text-gray-700 mb-3">
+                        Ejemplos de Procesos para Analizar:
+                    </h3>
+                    
+                    <div class="grid grid-cols-2 gap-4 mb-6">
+                        <div class="process-card bg-white rounded-lg p-4 shadow-sm">
+                            <div class="flex items-center mb-2">
+                                <div class="bg-blue-100 rounded-full p-2 mr-3">
+                                    <i class="fas fa-file-invoice-dollar text-blue-600"></i>
+                                </div>
+                                <h4 class="font-bold text-blue-800">Envío de Reporte de Gastos</h4>
+                            </div>
+                            <p class="text-gray-600 text-sm">Desde la recopilación de recibos hasta el reembolso</p>
+                        </div>
+                        
+                        <div class="process-card bg-white rounded-lg p-4 shadow-sm">
+                            <div class="flex items-center mb-2">
+                                <div class="bg-green-100 rounded-full p-2 mr-3">
+                                    <i class="fas fa-user-edit text-green-600"></i>
+                                </div>
+                                <h4 class="font-bold text-green-800">Actualización de Datos del Cliente</h4>
+                            </div>
+                            <p class="text-gray-600 text-sm">Proceso completo de cambios de información de contacto</p>
+                        </div>
+                        
+                        <div class="process-card bg-white rounded-lg p-4 shadow-sm">
+                            <div class="flex items-center mb-2">
+                                <div class="bg-yellow-100 rounded-full p-2 mr-3">
+                                    <i class="fas fa-inbox text-yellow-600"></i>
+                                </div>
+                                <h4 class="font-bold text-yellow-800">Solicitud de Suministros de Oficina</h4>
+                            </div>
+                            <p class="text-gray-600 text-sm">Desde la identificación de necesidad hasta la entrega</p>
+                        </div>
+                        
+                        <div class="process-card bg-white rounded-lg p-4 shadow-sm">
+                            <div class="flex items-center mb-2">
+                                <div class="bg-red-100 rounded-full p-2 mr-3">
+                                    <i class="fas fa-exclamation-circle text-red-600"></i>
+                                </div>
+                                <h4 class="font-bold text-red-800">Registro de Quejas de Clientes</h4>
+                            </div>
+                            <p class="text-gray-600 text-sm">Desde la recepción inicial hasta la resolución</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Visualization example -->
+                    <h3 class="text-xl font-bold text-gray-700 mb-3">
+                        Así se vería su análisis:
+                    </h3>
+                    
+                    <div class="bg-white rounded-lg shadow-md p-5 note-bg">
+                        <h4 class="font-bold text-gray-800 mb-3">Proceso: Actualización de Datos del Cliente</h4>
+                        
+                        <div class="flex flex-wrap gap-2">
+                            <div class="waste-tag bg-red-100 border-l-4 border-red-500 py-1 px-3 rounded">
+                                <span class="font-bold text-red-800">D:</span>
+                                <span class="text-gray-700">Error en ingreso de dirección</span>
+                            </div>
+                            
+                            <div class="waste-tag bg-yellow-100 border-l-4 border-yellow-500 py-1 px-3 rounded">
+                                <span class="font-bold text-yellow-800">W:</span>
+                                <span class="text-gray-700">Espera por aprobación de supervisor</span>
+                            </div>
+                            
+                            <div class="waste-tag bg-purple-100 border-l-4 border-purple-500 py-1 px-3 rounded">
+                                <span class="font-bold text-purple-800">M:</span>
+                                <span class="text-gray-700">Múltiples pantallas para actualizar</span>
+                            </div>
+                            
+                            <div class="waste-tag bg-green-100 border-l-4 border-green-500 py-1 px-3 rounded">
+                                <span class="font-bold text-green-800">N:</span>
+                                <span class="text-gray-700">Agentes no pueden modificar errores simples</span>
+                            </div>
+                            
+                            <div class="waste-tag bg-blue-100 border-l-4 border-blue-500 py-1 px-3 rounded">
+                                <span class="font-bold text-blue-800">T:</span>
+                                <span class="text-gray-700">Envío de formulario entre departamentos</span>
+                            </div>
+                            
+                            <div class="waste-tag bg-pink-100 border-l-4 border-pink-500 py-1 px-3 rounded">
+                                <span class="font-bold text-pink-800">E:</span>
+                                <span class="text-gray-700">Verificación redundante de datos</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Facilitator tip -->
+                    <div class="bg-blue-50 border-l-4 border-blue-400 p-4 rounded-r-lg mt-4">
+                        <p class="text-blue-800 text-sm font-medium flex items-start">
+                            <i class="fas fa-lightbulb text-yellow-500 mr-2 mt-1"></i>
+                            <span>
+                                <strong>Rol del Facilitador:</strong> Circular entre los grupos, responder preguntas, asegurar que se mantengan enfocados en el proceso elegido. Fomentar ejemplos concretos. Al finalizar, pedir a cada grupo que comparta un desperdicio interesante que identificaron.
+                            </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- footer -->
+        <div class="blue-accent h-6 w-full mt-auto"></div>
+    </div>
+<!-- 1. Navigation Buttons HTML Block -->
+<div style="position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 100; background: white; padding: 10px; border-radius: 5px; box-shadow: 0 0 10px rgba(0,0,0,0.2);">
+    <button id="prevSlideButton" onclick="goToPrevSlide()"> « Previous </button>
+    <span id="slideIndicator" style="margin: 0 15px;">Slide ? of ?</span>
+    <button id="nextSlideButton" onclick="goToNextSlide()"> Next » </button>
+</div>
+
+<!-- 2. Link to Global script.js -->
+<script src="../../script.js"></script>
+</body>
+</html>

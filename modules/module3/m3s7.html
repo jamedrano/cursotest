@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tipos de Datos y Recopilación Básica - Tecniseguros</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .slide {
+            width: 1280px;
+            min-height: 720px;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+        }
+        .header-bar {
+            background: linear-gradient(90deg, #005792 0%, #00A6A6 100%);
+            height: 12px;
+        }
+        .footer-bar {
+            background: linear-gradient(90deg, #005792 0%, #00A6A6 100%);
+            height: 8px;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+        .company-logo {
+            position: absolute;
+            bottom: 20px;
+            right: 30px;
+            font-size: 16px;
+            color: #666;
+            font-weight: 500;
+        }
+        .data-type-box {
+            transition: all 0.3s ease;
+        }
+        .data-type-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+        .collection-method {
+            transition: all 0.3s ease;
+        }
+        .collection-method:hover {
+            transform: scale(1.03);
+        }
+        .bg-pattern {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 300px;
+            background-color: rgba(0, 87, 146, 0.03);
+            background-image: radial-gradient(rgba(0, 166, 166, 0.1) 2px, transparent 2px);
+            background-size: 20px 20px;
+            z-index: 0;
+        }
+        .key-point-box {
+            border-left: 4px solid #00A6A6;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <div class="header-bar"></div>
+        
+        <!-- Main Content -->
+        <div class="p-10 z-10 relative">
+            <!-- Title Section -->
+            <div class="mb-6">
+                <h1 class="text-3xl font-bold text-blue-700">Entendiendo y Recopilando Datos</h1>
+                <div class="w-20 h-1 bg-blue-500 mt-3"></div>
+            </div>
+            
+            <!-- Main Content Grid -->
+            <div class="grid grid-cols-2 gap-8">
+                <!-- Left Side: Types of Data -->
+                <div>
+                    <h3 class="text-lg font-medium text-blue-700 mb-4">
+                        <i class="fas fa-table mr-2"></i>Tipos de Datos:
+                    </h3>
+                    
+                    <div class="space-y-4">
+                        <!-- Qualitative Data -->
+                        <div class="data-type-box bg-white p-4 rounded-lg shadow border-l-4 border-blue-400">
+                            <div class="flex items-start mb-3">
+                                <div class="bg-blue-100 rounded-full p-2 mr-3 flex-shrink-0">
+                                    <i class="fas fa-tags text-blue-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-gray-800">Cualitativos (Categóricos/Atributos)</h4>
+                                    <p class="text-sm text-gray-600">Describe una característica o categoría. No se puede promediar.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-blue-50 p-3 rounded-lg">
+                                <p class="text-sm font-medium text-blue-700 mb-2">Ejemplos:</p>
+                                <div class="grid grid-cols-3 gap-2">
+                                    <div class="bg-white p-2 rounded border border-blue-200 text-center">
+                                        <p class="text-xs text-gray-700">Tipo de queja del cliente</p>
+                                        <p class="text-xs text-blue-600 font-medium">(Facturación, Servicio)</p>
+                                    </div>
+                                    <div class="bg-white p-2 rounded border border-blue-200 text-center">
+                                        <p class="text-xs text-gray-700">Completitud del formulario</p>
+                                        <p class="text-xs text-blue-600 font-medium">(Sí/No)</p>
+                                    </div>
+                                    <div class="bg-white p-2 rounded border border-blue-200 text-center">
+                                        <p class="text-xs text-gray-700">Motivo de cancelación</p>
+                                        <p class="text-xs text-blue-600 font-medium">(Precio, Cobertura)</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Quantitative Data -->
+                        <div class="data-type-box bg-white p-4 rounded-lg shadow border-l-4 border-green-400">
+                            <div class="flex items-start mb-3">
+                                <div class="bg-green-100 rounded-full p-2 mr-3 flex-shrink-0">
+                                    <i class="fas fa-chart-bar text-green-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-gray-800">Cuantitativos (Variables/Numéricos)</h4>
+                                    <p class="text-sm text-gray-600">Medibles en una escala numérica. Se pueden promediar.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="grid grid-cols-2 gap-3 mt-2">
+                                <!-- Continuous -->
+                                <div class="bg-blue-50 p-3 rounded-lg">
+                                    <p class="text-sm font-medium text-blue-700 mb-2">Continuos:</p>
+                                    <p class="text-xs text-gray-600 mb-1">Pueden tomar cualquier valor en un rango</p>
+                                    <div class="bg-white p-2 rounded border border-blue-200">
+                                        <ul class="text-xs text-gray-600 list-disc ml-4 space-y-1">
+                                            <li>Tiempo para procesar un reclamo (horas)</li>
+                                            <li>Monto de la prima ($)</li>
+                                            <li>Tiempo de espera telefónica (minutos)</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <!-- Discrete -->
+                                <div class="bg-green-50 p-3 rounded-lg">
+                                    <p class="text-sm font-medium text-green-700 mb-2">Discretos:</p>
+                                    <p class="text-xs text-gray-600 mb-1">Solo pueden tomar valores enteros específicos</p>
+                                    <div class="bg-white p-2 rounded border border-green-200">
+                                        <ul class="text-xs text-gray-600 list-disc ml-4 space-y-1">
+                                            <li>Número de errores en un formulario</li>
+                                            <li>Cantidad de llamadas atendidas por hora</li>
+                                            <li>Número de pólizas emitidas por día</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right Side: Data Collection Methods -->
+                <div>
+                    <h3 class="text-lg font-medium text-blue-700 mb-4">
+                        <i class="fas fa-clipboard-list mr-2"></i>Técnicas Básicas de Recopilación de Datos:
+                    </h3>
+                    
+                    <div class="grid grid-cols-2 gap-4">
+                        <!-- Check Sheets -->
+                        <div class="collection-method bg-white p-3 rounded-lg shadow border-t-4 border-blue-400">
+                            <div class="flex items-center mb-2">
+                                <div class="bg-blue-100 rounded-full p-1 mr-2">
+                                    <i class="fas fa-tasks text-blue-600 text-sm"></i>
+                                </div>
+                                <h4 class="font-medium text-gray-800 text-sm">Hojas de Verificación</h4>
+                            </div>
+                            <p class="text-xs text-gray-600">Formularios simples para contabilizar ocurrencias de eventos, defectos o puntos de datos.</p>
+                            <div class="mt-2 bg-blue-50 rounded p-2">
+                                <div class="text-xs text-center text-blue-700">Ejemplo: Registro de tipos de errores</div>
+                                <div class="flex justify-between text-xs mt-1">
+                                    <span>Tipo A: IIII II</span>
+                                    <span>Tipo B: III</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Surveys -->
+                        <div class="collection-method bg-white p-3 rounded-lg shadow border-t-4 border-green-400">
+                            <div class="flex items-center mb-2">
+                                <div class="bg-green-100 rounded-full p-1 mr-2">
+                                    <i class="fas fa-poll text-green-600 text-sm"></i>
+                                </div>
+                                <h4 class="font-medium text-gray-800 text-sm">Encuestas</h4>
+                            </div>
+                            <p class="text-xs text-gray-600">Recopilación de comentarios o opiniones de los clientes (VOC).</p>
+                            <div class="mt-2 bg-green-50 rounded p-2">
+                                <div class="text-xs text-center text-green-700">Ejemplo: NPS (Net Promoter Score)</div>
+                                <div class="flex justify-between items-center text-xs mt-1">
+                                    <span>0</span>
+                                    <div class="bg-gray-200 h-2 flex-1 mx-1 rounded-full overflow-hidden">
+                                        <div class="bg-green-500 h-full w-3/4"></div>
+                                    </div>
+                                    <span>10</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Observation -->
+                        <div class="collection-method bg-white p-3 rounded-lg shadow border-t-4 border-blue-400">
+                            <div class="flex items-center mb-2">
+                                <div class="bg-blue-100 rounded-full p-1 mr-2">
+                                    <i class="fas fa-eye text-blue-600 text-sm"></i>
+                                </div>
+                                <h4 class="font-medium text-gray-800 text-sm">Observación</h4>
+                            </div>
+                            <p class="text-xs text-gray-600">Observación directa de un proceso para recopilar datos.</p>
+                            <div class="mt-2 bg-blue-50 rounded p-2">
+                                <div class="text-xs text-center text-blue-700">Ejemplo: Estudio de tiempo</div>
+                                <div class="flex items-center text-xs mt-1">
+                                    <i class="fas fa-stopwatch text-blue-500 mr-1"></i>
+                                    <span>Medición del tiempo de atención al cliente</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- System Reports -->
+                        <div class="collection-method bg-white p-3 rounded-lg shadow border-t-4 border-green-400">
+                            <div class="flex items-center mb-2">
+                                <div class="bg-green-100 rounded-full p-1 mr-2">
+                                    <i class="fas fa-file-alt text-green-600 text-sm"></i>
+                                </div>
+                                <h4 class="font-medium text-gray-800 text-sm">Reportes del Sistema</h4>
+                            </div>
+                            <p class="text-xs text-gray-600">Extracción de datos de sistemas informáticos existentes.</p>
+                            <div class="mt-2 bg-green-50 rounded p-2">
+                                <div class="text-xs text-center text-green-700">Ejemplo: Dashboard de KPIs</div>
+                                <div class="flex items-center text-xs mt-1">
+                                    <i class="fas fa-database text-green-500 mr-1"></i>
+                                    <span>Reportes automatizados de tiempo de procesamiento</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Operational Definitions -->
+                    <div class="key-point-box bg-blue-50 p-4 rounded-lg mt-6">
+                        <h3 class="text-md font-medium text-blue-700 mb-2 flex items-center">
+                            <i class="fas fa-exclamation-circle text-yellow-500 mr-2"></i>Punto Clave: Definiciones Operacionales
+                        </h3>
+                        <p class="text-sm text-gray-700">Todos necesitan medir lo mismo de la misma manera para que los datos sean confiables.</p>
+                        <div class="mt-2 bg-white p-2 rounded border border-blue-100">
+                            <div class="flex items-center">
+                                <div class="flex-shrink-0 mr-2">
+                                    <i class="fas fa-question-circle text-red-500 mr-1"></i>
+                                </div>
+                                <p class="text-xs text-gray-600 italic">Sin definición operacional: "Registre el tiempo de procesamiento de reclamos"</p>
+                            </div>
+                            <div class="mt-2 flex items-center">
+                                <div class="flex-shrink-0 mr-2">
+                                    <i class="fas fa-check-circle text-green-500 mr-1"></i>
+                                </div>
+                                <p class="text-xs text-gray-600 italic">Con definición operacional: "Registre el tiempo en horas laborables desde la recepción del reclamo hasta la notificación de resolución al cliente"</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Key Message -->
+            <div class="mt-6 bg-green-50 p-3 rounded-lg shadow-sm">
+                <div class="flex items-center">
+                    <div class="bg-green-100 rounded-full p-2 mr-3">
+                        <i class="fas fa-key text-green-600"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-md font-medium text-green-700">Mensaje Clave:</h3>
+                        <p class="text-sm text-gray-700">Recopile datos que sean relevantes para el problema y que reflejen con precisión el proceso.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Background Pattern -->
+        <div class="bg-pattern"></div>
+        
+        <!-- footer -->
+        <div class="company-logo">Tecniseguros | Lean Six Sigma Yellow Belt</div>
+        <div class="footer-bar"></div>
+    </div>
+<!-- 1. Navigation Buttons HTML Block -->
+<div style="position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 100; background: white; padding: 10px; border-radius: 5px; box-shadow: 0 0 10px rgba(0,0,0,0.2);">
+    <button id="prevSlideButton" onclick="goToPrevSlide()"> « Previous </button>
+    <span id="slideIndicator" style="margin: 0 15px;">Slide ? of ?</span>
+    <button id="nextSlideButton" onclick="goToNextSlide()"> Next » </button>
+</div>
+
+<!-- 2. Link to Global script.js -->
+<script src="../../script.js"></script>
+</body>
+</html>

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad: Creando un SIPOC - Tecniseguros</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .slide {
+            width: 1280px;
+            min-height: 720px;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+        }
+        .header-bar {
+            background: linear-gradient(90deg, #005792 0%, #00A6A6 100%);
+            height: 12px;
+        }
+        .footer-bar {
+            background: linear-gradient(90deg, #005792 0%, #00A6A6 100%);
+            height: 8px;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+        .company-logo {
+            position: absolute;
+            bottom: 20px;
+            right: 30px;
+            font-size: 16px;
+            color: #666;
+            font-weight: 500;
+        }
+        .timeline-point {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+        .activity-step {
+            transition: all 0.3s ease;
+        }
+        .activity-step:hover {
+            transform: translateX(5px);
+        }
+        .sipoc-cell {
+            transition: all 0.3s ease;
+        }
+        .sipoc-cell:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .sipoc-template {
+            border: 2px dashed #00A6A6;
+            transition: all 0.3s ease;
+        }
+        .sipoc-template:hover {
+            border-color: #005792;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+        .bg-pattern {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 300px;
+            height: 300px;
+            background-color: rgba(0, 87, 146, 0.03);
+            background-image: radial-gradient(circle, rgba(0, 166, 166, 0.1) 2px, transparent 2px);
+            background-size: 20px 20px;
+            z-index: 0;
+        }
+        .sipoc-example {
+            position: relative;
+        }
+        .facilitator-tip {
+            border-left: 4px solid #60A5FA;
+            background-color: #EFF6FF;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <div class="header-bar"></div>
+        
+        <!-- Main Content -->
+        <div class="p-10 z-10 relative">
+            <!-- Title Section -->
+            <div class="mb-6">
+                <h1 class="text-3xl font-bold text-blue-700">Actividad: Construyamos un SIPOC</h1>
+                <div class="w-20 h-1 bg-green-500 mt-2"></div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-8">
+                <!-- Left Side: Instructions -->
+                <div>
+                    <div class="bg-white rounded-lg shadow-md p-5 border-l-4 border-blue-500">
+                        <h3 class="text-xl font-medium text-blue-700 mb-4">Instrucciones:</h3>
+                        
+                        <div class="space-y-4">
+                            <div class="flex activity-step">
+                                <div class="timeline-point bg-blue-600 mr-4 flex-shrink-0">1</div>
+                                <div>
+                                    <p class="text-gray-700">En sus grupos.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex activity-step">
+                                <div class="timeline-point bg-blue-600 mr-4 flex-shrink-0">2</div>
+                                <div>
+                                    <p class="text-gray-700">Elijan un proceso simple y familiar de Tecniseguros:</p>
+                                    <ul class="list-disc ml-8 mt-2 text-gray-600">
+                                        <li>Procesamiento de un reclamo de gastos de empleado</li>
+                                        <li>Incorporación de un nuevo cliente después de una venta</li>
+                                        <li>Generación de un informe mensual estándar</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="flex activity-step">
+                                <div class="timeline-point bg-blue-600 mr-4 flex-shrink-0">3</div>
+                                <div>
+                                    <p class="text-gray-700">Completen un diagrama SIPOC para ese proceso. Identifiquen:</p>
+                                    <ul class="list-disc ml-8 mt-2 text-gray-600">
+                                        <li>Proveedores clave (S)</li>
+                                        <li>Entradas al proceso (I)</li>
+                                        <li>5-7 pasos de alto nivel del Proceso (P)</li>
+                                        <li>Salidas importantes (O)</li>
+                                        <li>Clientes que reciben las salidas (C)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="flex activity-step">
+                                <div class="timeline-point bg-blue-600 mr-4 flex-shrink-0">4</div>
+                                <div>
+                                    <p class="text-gray-700">Utilicen una plantilla SIPOC (digital o papel).</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex activity-step">
+                                <div class="timeline-point bg-green-600 mr-4 flex-shrink-0">5</div>
+                                <div>
+                                    <p class="text-gray-700">Prepárense para compartir.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Timing Information -->
+                    <div class="flex justify-around items-center mt-6 bg-gray-100 p-3 rounded-lg">
+                        <div class="flex items-center">
+                            <i class="fas fa-clock text-blue-600 text-xl mr-2"></i>
+                            <div>
+                                <p class="text-sm text-gray-500">Creación en grupos</p>
+                                <p class="font-bold text-gray-700">15 minutos</p>
+                            </div>
+                        </div>
+                        <div class="text-gray-400">|</div>
+                        <div class="flex items-center">
+                            <i class="fas fa-share-alt text-green-600 text-xl mr-2"></i>
+                            <div>
+                                <p class="text-sm text-gray-500">Compartir un ejemplo</p>
+                                <p class="font-bold text-gray-700">5-10 minutos</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right Side: Template & Facilitator Tips -->
+                <div>
+                    <!-- SIPOC Template -->
+                    <div class="sipoc-template p-4 rounded-lg bg-blue-50">
+                        <h3 class="text-lg font-medium text-blue-700 mb-3 flex items-center">
+                            <i class="fas fa-project-diagram text-blue-600 mr-2"></i>
+                            Plantilla SIPOC
+                        </h3>
+                        
+                        <div class="grid grid-cols-5 gap-1">
+                            <!-- Headers -->
+                            <div class="sipoc-cell bg-blue-600 p-2 text-center">
+                                <h4 class="font-bold text-white">S</h4>
+                                <p class="text-xs text-blue-100">Proveedores</p>
+                            </div>
+                            
+                            <div class="sipoc-cell bg-green-600 p-2 text-center">
+                                <h4 class="font-bold text-white">I</h4>
+                                <p class="text-xs text-green-100">Entradas</p>
+                            </div>
+                            
+                            <div class="sipoc-cell bg-blue-600 p-2 text-center">
+                                <h4 class="font-bold text-white">P</h4>
+                                <p class="text-xs text-blue-100">Proceso</p>
+                            </div>
+                            
+                            <div class="sipoc-cell bg-green-600 p-2 text-center">
+                                <h4 class="font-bold text-white">O</h4>
+                                <p class="text-xs text-green-100">Salidas</p>
+                            </div>
+                            
+                            <div class="sipoc-cell bg-blue-600 p-2 text-center">
+                                <h4 class="font-bold text-white">C</h4>
+                                <p class="text-xs text-blue-100">Clientes</p>
+                            </div>
+                            
+                            <!-- Empty Cells -->
+                            <div class="sipoc-cell bg-white p-6 border border-blue-200"></div>
+                            <div class="sipoc-cell bg-white p-6 border border-green-200"></div>
+                            <div class="sipoc-cell bg-white p-12 border border-blue-200"></div>
+                            <div class="sipoc-cell bg-white p-6 border border-green-200"></div>
+                            <div class="sipoc-cell bg-white p-6 border border-blue-200"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Facilitator Tips -->
+                    <div class="facilitator-tip p-4 rounded mt-6">
+                        <h4 class="text-blue-700 font-medium flex items-center">
+                            <i class="fas fa-chalkboard-teacher text-blue-500 mr-2"></i>
+                            Para el Facilitador:
+                        </h4>
+                        <ul class="text-sm text-gray-600 mt-2 ml-6 list-disc">
+                            <li>Asegúrese de que los grupos mantengan los pasos del proceso a alto nivel.</li>
+                            <li>Recuérdeles que se enfoquen en los elementos clave S-I-P-O-C.</li>
+                            <li>Solo necesitan 5-7 pasos principales del proceso, no todos los detalles.</li>
+                            <li>Resalte la importancia de identificar correctamente a proveedores y clientes internos.</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Team Working Visual -->
+                    <div class="flex justify-center mt-6">
+                        <div class="bg-white rounded-lg p-4 shadow-sm flex items-center">
+                            <div class="bg-blue-100 rounded-full w-14 h-14 flex items-center justify-center mr-4">
+                                <i class="fas fa-users text-blue-600 text-2xl"></i>
+                            </div>
+                            <div>
+                                <p class="font-medium text-gray-800">Trabajo en equipo</p>
+                                <p class="text-sm text-gray-600">El SIPOC es una herramienta de alineación - ¡todos deben participar!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Background Pattern -->
+        <div class="bg-pattern"></div>
+        
+        <!-- footer -->
+        <div class="company-logo">Tecniseguros | Lean Six Sigma Yellow Belt</div>
+        <div class="footer-bar"></div>
+    </div>
+<!-- 1. Navigation Buttons HTML Block -->
+<div style="position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 100; background: white; padding: 10px; border-radius: 5px; box-shadow: 0 0 10px rgba(0,0,0,0.2);">
+    <button id="prevSlideButton" onclick="goToPrevSlide()"> « Previous </button>
+    <span id="slideIndicator" style="margin: 0 15px;">Slide ? of ?</span>
+    <button id="nextSlideButton" onclick="goToNextSlide()"> Next » </button>
+</div>
+
+<!-- 2. Link to Global script.js -->
+<script src="../../script.js"></script>
+</body>
+</html>

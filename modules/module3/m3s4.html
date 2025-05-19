@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad: Identificando Fuentes de Variación - Tecniseguros</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .slide {
+            width: 1280px;
+            min-height: 720px;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+        }
+        .header-bar {
+            background: linear-gradient(90deg, #005792 0%, #00A6A6 100%);
+            height: 12px;
+        }
+        .footer-bar {
+            background: linear-gradient(90deg, #005792 0%, #00A6A6 100%);
+            height: 8px;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+        .company-logo {
+            position: absolute;
+            bottom: 20px;
+            right: 30px;
+            font-size: 16px;
+            color: #666;
+            font-weight: 500;
+        }
+        .timeline-point {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+        .activity-step {
+            transition: all 0.3s ease;
+        }
+        .activity-step:hover {
+            transform: translateX(5px);
+        }
+        .example-box {
+            transition: all 0.3s ease;
+        }
+        .example-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+        .bg-pattern {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 280px;
+            height: 280px;
+            background-color: rgba(0, 87, 146, 0.03);
+            clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+            z-index: 0;
+        }
+        .facilitator-tip {
+            border-left: 4px solid #60A5FA;
+            background-color: #EFF6FF;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <div class="header-bar"></div>
+        
+        <!-- Main Content -->
+        <div class="p-10 z-10 relative">
+            <!-- Title Section -->
+            <div class="mb-6">
+                <h1 class="text-3xl font-bold text-blue-700">Actividad: Identificando Fuentes de Variación</h1>
+                <div class="w-20 h-1 bg-green-500 mt-2"></div>
+            </div>
+
+            <!-- Activity Instructions -->
+            <div class="grid grid-cols-2 gap-8">
+                <div>
+                    <div class="bg-white rounded-lg shadow-md p-5 border-l-4 border-blue-500">
+                        <h3 class="text-xl font-medium text-blue-700 mb-4">Instrucciones:</h3>
+                        
+                        <div class="space-y-4">
+                            <div class="flex activity-step">
+                                <div class="timeline-point bg-blue-600 mr-4 flex-shrink-0">1</div>
+                                <div>
+                                    <p class="text-gray-700">En sus pequeños grupos.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex activity-step">
+                                <div class="timeline-point bg-blue-600 mr-4 flex-shrink-0">2</div>
+                                <div>
+                                    <p class="text-gray-700">Elijan un proceso de Tecniseguros conocido por su variabilidad:</p>
+                                    <ul class="list-disc ml-8 mt-2 text-gray-600">
+                                        <li>Tiempo para que se apruebe una cotización compleja</li>
+                                        <li>Número de errores encontrados en revisiones de solicitudes de pólizas por día</li>
+                                        <li>Consistencia de la información proporcionada por diferentes representantes de servicio al cliente</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="flex activity-step">
+                                <div class="timeline-point bg-blue-600 mr-4 flex-shrink-0">3</div>
+                                <div>
+                                    <p class="text-gray-700">Identifiquen mediante lluvia de ideas:</p>
+                                    <ul class="list-disc ml-8 mt-2 text-gray-600">
+                                        <li><strong>2-3 posibles Causas Comunes</strong> de variación en ese proceso</li>
+                                        <li><strong>2-3 posibles Causas Especiales</strong> de variación</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="flex activity-step">
+                                <div class="timeline-point bg-blue-600 mr-4 flex-shrink-0">4</div>
+                                <div>
+                                    <p class="text-gray-700">Utilicen la herramienta designada (Miro, Jamboard, Documento compartido).</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex activity-step">
+                                <div class="timeline-point bg-green-600 mr-4 flex-shrink-0">5</div>
+                                <div>
+                                    <p class="text-gray-700">Prepárense para compartir ejemplos.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Timing Information -->
+                    <div class="flex justify-around items-center mt-6 bg-gray-100 p-3 rounded-lg">
+                        <div class="flex items-center">
+                            <i class="fas fa-clock text-blue-600 text-xl mr-2"></i>
+                            <div>
+                                <p class="text-sm text-gray-500">Discusión en grupos</p>
+                                <p class="font-bold text-gray-700">15 minutos</p>
+                            </div>
+                        </div>
+                        <div class="text-gray-400">|</div>
+                        <div class="flex items-center">
+                            <i class="fas fa-share-alt text-green-600 text-xl mr-2"></i>
+                            <div>
+                                <p class="text-sm text-gray-500">Compartir con todos</p>
+                                <p class="font-bold text-gray-700">5 minutos</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right Column: Examples & Visual Elements -->
+                <div class="space-y-5">
+                    <!-- Example Boxes -->
+                    <div class="grid grid-cols-2 gap-4 mb-4">
+                        <div class="example-box bg-blue-50 p-4 rounded-lg shadow-sm border border-blue-100">
+                            <h4 class="font-medium text-blue-700 flex items-center">
+                                <i class="fas fa-random text-blue-500 mr-2"></i>
+                                Causas Comunes
+                            </h4>
+                            <div class="mt-3 space-y-2">
+                                <div class="bg-white rounded p-2 shadow-sm">
+                                    <p class="text-sm text-gray-700">Variabilidad natural en el tiempo de procesamiento entre diferentes agentes</p>
+                                </div>
+                                <div class="bg-white rounded p-2 shadow-sm">
+                                    <p class="text-sm text-gray-700">Diferencias en la complejidad de las solicitudes de los clientes</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="example-box bg-green-50 p-4 rounded-lg shadow-sm border border-green-100">
+                            <h4 class="font-medium text-green-700 flex items-center">
+                                <i class="fas fa-exclamation-triangle text-green-500 mr-2"></i>
+                                Causas Especiales
+                            </h4>
+                            <div class="mt-3 space-y-2">
+                                <div class="bg-white rounded p-2 shadow-sm">
+                                    <p class="text-sm text-gray-700">Caída del sistema informático durante 2 horas</p>
+                                </div>
+                                <div class="bg-white rounded p-2 shadow-sm">
+                                    <p class="text-sm text-gray-700">Incorporación de un nuevo empleado sin capacitación suficiente</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Brainstorming Visual -->
+                    <div class="bg-white p-5 rounded-lg shadow-md flex items-center">
+                        <div class="bg-blue-100 rounded-full w-16 h-16 flex items-center justify-center mr-5">
+                            <i class="fas fa-lightbulb text-blue-600 text-2xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-medium text-gray-800">Metodología de análisis</h4>
+                            <p class="text-sm text-gray-600 mt-1">Recuerden que una buena estrategia es preguntarse:</p>
+                            <p class="text-sm text-gray-600 font-medium mt-1">"¿Este factor siempre está presente en el proceso (causa común) o es algo excepcional o inusual (causa especial)?"</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Facilitator Tip Box -->
+                    <div class="facilitator-tip p-4 rounded mt-4">
+                        <h4 class="text-blue-700 font-medium flex items-center">
+                            <i class="fas fa-chalkboard-teacher text-blue-500 mr-2"></i>
+                            Para el Facilitador:
+                        </h4>
+                        <ul class="text-sm text-gray-600 mt-2 ml-6 list-disc">
+                            <li>Ayude a los grupos a distinguir entre causas comunes (inherentes, siempre presentes) y causas especiales (puntuales, inusuales) para el proceso elegido.</li>
+                            <li>Si los grupos confunden estos conceptos, recuérdeles que las causas comunes requieren cambios estructurales en el proceso, mientras que las especiales pueden abordarse con intervenciones puntuales.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Bottom Visual: Group Collaboration -->
+            <div class="flex justify-center mt-6">
+                <div class="flex items-center space-x-3">
+                    <div class="bg-blue-100 rounded-full w-12 h-12 flex items-center justify-center">
+                        <i class="fas fa-users text-blue-600 text-xl"></i>
+                    </div>
+                    <i class="fas fa-plus text-gray-400"></i>
+                    <div class="bg-yellow-100 rounded-full w-12 h-12 flex items-center justify-center">
+                        <i class="fas fa-search text-yellow-600 text-xl"></i>
+                    </div>
+                    <i class="fas fa-equals text-gray-400"></i>
+                    <div class="bg-green-100 rounded-full w-12 h-12 flex items-center justify-center">
+                        <i class="fas fa-chart-line text-green-600 text-xl"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Background Pattern -->
+        <div class="bg-pattern"></div>
+        
+        <!-- footer -->
+        <div class="company-logo">Tecniseguros | Lean Six Sigma Yellow Belt</div>
+        <div class="footer-bar"></div>
+    </div>
+<!-- 1. Navigation Buttons HTML Block -->
+<div style="position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 100; background: white; padding: 10px; border-radius: 5px; box-shadow: 0 0 10px rgba(0,0,0,0.2);">
+    <button id="prevSlideButton" onclick="goToPrevSlide()"> « Previous </button>
+    <span id="slideIndicator" style="margin: 0 15px;">Slide ? of ?</span>
+    <button id="nextSlideButton" onclick="goToNextSlide()"> Next » </button>
+</div>
+
+<!-- 2. Link to Global script.js -->
+<script src="../../script.js"></script>
+</body>
+</html>

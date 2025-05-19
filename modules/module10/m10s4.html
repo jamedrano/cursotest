@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resumen del Curso - Lean Six Sigma Yellow Belt</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        .slide {
+            width: 1280px;
+            min-height: 720px;
+            position: relative;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            color: #343a40;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .slide-header {
+            height: 80px;
+            background-color: #0056b3;
+            color: white;
+        }
+        .slide-content {
+            flex: 1;
+            padding: 20px 40px;
+            position: relative;
+        }
+        .slide-footer {
+            height: 80px;
+            background-color: #0056b3;
+        }
+        .dmaic-container {
+            position: relative;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+        .dmaic-circle {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background-color: #0056b3;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            z-index: 2;
+        }
+        .phase-box {
+            width: 220px;
+            background-color: white;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+            margin: 10px;
+        }
+        .phase-title {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .phase-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 12px;
+        }
+        .tool-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+            font-size: 0.8rem;
+        }
+        .concept-box {
+            background-color: white;
+            border-left: 4px solid #0056b3;
+            padding: 10px 15px;
+            margin-bottom: 15px;
+            border-radius: 0 4px 4px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .key-concept-title {
+            font-weight: 600;
+            color: #0056b3;
+            margin-bottom: 3px;
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <!-- header -->
+        <div class="slide-header flex items-center justify-between px-10">
+            <h2 class="text-xl font-bold">Lean Six Sigma Yellow Belt</h2>
+            <img src="../../assets/images/logotecniseguros.png" alt="Logo Tecniseguros" class="h-10">
+        </div>
+        
+        <!-- Main Content -->
+        <div class="slide-content">
+            <h1 class="text-3xl font-bold text-blue-800 mb-4 text-center">Resumen del Curso: El Viaje del Yellow Belt</h1>
+            
+            <!-- Key Concepts -->
+            <div class="flex justify-between mb-6">
+                <div class="concept-box w-1/3 mr-4">
+                    <div class="key-concept-title">
+                        <i class="fas fa-star-of-life text-yellow-500 mr-2"></i>Filosofía LSS
+                    </div>
+                    <p class="text-sm">Combina <span class="font-bold text-green-600">Lean</span> (velocidad, reducción de desperdicios) y <span class="font-bold text-blue-600">Six Sigma</span> (calidad, reducción de variación) para crear valor al cliente.</p>
+                </div>
+                
+                <div class="concept-box w-1/3 mr-4">
+                    <div class="key-concept-title">
+                        <i class="fas fa-exclamation-triangle text-yellow-500 mr-2"></i>Desperdicios y Variación
+                    </div>
+                    <p class="text-sm">Identificar los 8 desperdicios (<span class="font-bold">DOWNTIME</span>) y entender el impacto negativo de la variación en los procesos.</p>
+                </div>
+                
+                <div class="concept-box w-1/3">
+                    <div class="key-concept-title">
+                        <i class="fas fa-road text-yellow-500 mr-2"></i>Marco DMAIC
+                    </div>
+                    <p class="text-sm">Estructura metodológica para la mejora de procesos: <span class="font-bold text-blue-800">D</span>efine, <span class="font-bold text-blue-800">M</span>easure, <span class="font-bold text-blue-800">A</span>nalyze, <span class="font-bold text-blue-800">I</span>mprove, <span class="font-bold text-blue-800">C</span>ontrol</p>
+                </div>
+            </div>
+            
+            <!-- DMAIC Framework and Tools -->
+            <div class="dmaic-container flex flex-wrap justify-center items-center">
+                <!-- DMAIC Circle in center -->
+                <div class="dmaic-circle my-2">
+                    <div class="text-center">
+                        <div class="text-3xl font-bold">DMAIC</div>
+                        <div class="text-sm mt-2">Metodología</div>
+                        <div class="text-sm mt-1">Lean Six Sigma</div>
+                    </div>
+                </div>
+                
+                <!-- Phase Boxes -->
+                <div class="flex flex-wrap justify-center">
+                    <!-- Define -->
+                    <div class="phase-box">
+                        <div class="phase-title">
+                            <div class="phase-icon bg-blue-800">
+                                <span class="font-bold">D</span>
+                            </div>
+                            <h3 class="text-lg font-semibold text-blue-800">Define</h3>
+                        </div>
+                        <div class="tool-item">
+                            <i class="fas fa-file-contract text-blue-800 mr-2"></i>
+                            <span>Project Charter</span>
+                        </div>
+                        <div class="tool-item">
+                            <i class="fas fa-comments text-blue-800 mr-2"></i>
+                            <span>VOC / CTQ</span>
+                        </div>
+                        <div class="tool-item">
+                            <i class="fas fa-project-diagram text-blue-800 mr-2"></i>
+                            <span>SIPOC</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Measure -->
+                    <div class="phase-box">
+                        <div class="phase-title">
+                            <div class="phase-icon bg-green-600">
+                                <span class="font-bold">M</span>
+                            </div>
+                            <h3 class="text-lg font-semibold text-green-600">Measure</h3>
+                        </div>
+                        <div class="tool-item">
+                            <i class="fas fa-clipboard-list text-green-600 mr-2"></i>
+                            <span>Plan de Recolección de Datos</span>
+                        </div>
+                        <div class="tool-item">
+                            <i class="fas fa-tasks text-green-600 mr-2"></i>
+                            <span>Conceptos MSA</span>
+                        </div>
+                        <div class="tool-item">
+                            <i class="fas fa-chart-bar text-green-600 mr-2"></i>
+                            <span>Estadística Básica</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Analyze -->
+                    <div class="phase-box">
+                        <div class="phase-title">
+                            <div class="phase-icon bg-amber-500">
+                                <span class="font-bold">A</span>
+                            </div>
+                            <h3 class="text-lg font-semibold text-amber-500">Analyze</h3>
+                        </div>
+                        <div class="tool-item">
+                            <i class="fas fa-sitemap text-amber-500 mr-2"></i>
+                            <span>Mapeo de Procesos</span>
+                        </div>
+                        <div class="tool-item">
+                            <i class="fas fa-question-circle text-amber-500 mr-2"></i>
+                            <span>5 Por Qués / Fishbone</span>
+                        </div>
+                        <div class="tool-item">
+                            <i class="fas fa-chart-pie text-amber-500 mr-2"></i>
+                            <span>Diagrama Pareto</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Improve -->
+                    <div class="phase-box">
+                        <div class="phase-title">
+                            <div class="phase-icon bg-purple-600">
+                                <span class="font-bold">I</span>
+                            </div>
+                            <h3 class="text-lg font-semibold text-purple-600">Improve</h3>
+                        </div>
+                        <div class="tool-item">
+                            <i class="fas fa-lightbulb text-purple-600 mr-2"></i>
+                            <span>Lluvia de Ideas</span>
+                        </div>
+                        <div class="tool-item">
+                            <i class="fas fa-th text-purple-600 mr-2"></i>
+                            <span>Matriz de Priorización</span>
+                        </div>
+                        <div class="tool-item">
+                            <i class="fas fa-rocket text-purple-600 mr-2"></i>
+                            <span>Pilotaje de Soluciones</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Control -->
+                    <div class="phase-box">
+                        <div class="phase-title">
+                            <div class="phase-icon bg-red-600">
+                                <span class="font-bold">C</span>
+                            </div>
+                            <h3 class="text-lg font-semibold text-red-600">Control</h3>
+                        </div>
+                        <div class="tool-item">
+                            <i class="fas fa-clipboard-check text-red-600 mr-2"></i>
+                            <span>Trabajo Estandarizado</span>
+                        </div>
+                        <div class="tool-item">
+                            <i class="fas fa-chart-line text-red-600 mr-2"></i>
+                            <span>Gráficos de Control</span>
+                        </div>
+                        <div class="tool-item">
+                            <i class="fas fa-layer-group text-red-600 mr-2"></i>
+                            <span>5S / Gestión Visual</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- footer -->
+        <div class="slide-footer flex items-center justify-between px-10 mt-auto">
+            <div class="text-sm text-white">Tecniseguros</div>
+            <div class="flex items-center text-white">
+                <div class="mr-4 text-sm">Lean Six Sigma Yellow Belt</div>
+                <div class="text-yellow-300"><i class="fas fa-certificate"></i></div>
+            </div>
+        </div>
+    </div>
+<!-- 1. Navigation Buttons HTML Block -->
+<div style="position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 100; background: white; padding: 10px; border-radius: 5px; box-shadow: 0 0 10px rgba(0,0,0,0.2);">
+    <button id="prevSlideButton" onclick="goToPrevSlide()"> « Previous </button>
+    <span id="slideIndicator" style="margin: 0 15px;">Slide ? of ?</span>
+    <button id="nextSlideButton" onclick="goToNextSlide()"> Next » </button>
+</div>
+
+<!-- 2. Link to Global script.js -->
+<script src="../../script.js"></script>
+
+</body>
+</html>

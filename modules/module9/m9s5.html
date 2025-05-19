@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Implementación y Prueba Piloto de Soluciones</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+        }
+        .slide {
+            width: 1280px;
+            min-height: 720px;
+            background-color: white;
+            margin: 0 auto;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+        }
+        .top-bar {
+            height: 12px;
+            background: linear-gradient(90deg, #1e40af, #3b82f6, #93c5fd);
+        }
+        .process-card {
+            border-radius: 10px;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border-left: 5px solid #3b82f6;
+        }
+        .process-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
+        }
+        .icon-circle {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 12px;
+        }
+        .pilot-process {
+            position: relative;
+        }
+        .process-step {
+            position: relative;
+            padding: 1rem;
+            border-radius: 8px;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            z-index: 1;
+        }
+        .process-connector {
+            position: absolute;
+            top: 50%;
+            left: calc(100% + 10px);
+            transform: translateY(-50%);
+            height: 3px;
+            width: 30px;
+            background-color: #3b82f6;
+            z-index: 0;
+        }
+        .process-connector::after {
+            content: "";
+            position: absolute;
+            right: -8px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0;
+            height: 0;
+            border-top: 6px solid transparent;
+            border-bottom: 6px solid transparent;
+            border-left: 8px solid #3b82f6;
+        }
+        .example-card {
+            border-radius: 10px;
+            background-color: #f0f9ff;
+            border: 1px solid #bae6fd;
+            transition: transform 0.2s ease;
+        }
+        .example-card:hover {
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <div class="top-bar"></div>
+        <div class="flex flex-col h-full">
+            <!-- header Section -->
+            <header class="px-16 pt-8 pb-4">
+                <div class="flex justify-between items-center">
+                    <h1 class="text-4xl font-bold text-blue-700">Implementación y Prueba Piloto de Soluciones</h1>
+                    <img src="../../assets/images/logotecniseguros.png" alt="Logo Tecniseguros" class="h-12">
+                </div>
+                <p class="text-lg text-gray-600">Poniendo las soluciones en acción de manera efectiva</p>
+            </header>
+
+            <!-- Main Content -->
+            <main class="px-16 py-4 flex-1 flex">
+                <!-- Left Column - Implementation Planning -->
+                <div class="w-1/2 pr-6">
+                    <div class="bg-blue-50 rounded-lg p-6 h-full flex flex-col">
+                        <!-- Implementation Section Title -->
+                        <div class="flex items-center mb-6">
+                            <div class="icon-circle bg-blue-100 text-blue-600">
+                                <i class="fas fa-clipboard-list text-3xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h2 class="text-2xl font-bold text-gray-800">Planificación de la Implementación</h2>
+                                <p class="text-gray-600 text-sm">Convertir soluciones en acciones concretas</p>
+                            </div>
+                        </div>
+
+                        <!-- Implementation Process Cards -->
+                        <div class="space-y-5 mb-6">
+                            <div class="process-card p-4">
+                                <div class="flex items-start">
+                                    <div class="bg-blue-100 text-blue-600 p-3 rounded-full mr-4 flex-shrink-0">
+                                        <i class="fas fa-tasks text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-bold text-gray-800 text-lg mb-1">Desarrollar un Plan de Acción Claro</h3>
+                                        <ul class="text-gray-600 space-y-2 ml-1">
+                                            <li class="flex items-center">
+                                                <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                                <span><span class="font-semibold">Qué</span> acciones específicas son necesarias</span>
+                                            </li>
+                                            <li class="flex items-center">
+                                                <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                                <span><span class="font-semibold">Quién</span> es responsable de cada acción</span>
+                                            </li>
+                                            <li class="flex items-center">
+                                                <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                                <span><span class="font-semibold">Cuándo</span> debe completarse cada acción</span>
+                                            </li>
+                                            <li class="flex items-center">
+                                                <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                                <span><span class="font-semibold">Qué recursos</span> son necesarios</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="process-card p-4">
+                                <div class="flex items-start">
+                                    <div class="bg-blue-100 text-blue-600 p-3 rounded-full mr-4 flex-shrink-0">
+                                        <i class="fas fa-comments text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-bold text-gray-800 text-lg mb-1">Comunicación Clara</h3>
+                                        <p class="text-gray-600">Comunicar los cambios de forma efectiva a todos los afectados</p>
+                                        <p class="text-gray-600 mt-2">Compartir el <span class="font-semibold">por qué</span> del cambio, no solo el <span class="font-semibold">qué</span></p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="process-card p-4">
+                                <div class="flex items-start">
+                                    <div class="bg-blue-100 text-blue-600 p-3 rounded-full mr-4 flex-shrink-0">
+                                        <i class="fas fa-graduation-cap text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-bold text-gray-800 text-lg mb-1">Capacitación Necesaria</h3>
+                                        <p class="text-gray-600">Asegurar que todos tengan las habilidades para implementar el cambio</p>
+                                        <div class="flex items-center mt-2 text-amber-700">
+                                            <i class="fas fa-lightbulb mr-2"></i>
+                                            <span class="text-sm font-medium">Las personas necesitan tiempo para adaptarse al cambio</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right Column - Pilot Testing -->
+                <div class="w-1/2 pl-6">
+                    <div class="bg-blue-50 rounded-lg p-6 h-full flex flex-col">
+                        <!-- Pilot Testing Section Title -->
+                        <div class="flex items-center mb-6">
+                            <div class="icon-circle bg-blue-100 text-blue-600">
+                                <i class="fas fa-flask text-3xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h2 class="text-2xl font-bold text-gray-800">Prueba Piloto de Soluciones</h2>
+                                <p class="text-gray-600 text-sm">Probar a pequeña escala antes de un despliegue completo</p>
+                            </div>
+                        </div>
+
+                        <!-- Pilot Process -->
+                        <div class="pilot-process flex justify-between items-center mb-8">
+                            <div class="process-step w-1/4 flex flex-col items-center text-center">
+                                <div class="bg-green-100 text-green-600 p-3 rounded-full mb-2">
+                                    <i class="fas fa-vial text-xl"></i>
+                                </div>
+                                <h4 class="font-bold text-gray-800">Probar</h4>
+                                <p class="text-xs text-gray-600">En escala pequeña</p>
+                                <div class="process-connector"></div>
+                            </div>
+                            
+                            <div class="process-step w-1/4 flex flex-col items-center text-center">
+                                <div class="bg-amber-100 text-amber-600 p-3 rounded-full mb-2">
+                                    <i class="fas fa-search text-xl"></i>
+                                </div>
+                                <h4 class="font-bold text-gray-800">Evaluar</h4>
+                                <p class="text-xs text-gray-600">Resultados y feedback</p>
+                                <div class="process-connector"></div>
+                            </div>
+                            
+                            <div class="process-step w-1/4 flex flex-col items-center text-center">
+                                <div class="bg-blue-100 text-blue-600 p-3 rounded-full mb-2">
+                                    <i class="fas fa-wrench text-xl"></i>
+                                </div>
+                                <h4 class="font-bold text-gray-800">Ajustar</h4>
+                                <p class="text-xs text-gray-600">Refinar la solución</p>
+                                <div class="process-connector"></div>
+                            </div>
+                            
+                            <div class="process-step w-1/4 flex flex-col items-center text-center">
+                                <div class="bg-indigo-100 text-indigo-600 p-3 rounded-full mb-2">
+                                    <i class="fas fa-rocket text-xl"></i>
+                                </div>
+                                <h4 class="font-bold text-gray-800">Implementar</h4>
+                                <p class="text-xs text-gray-600">Despliegue completo</p>
+                            </div>
+                        </div>
+
+                        <!-- Benefits of Pilot Testing -->
+                        <div class="bg-white rounded-lg p-4 mb-6">
+                            <h3 class="font-bold text-gray-800 text-lg mb-3 flex items-center">
+                                <i class="fas fa-star text-yellow-500 mr-2"></i>
+                                Beneficios de las Pruebas Piloto
+                            </h3>
+                            <div class="grid grid-cols-2 gap-3">
+                                <div class="flex items-start">
+                                    <i class="fas fa-shield-alt text-blue-500 mr-2 mt-1"></i>
+                                    <p class="text-gray-600 text-sm">Reduce el riesgo del cambio</p>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-tools text-blue-500 mr-2 mt-1"></i>
+                                    <p class="text-gray-600 text-sm">Permite refinamiento antes del despliegue</p>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-thumbs-up text-blue-500 mr-2 mt-1"></i>
+                                    <p class="text-gray-600 text-sm">Ayuda a generar aceptación</p>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-chart-line text-blue-500 mr-2 mt-1"></i>
+                                    <p class="text-gray-600 text-sm">Proporciona datos de efectividad</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Example Card -->
+                        <div class="example-card p-4 mt-auto">
+                            <h3 class="font-bold text-blue-800 text-lg mb-2 flex items-center">
+                                <i class="fas fa-lightbulb text-yellow-500 mr-2"></i>
+                                Ejemplo práctico: Tecniseguros
+                            </h3>
+                            <div class="bg-white rounded p-3">
+                                <p class="text-gray-700">Antes de implementar un <span class="font-semibold">nuevo formulario de reclamaciones</span> en toda la empresa, probarlo primero con:</p>
+                                <ul class="mt-2 space-y-1">
+                                    <li class="flex items-center">
+                                        <i class="fas fa-users text-blue-500 mr-2"></i>
+                                        <span class="text-gray-700">Un equipo de reclamaciones específico</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-calendar-alt text-blue-500 mr-2"></i>
+                                        <span class="text-gray-700">Durante dos semanas</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-chart-bar text-blue-500 mr-2"></i>
+                                        <span class="text-gray-700">Medir: reducción de errores y tiempo de procesamiento</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+<!-- 1. Navigation Buttons HTML Block -->
+<div style="position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 100; background: white; padding: 10px; border-radius: 5px; box-shadow: 0 0 10px rgba(0,0,0,0.2);">
+    <button id="prevSlideButton" onclick="goToPrevSlide()"> « Previous </button>
+    <span id="slideIndicator" style="margin: 0 15px;">Slide ? of ?</span>
+    <button id="nextSlideButton" onclick="goToNextSlide()"> Next » </button>
+</div>
+
+<!-- 2. Link to Global script.js -->
+<script src="../../script.js"></script>
+</body>
+</html>

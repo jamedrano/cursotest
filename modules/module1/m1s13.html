@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conclusión del Módulo 1 y Próximos Pasos</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background: linear-gradient(120deg, #f0f4f8, #eef2ff);
+            position: relative;
+            overflow: hidden;
+        }
+        .blue-accent {
+            background: linear-gradient(90deg, #1a365d 0%, #2a4365 100%);
+        }
+        .recap-item {
+            transition: all 0.3s ease;
+        }
+        .recap-item:hover {
+            transform: translateX(5px);
+            background-color: rgba(255, 255, 255, 0.7);
+        }
+        .principle-card {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .principle-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        .qa-bubble {
+            position: relative;
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .pattern-bg {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 300px;
+            background-image: 
+                radial-gradient(circle, rgba(66, 153, 225, 0.1) 10%, transparent 10.5%),
+                radial-gradient(circle, rgba(66, 153, 225, 0.1) 10%, transparent 10.5%);
+            background-size: 30px 30px;
+            background-position: 0 0, 15px 15px;
+            z-index: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container flex flex-col">
+        <!-- header -->
+        <div class="blue-accent h-12 w-full shadow-md"></div>
+        
+        <!-- Decorative pattern -->
+        <div class="pattern-bg"></div>
+        
+        <!-- Main content -->
+        <div class="flex-1 p-10 z-10">
+            <!-- Title -->
+            <h1 class="text-4xl font-bold text-blue-800 mb-6">
+                <i class="fas fa-flag-checkered text-blue-600 mr-3"></i>
+                Conclusión del Módulo 1 y Próximos Pasos
+            </h1>
+            
+            <div class="flex -mx-4">
+                <!-- Left column: Summary and Q&A -->
+                <div class="w-1/2 px-4">
+                    <!-- Key Takeaways -->
+                    <div class="bg-white rounded-lg p-6 shadow-md mb-6">
+                        <h2 class="text-2xl font-bold text-blue-700 mb-4 flex items-center">
+                            <i class="fas fa-clipboard-check text-blue-600 mr-3"></i>
+                            Conceptos Clave
+                        </h2>
+                        
+                        <div class="space-y-3">
+                            <div class="recap-item flex items-center bg-blue-50 p-3 rounded-lg">
+                                <div class="bg-blue-100 rounded-full p-2 mr-3 text-blue-600">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <span class="text-gray-700">LSS combina Lean (velocidad, eliminación de desperdicios) y Six Sigma (calidad, reducción de variación)</span>
+                            </div>
+                            
+                            <div class="recap-item flex items-center bg-blue-50 p-3 rounded-lg">
+                                <div class="bg-blue-100 rounded-full p-2 mr-3 text-blue-600">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <span class="text-gray-700">Reconocer los 8 Desperdicios (DOWNTIME) en los procesos diarios</span>
+                            </div>
+                            
+                            <div class="recap-item flex items-center bg-blue-50 p-3 rounded-lg">
+                                <div class="bg-blue-100 rounded-full p-2 mr-3 text-blue-600">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <span class="text-gray-700">La variación y los defectos afectan la satisfacción del cliente y los costos</span>
+                            </div>
+                            
+                            <div class="recap-item flex items-center bg-blue-50 p-3 rounded-lg">
+                                <div class="bg-blue-100 rounded-full p-2 mr-3 text-blue-600">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <span class="text-gray-700">DMAIC proporciona un enfoque estructurado para la mejora continua</span>
+                            </div>
+                            
+                            <div class="recap-item flex items-center bg-blue-50 p-3 rounded-lg">
+                                <div class="bg-blue-100 rounded-full p-2 mr-3 text-blue-600">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <span class="text-gray-700">LSS ofrece múltiples beneficios para Tecniseguros y sus clientes</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Q&A Section -->
+                    <div class="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-lg p-5 shadow-md relative">
+                        <h2 class="text-2xl font-bold text-indigo-700 mb-3">
+                            <i class="fas fa-question-circle text-indigo-600 mr-2"></i>
+                            Preguntas y Respuestas
+                        </h2>
+                        
+                        <p class="text-gray-700 mb-3">
+                            Ahora es el momento para aclarar cualquier duda sobre los conceptos presentados.
+                        </p>
+                        
+                        <div class="flex items-center justify-center">
+                            <!-- Q&A Bubbles -->
+                            <div class="qa-bubble bg-white rounded-full p-3 shadow-sm m-2 text-indigo-600">
+                                <i class="fas fa-question"></i>
+                            </div>
+                            <div class="qa-bubble bg-white rounded-full p-3 shadow-sm m-2 text-green-600" style="animation-delay: 0.5s;">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <div class="qa-bubble bg-white rounded-full p-3 shadow-sm m-2 text-yellow-600" style="animation-delay: 1s;">
+                                <i class="fas fa-comment"></i>
+                            </div>
+                            <div class="qa-bubble bg-white rounded-full p-3 shadow-sm m-2 text-blue-600" style="animation-delay: 1.5s;">
+                                <i class="fas fa-reply"></i>
+                            </div>
+                            <div class="qa-bubble bg-white rounded-full p-3 shadow-sm m-2 text-red-600" style="animation-delay: 2s;">
+                                <i class="fas fa-exclamation"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right column: Preview of Module 2 -->
+                <div class="w-1/2 px-4">
+                    <div class="bg-blue-50 rounded-lg p-6 shadow-md">
+                        <h2 class="text-2xl font-bold text-blue-700 mb-4">
+                            <i class="fas fa-forward text-blue-600 mr-2"></i>
+                            Vista Previa: Módulo 2
+                        </h2>
+                        
+                        <div class="bg-white rounded-lg p-4 mb-4">
+                            <h3 class="text-xl font-bold text-blue-600 mb-2">
+                                Los 5 Principios Básicos del Pensamiento Lean
+                            </h3>
+                            <p class="text-gray-700 mb-3">
+                                En el próximo módulo profundizaremos en los principios fundamentales que guían la implementación de Lean:
+                            </p>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 gap-3 mb-4">
+                            <div class="principle-card bg-white p-3 rounded-lg shadow-sm flex items-center">
+                                <div class="bg-blue-100 rounded-full p-3 mr-3 text-blue-700 font-bold">1</div>
+                                <div>
+                                    <h4 class="font-bold">Definir Valor</h4>
+                                    <p class="text-sm text-gray-600">Desde la perspectiva del cliente</p>
+                                </div>
+                            </div>
+                            
+                            <div class="principle-card bg-white p-3 rounded-lg shadow-sm flex items-center">
+                                <div class="bg-blue-100 rounded-full p-3 mr-3 text-blue-700 font-bold">2</div>
+                                <div>
+                                    <h4 class="font-bold">Mapear la Cadena de Valor</h4>
+                                    <p class="text-sm text-gray-600">Identificar todos los pasos en la cadena de valor</p>
+                                </div>
+                            </div>
+                            
+                            <div class="principle-card bg-white p-3 rounded-lg shadow-sm flex items-center">
+                                <div class="bg-blue-100 rounded-full p-3 mr-3 text-blue-700 font-bold">3</div>
+                                <div>
+                                    <h4 class="font-bold">Crear Flujo</h4>
+                                    <p class="text-sm text-gray-600">Hacer que el valor fluya sin interrupciones</p>
+                                </div>
+                            </div>
+                            
+                            <div class="principle-card bg-white p-3 rounded-lg shadow-sm flex items-center">
+                                <div class="bg-blue-100 rounded-full p-3 mr-3 text-blue-700 font-bold">4</div>
+                                <div>
+                                    <h4 class="font-bold">Establecer Sistema Pull</h4>
+                                    <p class="text-sm text-gray-600">Dejar que el cliente extraiga el valor</p>
+                                </div>
+                            </div>
+                            
+                            <div class="principle-card bg-white p-3 rounded-lg shadow-sm flex items-center">
+                                <div class="bg-blue-100 rounded-full p-3 mr-3 text-blue-700 font-bold">5</div>
+                                <div>
+                                    <h4 class="font-bold">Buscar la Perfección</h4>
+                                    <p class="text-sm text-gray-600">Mejora continua hacia la excelencia</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gradient-to-r from-blue-100 to-indigo-100 p-4 rounded-lg flex items-center">
+                            <i class="fas fa-map-signs text-blue-600 text-2xl mr-3"></i>
+                            <p class="text-blue-800">
+                                <span class="font-bold">Comenzaremos profundizando</span> en cómo realmente definir "Valor" desde la perspectiva del cliente.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- footer -->
+        <div class="blue-accent h-6 w-full mt-auto"></div>
+    </div>
+<!-- 1. Navigation Buttons HTML Block -->
+<div style="position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 100; background: white; padding: 10px; border-radius: 5px; box-shadow: 0 0 10px rgba(0,0,0,0.2);">
+    <button id="prevSlideButton" onclick="goToPrevSlide()"> « Previous </button>
+    <span id="slideIndicator" style="margin: 0 15px;">Slide ? of ?</span>
+    <button id="nextSlideButton" onclick="goToNextSlide()"> Next » </button>
+</div>
+
+<!-- 2. Link to Global script.js -->
+<script src="../../script.js"></script>
+</body>
+</html>

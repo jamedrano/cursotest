@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Los 8 Desperdicios (DOWNTIME)</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background: radial-gradient(circle at top left, #f0f9ff, #ffffff);
+            position: relative;
+            overflow: hidden;
+        }
+        .blue-accent {
+            background: linear-gradient(90deg, #1a365d 0%, #2a4365 100%);
+        }
+        .waste-card {
+            transition: all 0.3s ease;
+            border-left: 5px solid transparent;
+            overflow: hidden;
+        }
+        .waste-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        .waste-icon {
+            transition: all 0.3s ease;
+        }
+        .waste-card:hover .waste-icon {
+            transform: scale(1.2);
+        }
+        /* Color coding for each waste type */
+        .d-waste { border-color: #e53e3e; }
+        .d-waste:hover { background-color: rgba(229, 62, 62, 0.05); }
+        .d-waste .waste-icon { color: #e53e3e; }
+        
+        .o-waste { border-color: #dd6b20; }
+        .o-waste:hover { background-color: rgba(221, 107, 32, 0.05); }
+        .o-waste .waste-icon { color: #dd6b20; }
+        
+        .w-waste { border-color: #d69e2e; }
+        .w-waste:hover { background-color: rgba(214, 158, 46, 0.05); }
+        .w-waste .waste-icon { color: #d69e2e; }
+        
+        .n-waste { border-color: #38a169; }
+        .n-waste:hover { background-color: rgba(56, 161, 105, 0.05); }
+        .n-waste .waste-icon { color: #38a169; }
+        
+        .t-waste { border-color: #319795; }
+        .t-waste:hover { background-color: rgba(49, 151, 149, 0.05); }
+        .t-waste .waste-icon { color: #319795; }
+        
+        .i-waste { border-color: #3182ce; }
+        .i-waste:hover { background-color: rgba(49, 130, 206, 0.05); }
+        .i-waste .waste-icon { color: #3182ce; }
+        
+        .m-waste { border-color: #805ad5; }
+        .m-waste:hover { background-color: rgba(128, 90, 213, 0.05); }
+        .m-waste .waste-icon { color: #805ad5; }
+        
+        .e-waste { border-color: #d53f8c; }
+        .e-waste:hover { background-color: rgba(213, 63, 140, 0.05); }
+        .e-waste .waste-icon { color: #d53f8c; }
+        
+        .title-letter {
+            display: inline-block;
+            padding: 0.2rem 0.6rem;
+            margin: 0 0.15rem;
+            border-radius: 0.25rem;
+            font-weight: bold;
+            color: white;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container flex flex-col">
+        <div class="blue-accent h-12 w-full shadow-md"></div>
+        
+        <div class="flex-1 p-8">
+            <h1 class="text-4xl font-bold text-gray-800 mb-6 text-center">
+                Reconociendo el Desperdicio en Nuestro Trabajo Diario
+            </h1>
+            
+            <div class="flex justify-center mb-6">
+                <div class="bg-white rounded-lg shadow-md px-3 py-2 flex items-center">
+                    <span class="font-bold mr-3 text-xl">DOWNTIME:</span>
+                    <span class="title-letter bg-red-600">D</span>
+                    <span class="title-letter bg-orange-600">O</span>
+                    <span class="title-letter bg-yellow-600">W</span>
+                    <span class="title-letter bg-green-600">N</span>
+                    <span class="title-letter bg-teal-600">T</span>
+                    <span class="title-letter bg-blue-600">I</span>
+                    <span class="title-letter bg-purple-600">M</span>
+                    <span class="title-letter bg-pink-600">E</span>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="waste-card d-waste bg-white rounded-lg p-6 shadow-md">
+                    <div class="flex">
+                        <div class="waste-icon bg-red-100 rounded-full p-4 mr-4 flex items-center justify-center">
+                            <i class="fas fa-exclamation-triangle fa-2x"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-800"> D - Defectos </h3>
+                            <p class="text-gray-600 mb-2"> Errores, equivocaciones, reprocesos </p>
+                            <ul class="list-disc list-inside text-gray-700 text-sm">
+                                <li>Detalles incorrectos en pólizas</li>
+                                <li>Errores tipográficos que requieren corrección</li>
+                                <li>Errores de cálculo en cotizaciones</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="waste-card o-waste bg-white rounded-lg p-6 shadow-md">
+                    <div class="flex">
+                        <div class="waste-icon bg-orange-100 rounded-full p-4 mr-4 flex items-center justify-center">
+                            <i class="fas fa-layer-group fa-2x"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-800"> O - Sobreproducción </h3>
+                            <p class="text-gray-600 mb-2"> Hacer más de lo necesario o demasiado pronto </p>
+                            <ul class="list-disc list-inside text-gray-700 text-sm">
+                                <li>Imprimir informes que nadie lee</li>
+                                <li>Enviar correos masivos no solicitados</li>
+                                <li>Producir cotizaciones sin solicitud del cliente</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="waste-card w-waste bg-white rounded-lg p-6 shadow-md">
+                    <div class="flex">
+                        <div class="waste-icon bg-yellow-100 rounded-full p-4 mr-4 flex items-center justify-center">
+                            <i class="fas fa-clock fa-2x"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-800"> W - Espera </h3>
+                            <p class="text-gray-600 mb-2"> Tiempos muertos, retrasos entre pasos </p>
+                            <ul class="list-disc list-inside text-gray-700 text-sm">
+                                <li>Esperar respuestas por correo electrónico</li>
+                                <li>Aprobar documentos que se quedan en bandejas</li>
+                                <li>Reuniones que inician tarde o con retraso</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="waste-card n-waste bg-white rounded-lg p-6 shadow-md">
+                    <div class="flex">
+                        <div class="waste-icon bg-green-100 rounded-full p-4 mr-4 flex items-center justify-center">
+                            <i class="fas fa-brain fa-2x"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-800"> N - Talento No Utilizado </h3>
+                            <p class="text-gray-600 mb-2"> No aprovechar habilidades/conocimiento del equipo </p>
+                            <ul class="list-disc list-inside text-gray-700 text-sm">
+                                <li>No pedir opinión a expertos internos</li>
+                                <li>Ignorar sugerencias de mejora</li>
+                                <li>No aprovechar la experiencia del equipo</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="waste-card t-waste bg-white rounded-lg p-6 shadow-md">
+                    <div class="flex">
+                        <div class="waste-icon bg-teal-100 rounded-full p-4 mr-4 flex items-center justify-center">
+                            <i class="fas fa-exchange-alt fa-2x"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-800"> T - Transporte </h3>
+                            <p class="text-gray-600 mb-2"> Movimiento innecesario de información/documentos </p>
+                            <ul class="list-disc list-inside text-gray-700 text-sm">
+                                <li>Enviar grandes archivos por correo en lugar de usar carpeta compartida</li>
+                                <li>Entregas físicas entre escritorios o pisos</li>
+                                <li>Traslado de documentos entre oficinas</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="waste-card i-waste bg-white rounded-lg p-6 shadow-md">
+                    <div class="flex">
+                        <div class="waste-icon bg-blue-100 rounded-full p-4 mr-4 flex items-center justify-center">
+                            <i class="fas fa-archive fa-2x"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-800"> I - Inventario </h3>
+                            <p class="text-gray-600 mb-2"> Acumulación excesiva de pendientes/materiales </p>
+                            <ul class="list-disc list-inside text-gray-700 text-sm">
+                                <li>Correos electrónicos sin leer acumulados</li>
+                                <li>Documentos archivados sin usar</li>
+                                <li>Material de oficina en exceso</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="waste-card m-waste bg-white rounded-lg p-6 shadow-md">
+                    <div class="flex">
+                        <div class="waste-icon bg-purple-100 rounded-full p-4 mr-4 flex items-center justify-center">
+                            <i class="fas fa-running fa-2x"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-800"> M - Movimiento </h3>
+                            <p class="text-gray-600 mb-2"> Desplazamiento innecesario de personas </p>
+                            <ul class="list-disc list-inside text-gray-700 text-sm">
+                                <li>Buscar archivos en diferentes ubicaciones</li>
+                                <li>Caminar a otras oficinas para obtener firmas</li>
+                                <li>Levantarse constantemente para usar la impresora</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="waste-card e-waste bg-white rounded-lg p-6 shadow-md">
+                    <div class="flex">
+                        <div class="waste-icon bg-pink-100 rounded-full p-4 mr-4 flex items-center justify-center">
+                            <i class="fas fa-cog fa-2x"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-800"> E - Sobre-procesamiento </h3>
+                            <p class="text-gray-600 mb-2"> Pasos de trabajo que no agregan valor </p>
+                            <ul class="list-disc list-inside text-gray-700 text-sm">
+                                <li>Revisiones redundantes múltiples</li>
+                                <li>Formularios excesivamente complejos</li>
+                                <li>Usar soluciones complicadas para problemas simples</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="blue-accent h-6 w-full mt-auto"></div>
+    </div>
+<!-- 1. Navigation Buttons HTML Block -->
+<div style="position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 100; background: white; padding: 10px; border-radius: 5px; box-shadow: 0 0 10px rgba(0,0,0,0.2);">
+    <button id="prevSlideButton" onclick="goToPrevSlide()"> « Previous </button>
+    <span id="slideIndicator" style="margin: 0 15px;">Slide ? of ?</span>
+    <button id="nextSlideButton" onclick="goToNextSlide()"> Next » </button>
+</div>
+
+<!-- 2. Link to Global script.js -->
+<script src="../../script.js"></script>
+</body>
+</html>

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acta del Proyecto - El Documento Guía - Tecniseguros</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .slide {
+            width: 1280px;
+            min-height: 720px;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+        }
+        .header-bar {
+            background: linear-gradient(90deg, #005792 0%, #00A6A6 100%);
+            height: 12px;
+        }
+        .footer-bar {
+            background: linear-gradient(90deg, #005792 0%, #00A6A6 100%);
+            height: 8px;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+        .company-logo {
+            position: absolute;
+            bottom: 20px;
+            right: 30px;
+            font-size: 16px;
+            color: #666;
+            font-weight: 500;
+        }
+        .charter-component {
+            transition: all 0.3s ease;
+        }
+        .charter-component:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+        .compass-bg {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 80px;
+            opacity: 0.05;
+            color: #005792;
+            z-index: 0;
+        }
+        .example-box {
+            border-left: 4px solid #00A6A6;
+        }
+        .smart-item {
+            transition: all 0.3s ease;
+        }
+        .smart-item:hover {
+            transform: translateX(5px);
+        }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <div class="header-bar"></div>
+        
+        <!-- Main Content -->
+        <div class="p-10 z-10 relative">
+            <!-- Title Section -->
+            <div class="mb-5">
+                <h1 class="text-3xl font-bold text-blue-700">Acta del Proyecto: La Estrella Guía de Su Proyecto</h1>
+                <div class="w-20 h-1 bg-blue-500 mt-3"></div>
+            </div>
+            
+            <!-- Definition Section -->
+            <div class="bg-blue-50 p-4 rounded-lg mb-5">
+                <div class="flex items-start">
+                    <div class="flex-shrink-0 mr-3">
+                        <div class="bg-blue-100 rounded-full p-2">
+                            <i class="fas fa-file-contract text-blue-600 text-xl"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-medium text-blue-700">¿Qué es?</h3>
+                        <p class="text-gray-700">Un documento formal y escrito que define el proyecto y autoriza al equipo a trabajar en él. Un "contrato" entre el equipo y la dirección.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Components Grid -->
+            <div class="grid grid-cols-2 gap-5">
+                <!-- Left Column -->
+                <div class="space-y-5">
+                    <!-- Problem Statement -->
+                    <div class="charter-component bg-white p-4 rounded-lg shadow-md border-t-4 border-blue-500">
+                        <div class="flex items-start mb-2">
+                            <div class="bg-blue-100 rounded-full p-2 mr-3 flex-shrink-0">
+                                <i class="fas fa-exclamation-triangle text-blue-600"></i>
+                            </div>
+                            <h3 class="text-lg font-medium text-blue-700">Declaración del Problema</h3>
+                        </div>
+                        <p class="text-sm text-gray-700 ml-11">Descripción clara y concisa del problema (Específico, Medible, Impactante).</p>
+                        <div class="example-box bg-blue-50 p-3 rounded mt-2 ml-11">
+                            <p class="text-xs text-gray-600 italic">Ejemplo:</p>
+                            <p class="text-sm text-gray-700">"El tiempo promedio para emitir nuevas pólizas de auto es de 7 días, excediendo la meta de 3 días, lo que genera insatisfacción del cliente (15% de quejas en Q1) y potencial pérdida de negocio."</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Goal Statement -->
+                    <div class="charter-component bg-white p-4 rounded-lg shadow-md border-t-4 border-green-500">
+                        <div class="flex items-start mb-2">
+                            <div class="bg-green-100 rounded-full p-2 mr-3 flex-shrink-0">
+                                <i class="fas fa-bullseye text-green-600"></i>
+                            </div>
+                            <h3 class="text-lg font-medium text-green-700">Declaración de Objetivo</h3>
+                        </div>
+                        <div class="ml-11">
+                            <p class="text-sm text-gray-700">Meta SMART para el proyecto:</p>
+                            <ul class="mt-1 space-y-1">
+                                <li class="smart-item flex items-center text-xs">
+                                    <span class="bg-green-500 text-white w-5 h-5 rounded-full flex items-center justify-center mr-2 flex-shrink-0">S</span>
+                                    <span class="text-gray-700">Específico</span>
+                                </li>
+                                <li class="smart-item flex items-center text-xs">
+                                    <span class="bg-green-500 text-white w-5 h-5 rounded-full flex items-center justify-center mr-2 flex-shrink-0">M</span>
+                                    <span class="text-gray-700">Medible</span>
+                                </li>
+                                <li class="smart-item flex items-center text-xs">
+                                    <span class="bg-green-500 text-white w-5 h-5 rounded-full flex items-center justify-center mr-2 flex-shrink-0">A</span>
+                                    <span class="text-gray-700">Alcanzable</span>
+                                </li>
+                                <li class="smart-item flex items-center text-xs">
+                                    <span class="bg-green-500 text-white w-5 h-5 rounded-full flex items-center justify-center mr-2 flex-shrink-0">R</span>
+                                    <span class="text-gray-700">Relevante</span>
+                                </li>
+                                <li class="smart-item flex items-center text-xs">
+                                    <span class="bg-green-500 text-white w-5 h-5 rounded-full flex items-center justify-center mr-2 flex-shrink-0">T</span>
+                                    <span class="text-gray-700">con Tiempo definido</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="example-box bg-green-50 p-3 rounded mt-2 ml-11">
+                            <p class="text-xs text-gray-600 italic">Ejemplo:</p>
+                            <p class="text-sm text-gray-700">"Reducir el tiempo promedio de emisión de pólizas de auto nuevas de 7 días a 4 días para finales del Q3, con una reducción correspondiente del 50% en quejas de clientes relacionadas."</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right Column -->
+                <div class="space-y-5">
+                    <!-- Business Case -->
+                    <div class="charter-component bg-white p-4 rounded-lg shadow-md border-t-4 border-blue-500">
+                        <div class="flex items-start mb-2">
+                            <div class="bg-blue-100 rounded-full p-2 mr-3 flex-shrink-0">
+                                <i class="fas fa-chart-line text-blue-600"></i>
+                            </div>
+                            <h3 class="text-lg font-medium text-blue-700">Caso de Negocio</h3>
+                        </div>
+                        <p class="text-sm text-gray-700 ml-11">¿Por qué es importante? Impacto en costo, calidad, satisfacción del cliente, ingresos, riesgo.</p>
+                        <div class="grid grid-cols-3 gap-2 mt-2 ml-11">
+                            <div class="bg-blue-50 p-2 rounded text-center">
+                                <i class="fas fa-dollar-sign text-blue-500 mb-1"></i>
+                                <p class="text-xs text-gray-600">Costo</p>
+                            </div>
+                            <div class="bg-blue-50 p-2 rounded text-center">
+                                <i class="fas fa-gem text-blue-500 mb-1"></i>
+                                <p class="text-xs text-gray-600">Calidad</p>
+                            </div>
+                            <div class="bg-blue-50 p-2 rounded text-center">
+                                <i class="fas fa-smile text-blue-500 mb-1"></i>
+                                <p class="text-xs text-gray-600">Satisfacción</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Scope -->
+                    <div class="charter-component bg-white p-4 rounded-lg shadow-md border-t-4 border-green-500">
+                        <div class="flex items-start mb-2">
+                            <div class="bg-green-100 rounded-full p-2 mr-3 flex-shrink-0">
+                                <i class="fas fa-border-all text-green-600"></i>
+                            </div>
+                            <h3 class="text-lg font-medium text-green-700">Alcance</h3>
+                        </div>
+                        <div class="grid grid-cols-2 gap-3 ml-11">
+                            <div>
+                                <h4 class="text-sm font-medium text-gray-700">En-Alcance:</h4>
+                                <p class="text-xs text-gray-600">Procesos/áreas incluidas</p>
+                                <div class="bg-green-50 p-2 rounded mt-1 border border-green-100">
+                                    <ul class="text-xs list-disc ml-4 text-gray-700">
+                                        <li>Proceso de emisión de pólizas de auto</li>
+                                        <li>Departamentos: Ventas, Suscripción</li>
+                                        <li>Sistema de gestión de pólizas</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-medium text-gray-700">Fuera-de-Alcance:</h4>
+                                <p class="text-xs text-gray-600">Lo que no será abordado</p>
+                                <div class="bg-red-50 p-2 rounded mt-1 border border-red-100">
+                                    <ul class="text-xs list-disc ml-4 text-gray-700">
+                                        <li>Otros tipos de pólizas</li>
+                                        <li>Cambios en infraestructura de TI</li>
+                                        <li>Estructura organizacional</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Team & Timeline -->
+                    <div class="charter-component bg-white p-4 rounded-lg shadow-md border-t-4 border-blue-500">
+                        <div class="grid grid-cols-2 gap-3">
+                            <div>
+                                <div class="flex items-center mb-2">
+                                    <div class="bg-blue-100 rounded-full p-1 mr-2 flex-shrink-0">
+                                        <i class="fas fa-users text-blue-600 text-sm"></i>
+                                    </div>
+                                    <h3 class="text-sm font-medium text-blue-700">Equipo & Roles</h3>
+                                </div>
+                                <ul class="text-xs space-y-1 ml-7 text-gray-700">
+                                    <li><span class="font-medium">Patrocinador:</span> Director de área</li>
+                                    <li><span class="font-medium">Líder:</span> Green/Black Belt</li>
+                                    <li><span class="font-medium">Miembros:</span> Expertos de proceso</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <div class="flex items-center mb-2">
+                                    <div class="bg-blue-100 rounded-full p-1 mr-2 flex-shrink-0">
+                                        <i class="fas fa-calendar-alt text-blue-600 text-sm"></i>
+                                    </div>
+                                    <h3 class="text-sm font-medium text-blue-700">Cronograma</h3>
+                                </div>
+                                <div class="bg-gray-50 rounded p-1 ml-7">
+                                    <div class="flex justify-between text-xs">
+                                        <span>D</span>
+                                        <span>M</span>
+                                        <span>A</span>
+                                        <span>I</span>
+                                        <span>C</span>
+                                    </div>
+                                    <div class="bg-blue-200 h-1.5 rounded-full mt-1 relative">
+                                        <div class="absolute left-0 top-0 h-1.5 w-1/5 bg-blue-500 rounded-full"></div>
+                                    </div>
+                                    <div class="text-right text-xs mt-1 text-gray-500">Duración: 3 meses</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Bottom Key Message -->
+            <div class="bg-green-50 p-3 rounded-lg mt-5 flex items-center">
+                <div class="bg-green-100 rounded-full p-2 mr-3 flex-shrink-0">
+                    <i class="fas fa-lightbulb text-yellow-500"></i>
+                </div>
+                <p class="text-gray-700"><span class="font-medium text-green-700">Recuerde:</span> El Acta del Proyecto debe ser clara, concisa y contar con la aprobación de todos los interesados clave antes de comenzar el trabajo significativo en el proyecto.</p>
+            </div>
+            
+            <!-- Visual Elements -->
+            <div class="compass-bg">
+                <i class="fas fa-compass"></i>
+            </div>
+        </div>
+        
+        <!-- footer -->
+        <div class="company-logo">Tecniseguros | Lean Six Sigma Yellow Belt</div>
+        <div class="footer-bar"></div>
+    </div>
+<!-- 1. Navigation Buttons HTML Block -->
+<div style="position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 100; background: white; padding: 10px; border-radius: 5px; box-shadow: 0 0 10px rgba(0,0,0,0.2);">
+    <button id="prevSlideButton" onclick="goToPrevSlide()"> « Previous </button>
+    <span id="slideIndicator" style="margin: 0 15px;">Slide ? of ?</span>
+    <button id="nextSlideButton" onclick="goToNextSlide()"> Next » </button>
+</div>
+
+<!-- 2. Link to Global script.js -->
+<script src="../../script.js"></script>
+</body>
+</html>

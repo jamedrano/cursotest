@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenida y Agenda</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif; /* Use Montserrat font */
+        }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background: linear-gradient(to right, #f7fafc, #edf2f7);
+            overflow: hidden;
+            position: relative;
+        }
+        .blue-accent {
+            background: linear-gradient(90deg, #1a365d 0%, #2a4365 100%);
+        }
+        .agenda-item {
+            transition: transform 0.3s ease;
+        }
+        .agenda-item:hover {
+            transform: translateX(10px);
+        }
+        .welcome-box {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(5px);
+            border-left: 5px solid #2b6cb0;
+        }
+        .welcome-image {
+            background: url('https://cdn.jsdelivr.net/gh/userix/demo-assets/abstract-growth.svg') no-repeat center center;
+            background-size: cover;
+            opacity: 0.2;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container flex flex-col">
+        <div class="blue-accent h-10 w-full shadow-md"></div>
+        
+        <div class="welcome-image"></div>
+        
+        <div class="flex-1 p-12 flex flex-row z-10">
+            <div class="w-2/5 pr-8 flex flex-col justify-center">
+                <div class="welcome-box p-6 rounded-lg shadow-lg">
+                    <h1 class="text-4xl font-bold text-blue-800 mb-6">¡Bienvenidos a Lean Six Sigma Yellow Belt!</h1>
+                    
+                    <p class="text-lg text-gray-700 mb-6">
+                        Estamos entusiasmados de comenzar este viaje de mejora continua con ustedes. 
+                        Durante este curso, aprenderemos herramientas prácticas que pueden 
+                        aplicarse inmediatamente en su trabajo diario en Tecniseguros.
+                    </p>
+                    
+                    <div class="mb-4 border-l-4 border-yellow-500 pl-4">
+                        <h3 class="text-xl font-semibold text-gray-800">Presentador:</h3>
+                        <p class="text-gray-700">
+                            <span class="font-medium">Ing. MSc José Antonio Medrano, LSS Black Belt</span><br>
+                            <span class="text-sm italic">Con amplia experiencia implementando mejoras de procesos en el sector de seguros</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="w-3/5 pl-8">
+                <h2 class="text-3xl font-bold text-gray-800 mb-8 border-b-2 border-blue-500 pb-2">
+                    Agenda de Hoy <i class="far fa-clock text-blue-600"></i>
+                </h2>
+                
+                <div class="space-y-4">
+                    <div class="agenda-item flex items-center bg-white p-3 rounded-lg shadow-sm">
+                        <div class="bg-blue-100 rounded-full p-3 mr-4">
+                            <i class="fas fa-users text-blue-600 fa-lg"></i>
+                        </div>
+                        <span class="text-lg font-medium">Presentaciones y Objetivos del Curso</span>
+                    </div>
+                    
+                    <div class="agenda-item flex items-center bg-white p-3 rounded-lg shadow-sm">
+                        <div class="bg-blue-100 rounded-full p-3 mr-4">
+                            <i class="fas fa-chart-line text-blue-600 fa-lg"></i>
+                        </div>
+                        <span class="text-lg font-medium">¿Por qué Mejorar? El Caso para el Cambio en Tecniseguros</span>
+                    </div>
+                    
+                    <div class="agenda-item flex items-center bg-white p-3 rounded-lg shadow-sm">
+                        <div class="bg-blue-100 rounded-full p-3 mr-4">
+                            <i class="fas fa-history text-blue-600 fa-lg"></i>
+                        </div>
+                        <span class="text-lg font-medium">Breve Historia: Fundamentos de la Calidad</span>
+                    </div>
+                    
+                    <div class="agenda-item flex items-center bg-white p-3 rounded-lg shadow-sm">
+                        <div class="bg-blue-100 rounded-full p-3 mr-4">
+                            <i class="fas fa-running text-blue-600 fa-lg"></i>
+                        </div>
+                        <span class="text-lg font-medium">¿Qué es Lean? Enfoque en el Desperdicio</span>
+                    </div>
+                    
+                    <div class="agenda-item flex items-center bg-white p-3 rounded-lg shadow-sm">
+                        <div class="bg-blue-100 rounded-full p-3 mr-4">
+                            <i class="fas fa-chart-bar text-blue-600 fa-lg"></i>
+                        </div>
+                        <span class="text-lg font-medium">¿Qué es Six Sigma? Enfoque en la Variación</span>
+                    </div>
+                    
+                    <div class="agenda-item flex items-center bg-white p-3 rounded-lg shadow-sm">
+                        <div class="bg-blue-100 rounded-full p-3 mr-4">
+                            <i class="fas fa-puzzle-piece text-blue-600 fa-lg"></i>
+                        </div>
+                        <span class="text-lg font-medium">El Poder de Combinar Lean y Six Sigma</span>
+                    </div>
+                    
+                    <div class="agenda-item flex items-center bg-white p-3 rounded-lg shadow-sm">
+                        <div class="bg-blue-100 rounded-full p-3 mr-4">
+                            <i class="fas fa-award text-blue-600 fa-lg"></i>
+                        </div>
+                        <span class="text-lg font-medium">Beneficios y Conclusión</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="blue-accent h-6 w-full mt-auto"></div>
+    </div>
+<div style="position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 100; background: white; padding: 10px; border-radius: 5px; box-shadow: 0 0 10px rgba(0,0,0,0.2);">
+    <button id="prevSlideButton" onclick="goToPrevSlide()"> « Previous </button>
+    <span id="slideIndicator" style="margin: 0 15px;">Slide ? of ?</span>
+    <button id="nextSlideButton" onclick="goToNextSlide()"> Next » </button>
+</div>
+<script src="../../script.js"></script>
+</body>
+</html>

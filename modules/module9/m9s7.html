@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elementos Clave de Control e Introducción a los Gráficos de Control</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            /* overflow: hidden; -- Removed for consistency */
+            background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+            /* Added for centering the slide for testing */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .slide {
+            width: 1280px;
+            min-height: 720px;
+            background-color: white;
+            margin: 0 auto;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+        }
+        .top-bar {
+            height: 12px;
+            background: linear-gradient(90deg, #1e40af, #3b82f6, #93c5fd);
+        }
+        .control-element {
+            border-radius: 8px;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border-left: 4px solid #3b82f6;
+        }
+        .control-element:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .element-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background-color: #e0f2fe;
+            color: #0369a1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+        .chart-container {
+            position: relative;
+            height: 240px;
+            width: 100%;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+            padding: 16px;
+        }
+        .interpretation-item {
+            border-radius: 6px;
+            padding: 8px 12px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+        .interpretation-icon {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+        .normal-variation {
+            background-color: #dcfce7;
+            border: 1px solid #86efac;
+        }
+        .normal-variation .interpretation-icon {
+            background-color: #22c55e;
+            color: white;
+        }
+        .special-variation {
+            background-color: #fee2e2;
+            border: 1px solid #fca5a5;
+        }
+        .special-variation .interpretation-icon {
+            background-color: #ef4444;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <div class="top-bar"></div>
+        <div class="flex flex-col h-full">
+            <!-- header Section -->
+            <header class="px-16 pt-8 pb-4">
+                <div class="flex justify-between items-center">
+                    <h1 class="text-4xl font-bold text-blue-700">Elementos Clave de Control e Introducción a los Gráficos de Control</h1>
+                    <img src="../../assets/images/logotecniseguros.png" alt="Logo Tecniseguros" class="h-12">
+                </div>
+                <p class="text-lg text-gray-600">Mantenimiento de las mejoras y monitoreo del desempeño</p>
+            </header>
+
+            <!-- Main Content -->
+            <main class="px-16 py-4 flex-1 grid grid-cols-2 gap-8">
+                <!-- Left Column - Key Control Elements -->
+                <div class="flex flex-col">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4 flex items-center">
+                        <i class="fas fa-shield-alt text-blue-600 mr-3"></i>
+                        Elementos Clave del Control
+                    </h2>
+                    
+                    <div class="space-y-4 flex-1">
+                        <div class="control-element p-4 flex">
+                            <div class="element-icon mr-4">
+                                <i class="fas fa-clipboard-list"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg text-gray-800 mb-1">Estandarización</h3>
+                                <p class="text-gray-600">Actualizar documentos de trabajo estándar, procedimientos y listas de verificación para reflejar el nuevo proceso.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="control-element p-4 flex">
+                            <div class="element-icon mr-4">
+                                <i class="fas fa-user-graduate"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg text-gray-800 mb-1">Capacitación</h3>
+                                <p class="text-gray-600">Asegurar que todos los involucrados entiendan y puedan ejecutar el nuevo proceso correctamente.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="control-element p-4 flex">
+                            <div class="element-icon mr-4">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg text-gray-800 mb-1">Plan de Monitoreo</h3>
+                                <p class="text-gray-600">Definir métricas clave a seguir, con qué frecuencia y quién es responsable del seguimiento.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="control-element p-4 flex">
+                            <div class="element-icon mr-4">
+                                <i class="fas fa-life-ring"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg text-gray-800 mb-1">Plan de Respuesta</h3>
+                                <p class="text-gray-600">Acciones predeterminadas a tomar si el monitoreo muestra que el proceso está fallando o fuera de control.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-2 bg-blue-50 p-4 rounded-lg border border-blue-200">
+                        <div class="flex items-center">
+                            <div class="bg-blue-600 rounded-full p-2 text-white mr-3">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <p class="font-medium text-gray-700">
+                                <span class="text-blue-700 font-bold">Ejemplo práctico:</span> Después de implementar una solución para reducir errores en pólizas, monitoreamos la tasa de error semanal usando un gráfico de control. Si un punto supera el LSC, nuestro plan de respuesta activa una investigación.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right Column - Control Charts Introduction -->
+                <div class="flex flex-col">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4 flex items-center">
+                        <i class="fas fa-chart-area text-blue-600 mr-3"></i>
+                        Gráficos de Control: Herramienta de Monitoreo
+                    </h2>
+                    
+                    <div class="mb-4">
+                        <h3 class="font-bold text-lg text-gray-800 mb-2">Propósito:</h3>
+                        <p class="text-gray-600">Monitorear el desempeño del proceso en el tiempo y distinguir entre:</p>
+                        <ul class="mt-1 ml-6 list-disc text-gray-600">
+                            <li><span class="font-medium">Variación por causa común:</span> Fluctuación normal del proceso</li>
+                            <li><span class="font-medium">Variación por causa especial:</span> Señal de que algo ha cambiado</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Control Chart Example -->
+                    <div class="chart-container mb-3">
+                        <canvas id="controlChart"></canvas>
+                    </div>
+                    
+                    <!-- Chart Components Description -->
+                    <div class="grid grid-cols-3 gap-2 mb-4">
+                        <div class="bg-blue-50 p-3 rounded-md">
+                            <div class="font-medium text-blue-700">Línea Central (LC)</div>
+                            <p class="text-sm text-gray-600">Promedio del proceso</p>
+                        </div>
+                        <div class="bg-blue-50 p-3 rounded-md">
+                            <div class="font-medium text-blue-700">Límite Superior (LSC)</div>
+                            <p class="text-sm text-gray-600">LC + 3*Desv. Estándar</p>
+                        </div>
+                        <div class="bg-blue-50 p-3 rounded-md">
+                            <div class="font-medium text-blue-700">Límite Inferior (LIC)</div>
+                            <p class="text-sm text-gray-600">LC - 3*Desv. Estándar</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Interpretation -->
+                    <h3 class="font-bold text-lg text-gray-800 mb-2">Interpretación:</h3>
+                    <div class="interpretation-item normal-variation">
+                        <div class="interpretation-icon">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <p class="text-sm">Puntos fluctuando aleatoriamente dentro de los límites = <span class="font-bold">proceso estable</span> (causa común)</p>
+                    </div>
+                    <div class="interpretation-item special-variation">
+                        <div class="interpretation-icon">
+                            <i class="fas fa-exclamation"></i>
+                        </div>
+                        <p class="text-sm">Puntos fuera de los límites o formando patrones no aleatorios = <span class="font-bold">proceso inestable</span> (causa especial)</p>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    
+    <script>
+    window.onload = function() {
+        // Generate data for the control chart
+        const labels = ['Semana 1', 'Semana 2', 'Semana 3', 'Semana 4', 'Semana 5', 'Semana 6', 'Semana 7', 
+                        'Semana 8', 'Semana 9', 'Semana 10', 'Semana 11', 'Semana 12'];
+        
+        // Data representing error rates over time
+        const errorRates = [4.2, 3.8, 4.5, 3.9, 4.1, 4.3, 5.2, 4.0, 3.7, 6.5, 4.2, 3.9];
+        
+        // Calculate average and control limits
+        const average = errorRates.reduce((a, b) => a + b, 0) / errorRates.length;
+        const stdDev = Math.sqrt(errorRates.map(x => Math.pow(x - average, 2)).reduce((a, b) => a + b, 0) / errorRates.length);
+        
+        const upperLimit = average + 3 * stdDev;
+        const lowerLimit = Math.max(0, average - 3 * stdDev); // Prevent negative values for error rates
+        
+        // Create arrays for the control limits
+        const upperLimitLine = Array(labels.length).fill(upperLimit);
+        const centerLine = Array(labels.length).fill(average);
+        const lowerLimitLine = Array(labels.length).fill(lowerLimit);
+        
+        // Create the control chart
+        const ctx = document.getElementById('controlChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [
+                    {
+                        label: 'Tasa de Errores',
+                        data: errorRates,
+                        borderColor: '#2563eb',
+                        backgroundColor: 'rgba(37, 99, 235, 0.1)',
+                        borderWidth: 3,
+                        pointRadius: 5,
+                        pointBackgroundColor: function(context) {
+                            const value = context.dataset.data[context.dataIndex];
+                            return value > upperLimit || value < lowerLimit ? '#ef4444' : '#2563eb';
+                        },
+                        pointStyle: function(context) {
+                            const value = context.dataset.data[context.dataIndex];
+                            return value > upperLimit || value < lowerLimit ? 'rectRot' : 'circle';
+                        },
+                        pointBorderColor: function(context) {
+                            const value = context.dataset.data[context.dataIndex];
+                            return value > upperLimit || value < lowerLimit ? '#ef4444' : '#2563eb';
+                        },
+                        tension: 0.2,
+                        fill: false
+                    },
+                    {
+                        label: 'Límite Superior de Control (LSC)',
+                        data: upperLimitLine,
+                        borderColor: '#dc2626',
+                        borderWidth: 2,
+                        borderDash: [5, 5],
+                        pointRadius: 0,
+                        fill: false
+                    },
+                    {
+                        label: 'Línea Central (LC)',
+                        data: centerLine,
+                        borderColor: '#059669',
+                        borderWidth: 2,
+                        pointRadius: 0,
+                        fill: false
+                    },
+                    {
+                        label: 'Límite Inferior de Control (LIC)',
+                        data: lowerLimitLine,
+                        borderColor: '#dc2626',
+                        borderWidth: 2,
+                        borderDash: [5, 5],
+                        pointRadius: 0,
+                        fill: false
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Gráfico de Control: Tasa de Errores en Pólizas',
+                        font: {
+                            size: 16, // Main chart title size
+                            weight: 'bold'
+                        }
+                    },
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            boxWidth: 12,
+                            usePointStyle: true,
+                            font: { // Legend font size
+                                size: 10 
+                            }
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            afterTitle: function(tooltipItems) {
+                                const dataIndex = tooltipItems[0].dataIndex;
+                                const value = errorRates[dataIndex];
+                                if (value > upperLimit) {
+                                    return 'FUERA DEL LÍMITE SUPERIOR';
+                                } else if (value < lowerLimit) {
+                                    return 'FUERA DEL LÍMITE INFERIOR';
+                                }
+                                return '';
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Semana',
+                            font: {
+                                weight: 'bold',
+                                size: 12 // MODIFIED: X-axis title font size
+                            }
+                        },
+                        ticks: {
+                            font: {
+                                size: 10 // MODIFIED: X-axis tick labels font size
+                            }
+                        },
+                        grid: {
+                            display: false
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Tasa de Errores (%)',
+                            font: {
+                                weight: 'bold',
+                                size: 12 // MODIFIED: Y-axis title font size
+                            }
+                        },
+                        min: 0,
+                        max: Math.ceil(upperLimit) + 0.5, // Adjusted max for better visualization
+                        ticks: {
+                            stepSize: 1,
+                            font: {
+                                size: 10 // MODIFIED: Y-axis tick labels font size
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    };
+    </script>
+<!-- 1. Navigation Buttons HTML Block -->
+<div style="position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 100; background: white; padding: 10px; border-radius: 5px; box-shadow: 0 0 10px rgba(0,0,0,0.2);">
+    <button id="prevSlideButton" onclick="goToPrevSlide()"> « Previous </button>
+    <span id="slideIndicator" style="margin: 0 15px;">Slide ? of ?</span>
+    <button id="nextSlideButton" onclick="goToNextSlide()"> Next » </button>
+</div>
+
+<!-- 2. Link to Global script.js -->
+<script src="../../script.js"></script>
+</body>
+</html>

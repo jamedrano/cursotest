@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>De la Causa Raíz a la Solución</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+        }
+        .slide {
+            width: 1280px;
+            min-height: 720px;
+            background-color: white;
+            margin: 0 auto;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+        }
+        .top-bar {
+            height: 12px;
+            background: linear-gradient(90deg, #1e40af, #3b82f6, #93c5fd);
+        }
+        .content-box {
+            border-radius: 10px;
+            background-color: #f8fafc;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease;
+        }
+        .content-box:hover {
+            transform: translateY(-5px);
+        }
+        .matrix-box {
+            width: 400px;
+            height: 400px;
+            position: relative;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .matrix-quadrant {
+            position: absolute;
+            width: 50%;
+            height: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 10px;
+            transition: all 0.3s ease;
+        }
+        .matrix-quadrant:hover {
+            transform: scale(1.05);
+            z-index: 10;
+        }
+        .matrix-label {
+            position: absolute;
+            font-weight: bold;
+            font-size: 14px;
+            color: #475569;
+        }
+        .brainstorm-technique {
+            background-color: white;
+            border-radius: 8px;
+            border-left: 4px solid;
+            padding: 10px 15px;
+            margin-bottom: 12px;
+            transition: transform 0.2s ease;
+        }
+        .brainstorm-technique:hover {
+            transform: translateX(5px);
+        }
+        .example-card {
+            background-color: white;
+            border-radius: 8px;
+            border-left: 4px solid #3b82f6;
+            padding: 10px 15px;
+        }
+        .solution-tag {
+            display: inline-block;
+            border-radius: 16px;
+            padding: 2px 10px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <div class="top-bar"></div>
+        <div class="flex flex-col h-full">
+            <!-- header Section -->
+            <header class="px-16 pt-8 pb-4">
+                <div class="flex justify-between items-center">
+                    <h1 class="text-4xl font-bold text-blue-700">De la Causa Raíz a la Solución</h1>
+                    <img src="../../assets/images/logotecniseguros.png" alt="Logo Tecniseguros" class="h-12">
+                </div>
+                <p class="text-lg text-gray-600">Generando y seleccionando soluciones efectivas</p>
+            </header>
+
+            <!-- Main Content -->
+            <main class="px-16 py-4 flex-1 flex">
+                <!-- Left Column: Brainstorming Techniques -->
+                <div class="w-1/2 pr-6">
+                    <div class="content-box p-6 h-full flex flex-col">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-blue-100 text-blue-600 p-3 rounded-full mr-4">
+                                <i class="fas fa-lightbulb text-2xl"></i>
+                            </div>
+                            <h2 class="text-2xl font-bold text-gray-800">Generando Soluciones</h2>
+                        </div>
+                        
+                        <p class="mb-4 font-medium text-blue-700">Vinculación directa a las causas raíz encontradas</p>
+                        
+                        <div class="space-y-4 flex-1">
+                            <div class="brainstorm-technique border-blue-500">
+                                <div class="flex items-center">
+                                    <i class="fas fa-comments text-blue-500 mr-3"></i>
+                                    <h3 class="font-bold text-lg">Lluvia de Ideas Abierta</h3>
+                                </div>
+                                <p class="text-sm text-gray-600 ml-8">Todas las ideas son bienvenidas, sin juicios iniciales</p>
+                            </div>
+                            
+                            <div class="brainstorm-technique border-purple-500">
+                                <div class="flex items-center">
+                                    <i class="fas fa-users text-purple-500 mr-3"></i>
+                                    <h3 class="font-bold text-lg">Round Robin</h3>
+                                </div>
+                                <p class="text-sm text-gray-600 ml-8">Cada persona contribuye por turnos, facilitando participación equitativa</p>
+                            </div>
+                            
+                            <div class="brainstorm-technique border-teal-500">
+                                <div class="flex items-center">
+                                    <i class="fas fa-pencil-alt text-teal-500 mr-3"></i>
+                                    <h3 class="font-bold text-lg">SCAMPER</h3>
+                                </div>
+                                <p class="text-sm text-gray-600 ml-8">Sustituir, Combinar, Adaptar, Modificar, Poner otro uso, Eliminar, Reordenar</p>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-4">
+                            <div class="bg-gray-100 p-4 rounded-lg">
+                                <p class="text-sm text-center font-bold mb-1">RECUERDA</p>
+                                <p class="text-sm text-gray-700 italic text-center">Todas las soluciones deben dirigirse directamente a las causas raíz identificadas en la fase de Análisis</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right Column: Selection Process -->
+                <div class="w-1/2 pl-6">
+                    <div class="content-box p-6 h-full flex flex-col">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-blue-100 text-blue-600 p-3 rounded-full mr-4">
+                                <i class="fas fa-filter text-2xl"></i>
+                            </div>
+                            <h2 class="text-2xl font-bold text-gray-800">Selección de Soluciones</h2>
+                        </div>
+                        
+                        <p class="mb-3 text-center font-medium">Matriz de Impacto/Esfuerzo</p>
+                        
+                        <div class="flex justify-center mb-4">
+                            <div class="matrix-box">
+                                <!-- Top labels -->
+                                <div class="matrix-label" style="top: 5px; left: 50%; transform: translateX(-50%);">
+                                    BAJO ESFUERZO
+                                </div>
+                                <div class="matrix-label" style="top: 5px; right: 5px;">
+                                    ALTO ESFUERZO
+                                </div>
+                                
+                                <!-- Side labels -->
+                                <div class="matrix-label" style="top: 50%; left: 5px; transform: rotate(-90deg) translateX(50%);">
+                                    BAJO IMPACTO
+                                </div>
+                                <div class="matrix-label" style="top: 50%; right: 5px; transform: rotate(90deg) translateX(-50%);">
+                                    ALTO IMPACTO
+                                </div>
+                                
+                                <!-- Quadrant 1: Top Left - Quick Wins -->
+                                <div class="matrix-quadrant bg-green-100" style="top: 0; left: 0;">
+                                    <i class="fas fa-bolt text-green-600 text-3xl mb-2"></i>
+                                    <h4 class="font-bold text-green-700">VICTORIAS RÁPIDAS</h4>
+                                    <p class="text-sm text-green-700">Alto impacto, Bajo esfuerzo</p>
+                                    <p class="text-xs font-bold mt-2">¡HACERLAS PRIMERO!</p>
+                                </div>
+                                
+                                <!-- Quadrant 2: Top Right - Major Projects -->
+                                <div class="matrix-quadrant bg-blue-100" style="top: 0; right: 0;">
+                                    <i class="fas fa-project-diagram text-blue-600 text-3xl mb-2"></i>
+                                    <h4 class="font-bold text-blue-700">PROYECTOS MAYORES</h4>
+                                    <p class="text-sm text-blue-700">Alto impacto, Alto esfuerzo</p>
+                                    <p class="text-xs font-bold mt-2">PLANIFICAR CUIDADOSAMENTE</p>
+                                </div>
+                                
+                                <!-- Quadrant 3: Bottom Left - Fill-Ins -->
+                                <div class="matrix-quadrant bg-yellow-100" style="bottom: 0; left: 0;">
+                                    <i class="fas fa-check-square text-yellow-600 text-3xl mb-2"></i>
+                                    <h4 class="font-bold text-yellow-700">TAREAS DE RELLENO</h4>
+                                    <p class="text-sm text-yellow-700">Bajo impacto, Bajo esfuerzo</p>
+                                    <p class="text-xs font-bold mt-2">HACERLAS SI SON FÁCILES</p>
+                                </div>
+                                
+                                <!-- Quadrant 4: Bottom Right - Reconsider -->
+                                <div class="matrix-quadrant bg-red-100" style="bottom: 0; right: 0;">
+                                    <i class="fas fa-times-circle text-red-600 text-3xl mb-2"></i>
+                                    <h4 class="font-bold text-red-700">RECONSIDERAR</h4>
+                                    <p class="text-sm text-red-700">Bajo impacto, Alto esfuerzo</p>
+                                    <p class="text-xs font-bold mt-2">GENERALMENTE EVITAR</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Example section -->
+                        <div class="example-card mt-3">
+                            <h3 class="font-bold text-gray-700">Ejemplo práctico para Tecniseguros:</h3>
+                            <p class="text-sm mb-2"><b>Causa raíz:</b> Nombres confusos en plantillas de pólizas</p>
+                            <div class="flex flex-wrap gap-2 mt-2">
+                                <div class="flex items-center bg-white border border-blue-200 rounded-lg p-2 text-sm shadow-sm">
+                                    <div>
+                                        <p>Renombrar todas las plantillas</p>
+                                        <div class="mt-1">
+                                            <span class="solution-tag bg-blue-100 text-blue-700">Alto Impacto</span>
+                                            <span class="solution-tag bg-yellow-100 text-yellow-700">Esfuerzo Medio</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flex items-center bg-white border border-green-200 rounded-lg p-2 text-sm shadow-sm">
+                                    <div>
+                                        <p>Crear guía de referencia rápida</p>
+                                        <div class="mt-1">
+                                            <span class="solution-tag bg-blue-100 text-blue-700">Impacto Medio</span>
+                                            <span class="solution-tag bg-green-100 text-green-700">Bajo Esfuerzo</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+<!-- 1. Navigation Buttons HTML Block -->
+<div style="position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 100; background: white; padding: 10px; border-radius: 5px; box-shadow: 0 0 10px rgba(0,0,0,0.2);">
+    <button id="prevSlideButton" onclick="goToPrevSlide()"> « Previous </button>
+    <span id="slideIndicator" style="margin: 0 15px;">Slide ? of ?</span>
+    <button id="nextSlideButton" onclick="goToNextSlide()"> Next » </button>
+</div>
+
+<!-- 2. Link to Global script.js -->
+<script src="../../script.js"></script>
+</body>
+</html>

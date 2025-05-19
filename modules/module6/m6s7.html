@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introducción a la Estadística Descriptiva - Tecniseguros</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .slide {
+            width: 1280px;
+            min-height: 720px;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+        }
+        .header-bar {
+            background: linear-gradient(90deg, #005792 0%, #00A6A6 100%);
+            height: 12px;
+        }
+        .footer-bar {
+            background: linear-gradient(90deg, #005792 0%, #00A6A6 100%);
+            height: 8px;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+        .company-logo {
+            position: absolute;
+            bottom: 20px;
+            right: 30px;
+            font-size: 16px;
+            color: #666;
+            font-weight: 500;
+        }
+        .statistic-card {
+            transition: all 0.3s ease;
+        }
+        .statistic-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+        .chart-container {
+            height: 200px;
+            position: relative;
+        }
+        .distribution-example {
+            height: 70px;
+            position: relative;
+        }
+        .distribution-label {
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            bottom: -20px;
+            font-size: 12px;
+            color: #64748b;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <div class="header-bar"></div>
+        
+        <!-- Main Content -->
+        <div class="p-10 z-10 relative">
+            <!-- Title Section -->
+            <div class="mb-5">
+                <h1 class="text-3xl font-bold text-blue-700">Estadística Descriptiva: Resumiendo Nuestros Datos</h1>
+                <div class="w-20 h-1 bg-blue-500 mt-3"></div>
+            </div>
+            
+            <div class="grid grid-cols-2 gap-6">
+                <!-- Left Column: Central Tendency & Dispersion -->
+                <div class="space-y-5">
+                    <!-- Purpose -->
+                    <div class="bg-blue-50 p-4 rounded-lg">
+                        <h3 class="text-lg font-medium text-blue-700 mb-2 flex items-center">
+                            <i class="fas fa-bullseye text-blue-600 mr-2"></i>Propósito:
+                        </h3>
+                        <p class="text-gray-700">Describir las características principales de una colección de datos de forma cuantitativa.</p>
+                    </div>
+                    
+                    <!-- Measures of Central Tendency -->
+                    <div>
+                        <h3 class="text-lg font-medium text-blue-700 mb-3">
+                            <i class="fas fa-bullseye mr-2 text-blue-600"></i>Medidas de Tendencia Central:
+                        </h3>
+                        
+                        <div class="grid grid-cols-3 gap-3">
+                            <div class="statistic-card bg-white p-4 rounded-lg shadow-md">
+                                <div class="flex justify-center mb-3">
+                                    <div class="bg-blue-100 rounded-full w-12 h-12 flex items-center justify-center">
+                                        <span class="text-blue-700 font-bold text-2xl">x̄</span>
+                                    </div>
+                                </div>
+                                <h4 class="text-center font-medium text-gray-800 mb-2">Media</h4>
+                                <p class="text-xs text-gray-600 text-center">Promedio (suma de valores / número de valores)</p>
+                                <p class="text-xs text-center mt-2 text-red-500">Sensible a valores atípicos</p>
+                            </div>
+                            
+                            <div class="statistic-card bg-white p-4 rounded-lg shadow-md">
+                                <div class="flex justify-center mb-3">
+                                    <div class="bg-green-100 rounded-full w-12 h-12 flex items-center justify-center">
+                                        <i class="fas fa-grip-lines text-green-700 text-xl"></i>
+                                    </div>
+                                </div>
+                                <h4 class="text-center font-medium text-gray-800 mb-2">Mediana</h4>
+                                <p class="text-xs text-gray-600 text-center">Valor del medio cuando los datos están ordenados</p>
+                                <p class="text-xs text-center mt-2 text-green-500">Menos afectada por valores atípicos</p>
+                            </div>
+                            
+                            <div class="statistic-card bg-white p-4 rounded-lg shadow-md">
+                                <div class="flex justify-center mb-3">
+                                    <div class="bg-blue-100 rounded-full w-12 h-12 flex items-center justify-center">
+                                        <i class="fas fa-poll text-blue-700 text-xl"></i>
+                                    </div>
+                                </div>
+                                <h4 class="text-center font-medium text-gray-800 mb-2">Moda</h4>
+                                <p class="text-xs text-gray-600 text-center">Valor que ocurre con mayor frecuencia</p>
+                                <p class="text-xs text-center mt-2 text-gray-500">Útil para valores categóricos</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Measures of Dispersion -->
+                    <div>
+                        <h3 class="text-lg font-medium text-green-700 mb-3">
+                            <i class="fas fa-arrows-alt-h mr-2 text-green-600"></i>Medidas de Dispersión:
+                        </h3>
+                        
+                        <div class="grid grid-cols-2 gap-3">
+                            <div class="statistic-card bg-white p-4 rounded-lg shadow-md">
+                                <div class="flex justify-center mb-3">
+                                    <div class="bg-green-100 rounded-full w-12 h-12 flex items-center justify-center">
+                                        <i class="fas fa-ruler-horizontal text-green-700 text-xl"></i>
+                                    </div>
+                                </div>
+                                <h4 class="text-center font-medium text-gray-800 mb-2">Rango</h4>
+                                <p class="text-xs text-gray-600 text-center">Diferencia entre el valor más alto y más bajo</p>
+                                <p class="text-xs text-center mt-2 text-red-500">Simple pero afectado por valores atípicos</p>
+                            </div>
+                            
+                            <div class="statistic-card bg-white p-4 rounded-lg shadow-md">
+                                <div class="flex justify-center mb-3">
+                                    <div class="bg-green-100 rounded-full w-12 h-12 flex items-center justify-center">
+                                        <span class="text-green-700 font-bold text-lg">σ</span>
+                                    </div>
+                                </div>
+                                <h4 class="text-center font-medium text-gray-800 mb-2">Desviación Estándar</h4>
+                                <p class="text-xs text-gray-600 text-center">Medida de cuánto se desvían típicamente los datos de la media</p>
+                                <div class="grid grid-cols-2 gap-1 mt-2">
+                                    <div class="bg-blue-50 p-1 rounded text-xs text-center">
+                                        <span class="text-blue-700">Baja = Consistente</span>
+                                    </div>
+                                    <div class="bg-red-50 p-1 rounded text-xs text-center">
+                                        <span class="text-red-700">Alta = Variable</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right Column: Visuals -->
+                <div>
+                    <!-- Histogram Example -->
+                    <h3 class="text-lg font-medium text-blue-700 mb-3">
+                        <i class="fas fa-chart-bar mr-2 text-blue-600"></i>Visualización con Histogramas
+                    </h3>
+                    
+                    <div class="bg-white p-4 rounded-lg shadow-md mb-4">
+                        <h4 class="text-sm font-medium text-gray-800 mb-3">Ejemplo: Tiempos de procesamiento de pólizas (días)</h4>
+                        <div class="chart-container">
+                            <canvas id="histogramChart"></canvas>
+                        </div>
+                        <p class="text-xs text-center text-gray-600 mt-2">Un histograma muestra la distribución de los datos y ayuda a entender dónde se concentran los valores</p>
+                    </div>
+                    
+                    <!-- Standard Deviation Visual -->
+                    <div class="bg-white p-4 rounded-lg shadow-md mb-4">
+                        <h4 class="text-sm font-medium text-gray-800 mb-3">Interpretando la Desviación Estándar</h4>
+                        
+                        <div class="grid grid-cols-2 gap-3">
+                            <div>
+                                <div class="distribution-example">
+                                    <canvas id="lowStdDevChart"></canvas>
+                                </div>
+                                <div class="distribution-label">Baja Desviación Estándar</div>
+                            </div>
+                            <div>
+                                <div class="distribution-example">
+                                    <canvas id="highStdDevChart"></canvas>
+                                </div>
+                                <div class="distribution-label">Alta Desviación Estándar</div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-4 text-xs text-gray-700">
+                            <p><span class="font-medium text-blue-700">Baja σ:</span> Los datos están agrupados cerca de la media - El proceso es consistente y predecible</p>
+                            <p><span class="font-medium text-red-700">Alta σ:</span> Los datos están dispersos en un rango amplio - El proceso es variable e impredecible</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Practical Example -->
+                    <div class="bg-green-50 p-4 rounded-lg">
+                        <h3 class="text-md font-medium text-green-700 mb-2 flex items-center">
+                            <i class="fas fa-lightbulb text-yellow-500 mr-2"></i>Ejemplo para Tecniseguros:
+                        </h3>
+                        <p class="text-sm text-gray-700">
+                            "Analizando los tiempos de emisión de pólizas de auto, descubrimos que el tiempo promedio es de 4.8 días, con una mediana de 3 días y una desviación estándar de 3.2 días. Esto indica que aunque la mayoría de las pólizas se emiten en 3 días o menos, hay casos atípicos que elevan el promedio y crean una alta variabilidad."
+                        </p>
+                        <div class="mt-2 bg-white p-2 rounded text-xs text-gray-600">
+                            <p><span class="font-medium text-blue-700">Conclusión:</span> El enfoque para mejorar debería centrarse en identificar y abordar los casos que toman significativamente más tiempo que la mediana.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- footer -->
+        <div class="company-logo">Tecniseguros | Lean Six Sigma Yellow Belt</div>
+        <div class="footer-bar"></div>
+    </div>
+    
+    <script>
+        // Histogram Chart
+        const histogramCtx = document.getElementById('histogramChart').getContext('2d');
+        new Chart(histogramCtx, {
+            type: 'bar',
+            data: {
+                labels: ['1 día', '2 días', '3 días', '4 días', '5 días', '6 días', '7+ días'],
+                datasets: [{
+                    label: 'Frecuencia',
+                    data: [5, 15, 25, 18, 10, 5, 2],
+                    backgroundColor: [
+                        'rgba(0, 87, 146, 0.6)',
+                        'rgba(0, 117, 146, 0.6)',
+                        'rgba(0, 147, 146, 0.6)',
+                        'rgba(0, 166, 166, 0.6)',
+                        'rgba(0, 166, 146, 0.6)',
+                        'rgba(0, 166, 126, 0.6)',
+                        'rgba(0, 166, 106, 0.6)'
+                    ],
+                    borderColor: [
+                        'rgba(0, 87, 146, 1)',
+                        'rgba(0, 117, 146, 1)',
+                        'rgba(0, 147, 146, 1)',
+                        'rgba(0, 166, 166, 1)',
+                        'rgba(0, 166, 146, 1)',
+                        'rgba(0, 166, 126, 1)',
+                        'rgba(0, 166, 106, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Número de Pólizas'
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Tiempo de Procesamiento'
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+        
+        // Low Standard Deviation Chart
+        const lowStdDevCtx = document.getElementById('lowStdDevChart').getContext('2d');
+        new Chart(lowStdDevCtx, {
+            type: 'line',
+            data: {
+                labels: ['', '', '', '', '', '', '', '', ''],
+                datasets: [{
+                    label: 'Distribución',
+                    data: [2, 4, 10, 18, 25, 18, 10, 4, 2],
+                    fill: true,
+                    backgroundColor: 'rgba(0, 87, 146, 0.2)',
+                    borderColor: 'rgba(0, 87, 146, 0.8)',
+                    tension: 0.4,
+                    pointRadius: 0
+                }]
+            },
+            options: {
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        display: false,
+                        beginAtZero: true
+                    },
+                    x: {
+                        display: false
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+        
+        // High Standard Deviation Chart
+        const highStdDevCtx = document.getElementById('highStdDevChart').getContext('2d');
+        new Chart(highStdDevCtx, {
+            type: 'line',
+            data: {
+                labels: ['', '', '', '', '', '', '', '', ''],
+                datasets: [{
+                    label: 'Distribución',
+                    data: [8, 10, 12, 14, 15, 14, 12, 10, 8],
+                    fill: true,
+                    backgroundColor: 'rgba(239, 68, 68, 0.2)',
+                    borderColor: 'rgba(239, 68, 68, 0.8)',
+                    tension: 0.1,
+                    pointRadius: 0
+                }]
+            },
+            options: {
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        display: false,
+                        beginAtZero: true
+                    },
+                    x: {
+                        display: false
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+    </script>
+<!-- 1. Navigation Buttons HTML Block -->
+<div style="position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 100; background: white; padding: 10px; border-radius: 5px; box-shadow: 0 0 10px rgba(0,0,0,0.2);">
+    <button id="prevSlideButton" onclick="goToPrevSlide()"> « Previous </button>
+    <span id="slideIndicator" style="margin: 0 15px;">Slide ? of ?</span>
+    <button id="nextSlideButton" onclick="goToNextSlide()"> Next » </button>
+</div>
+
+<!-- 2. Link to Global script.js -->
+<script src="../../script.js"></script>
+
+</body>
+</html>

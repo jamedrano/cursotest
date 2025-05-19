@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cierre del Módulo 9 y Próximos Pasos</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+        }
+        .slide {
+            width: 1280px;
+            min-height: 720px;
+            background-color: white;
+            margin: 0 auto;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+        }
+        .top-bar {
+            height: 12px;
+            background: linear-gradient(90deg, #1e40af, #3b82f6, #93c5fd);
+        }
+        .key-point {
+            border-radius: 8px;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border-left: 4px solid #3b82f6;
+        }
+        .key-point:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .point-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background-color: #e0f2fe;
+            color: #0369a1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+        .dmaic-circle {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            border: 3px solid;
+            margin: 0 -5px;
+        }
+        .dmaic-active {
+            background-color: #3b82f6;
+            color: white;
+            border-color: #1e40af;
+            transform: scale(1.1);
+            box-shadow: 0 4px 10px rgba(59, 130, 246, 0.5);
+            z-index: 10;
+        }
+        .dmaic-completed {
+            background-color: #a5f3fc;
+            color: #0e7490;
+            border-color: #0e7490;
+        }
+        .dmaic-future {
+            background-color: #e5e7eb;
+            color: #6b7280;
+            border-color: #9ca3af;
+        }
+        .question-section {
+            background: linear-gradient(135deg, #dbeafe, #eff6ff);
+            border-radius: 12px;
+            border-left: 6px solid #3b82f6;
+        }
+        .next-module {
+            background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+            border-radius: 12px;
+            border-left: 6px solid #0ea5e9;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <div class="top-bar"></div>
+        <div class="flex flex-col h-full">
+            <!-- header Section -->
+            <header class="px-16 pt-8 pb-4">
+                <div class="flex justify-between items-center">
+                    <h1 class="text-4xl font-bold text-blue-700">Cierre del Módulo 9 y Próximos Pasos</h1>
+                    <img src="../../assets/images/logotecniseguros.png" alt="Logo Tecniseguros" class="h-12">
+                </div>
+                <p class="text-lg text-gray-600">Implementación de Soluciones y Aseguramiento del Éxito a Largo Plazo</p>
+            </header>
+
+            <!-- Main Content -->
+            <main class="px-16 py-2 flex-1 grid grid-cols-2 gap-8">
+                <!-- Left Column - Key Takeaways -->
+                <div class="flex flex-col">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-5 flex items-center">
+                        <i class="fas fa-check-circle text-green-600 mr-3"></i>
+                        Puntos Clave del Módulo
+                    </h2>
+                    
+                    <div class="space-y-4 mb-4">
+                        <div class="key-point p-4 flex">
+                            <div class="point-icon mr-4">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg text-gray-800 mb-1">Fase de Mejora</h3>
+                                <p class="text-gray-600">Desarrollo e implementación de soluciones vinculadas directamente a las causas raíz identificadas, a menudo mediante proyectos piloto.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="key-point p-4 flex">
+                            <div class="point-icon mr-4">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg text-gray-800 mb-1">Fase de Control</h3>
+                                <p class="text-gray-600">Sostenimiento de las ganancias a través de estandarización, capacitación, monitoreo continuo y planes de respuesta.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="key-point p-4 flex">
+                            <div class="point-icon mr-4">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg text-gray-800 mb-1">Gráficos de Control</h3>
+                                <p class="text-gray-600">Herramientas visuales para monitorear la estabilidad del proceso a lo largo del tiempo y distinguir entre variación normal y especial.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Q&A Section -->
+                    <div class="question-section p-5 mt-2">
+                        <div class="flex items-start">
+                            <div class="bg-blue-600 p-3 rounded-full text-white text-2xl mr-4">
+                                <i class="fas fa-question"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-blue-800 mb-2">Preguntas y Respuestas</h3>
+                                <p class="text-blue-900">¿Tiene alguna pregunta sobre las fases de Mejora y Control o sobre cómo aplicarlas en Tecniseguros?</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right Column - DMAIC Cycle & Next Steps -->
+                <div class="flex flex-col">
+                    <!-- DMAIC Cycle Complete -->
+                    <div class="mb-6">
+                        <h2 class="text-2xl font-bold text-gray-800 mb-4 flex items-center">
+                            <i class="fas fa-sync-alt text-blue-600 mr-3"></i>
+                            ¡Ciclo DMAIC Completado!
+                        </h2>
+                        
+                        <div class="flex justify-center items-center mb-4 mt-6">
+                            <div class="dmaic-circle dmaic-completed">D</div>
+                            <div class="dmaic-circle dmaic-completed">M</div>
+                            <div class="dmaic-circle dmaic-completed">A</div>
+                            <div class="dmaic-circle dmaic-active">I</div>
+                            <div class="dmaic-circle dmaic-active">C</div>
+                        </div>
+                        
+                        <p class="text-center text-gray-700 mt-3 font-medium">
+                            Hemos recorrido todo el ciclo DMAIC, desde la Definición del problema hasta el Control de las mejoras.
+                        </p>
+                    </div>
+                    
+                    <!-- Next Steps -->
+                    <div class="next-module p-5 flex-grow">
+                        <h2 class="text-xl font-bold text-blue-800 mb-3 flex items-center">
+                            <i class="fas fa-arrow-circle-right text-blue-600 mr-2"></i>
+                            Vista Previa: Módulo 10
+                        </h2>
+                        
+                        <div class="bg-white bg-opacity-70 p-4 rounded-lg">
+                            <h3 class="font-bold text-gray-800 mb-2">En nuestro módulo final:</h3>
+                            <ul class="space-y-3">
+                                <li class="flex items-center">
+                                    <i class="fas fa-file-powerpoint text-orange-500 mr-3"></i>
+                                    <span>Presentación de Ideas de Proyectos aplicando lo aprendido</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-clipboard-check text-green-500 mr-3"></i>
+                                    <span>Revisión final del curso y conceptos clave</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-road text-blue-500 mr-3"></i>
+                                    <span>Próximos pasos para aplicar Lean Six Sigma en Tecniseguros</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="mt-4 flex justify-center">
+                            <div class="bg-blue-100 px-5 py-3 rounded-full flex items-center">
+                                <i class="fas fa-calendar-check text-blue-700 mr-2"></i>
+                                <span class="font-medium text-blue-800">Fecha: Próxima sesión</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            
+            <!-- footer with navigation hint -->
+            <footer class="px-16 py-4 flex justify-between items-center bg-gray-50 border-t border-gray-200">
+                <div class="flex items-center text-gray-500">
+                    <i class="fas fa-info-circle mr-2"></i>
+                    <span>Módulo 9 de 10 - Lean Six Sigma Yellow Belt</span>
+                </div>
+                <div class="flex items-center text-blue-600">
+                    <span class="font-medium mr-2">Continuar al Módulo Final</span>
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+            </footer>
+        </div>
+    </div>
+<!-- 1. Navigation Buttons HTML Block -->
+<div style="position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 100; background: white; padding: 10px; border-radius: 5px; box-shadow: 0 0 10px rgba(0,0,0,0.2);">
+    <button id="prevSlideButton" onclick="goToPrevSlide()"> « Previous </button>
+    <span id="slideIndicator" style="margin: 0 15px;">Slide ? of ?</span>
+    <button id="nextSlideButton" onclick="goToNextSlide()"> Next » </button>
+</div>
+
+<!-- 2. Link to Global script.js -->
+<script src="../../script.js"></script>
+</body>
+</html>

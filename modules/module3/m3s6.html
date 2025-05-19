@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Importancia de los Datos en Six Sigma - Tecniseguros</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .slide {
+            width: 1280px;
+            min-height: 720px;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+        }
+        .header-bar {
+            background: linear-gradient(90deg, #005792 0%, #00A6A6 100%);
+            height: 12px;
+        }
+        .footer-bar {
+            background: linear-gradient(90deg, #005792 0%, #00A6A6 100%);
+            height: 8px;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+        .company-logo {
+            position: absolute;
+            bottom: 20px;
+            right: 30px;
+            font-size: 16px;
+            color: #666;
+            font-weight: 500;
+        }
+        .reason-card {
+            transition: all 0.3s ease;
+        }
+        .reason-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+        .data-flow {
+            position: relative;
+        }
+        .data-flow::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, rgba(0,87,146,0.3) 0%, rgba(0,166,166,0.3) 100%);
+            z-index: 0;
+        }
+        .data-element {
+            position: relative;
+            z-index: 1;
+        }
+        .big-quote {
+            position: absolute;
+            top: 50px;
+            right: 50px;
+            font-size: 120px;
+            opacity: 0.05;
+            color: #005792;
+            z-index: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <div class="header-bar"></div>
+        
+        <!-- Main Content -->
+        <div class="p-10 z-10 relative">
+            <!-- Title Section -->
+            <div class="mb-6">
+                <h1 class="text-3xl font-bold text-blue-700">Los Datos: El Fundamento de las Decisiones en Six Sigma</h1>
+                <div class="w-20 h-1 bg-blue-500 mt-3"></div>
+            </div>
+            
+            <!-- Quote Section -->
+            <div class="bg-blue-50 p-4 rounded-lg mb-6">
+                <div class="flex items-start">
+                    <div class="text-4xl text-blue-200 mr-3">
+                        <i class="fas fa-quote-left"></i>
+                    </div>
+                    <div>
+                        <p class="text-lg text-gray-700 italic">"En Dios confiamos, todos los demás traigan datos."</p>
+                        <p class="text-sm text-blue-600 mt-1">- W. Edwards Deming</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Main Content Grid -->
+            <div class="grid grid-cols-2 gap-8">
+                <!-- Left Side: Why Data is Crucial -->
+                <div>
+                    <h3 class="text-lg font-medium text-blue-700 mb-4">
+                        <i class="fas fa-question-circle mr-2 text-blue-600"></i>¿Por qué los datos son cruciales?
+                    </h3>
+                    
+                    <div class="space-y-3">
+                        <div class="reason-card flex items-start bg-white p-3 rounded-lg shadow border-l-4 border-blue-400">
+                            <div class="mr-3 flex-shrink-0">
+                                <div class="bg-blue-100 rounded-full p-2">
+                                    <i class="fas fa-chart-line text-blue-500"></i>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-800">De opiniones a hechos</h4>
+                                <p class="text-sm text-gray-600">Transformar percepciones subjetivas en información objetiva y cuantificable</p>
+                            </div>
+                        </div>
+                        
+                        <div class="reason-card flex items-start bg-white p-3 rounded-lg shadow border-l-4 border-green-400">
+                            <div class="mr-3 flex-shrink-0">
+                                <div class="bg-green-100 rounded-full p-2">
+                                    <i class="fas fa-ruler text-green-500"></i>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-800">Entender el desempeño actual</h4>
+                                <p class="text-sm text-gray-600">Establecer líneas base objetivas en la fase Medir</p>
+                            </div>
+                        </div>
+                        
+                        <div class="reason-card flex items-start bg-white p-3 rounded-lg shadow border-l-4 border-blue-400">
+                            <div class="mr-3 flex-shrink-0">
+                                <div class="bg-blue-100 rounded-full p-2">
+                                    <i class="fas fa-search text-blue-500"></i>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-800">Identificar causas raíz</h4>
+                                <p class="text-sm text-gray-600">Localizar los verdaderos orígenes de problemas en la fase Analizar</p>
+                            </div>
+                        </div>
+                        
+                        <div class="reason-card flex items-start bg-white p-3 rounded-lg shadow border-l-4 border-green-400">
+                            <div class="mr-3 flex-shrink-0">
+                                <div class="bg-green-100 rounded-full p-2">
+                                    <i class="fas fa-check-double text-green-500"></i>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-800">Verificar mejoras</h4>
+                                <p class="text-sm text-gray-600">Comprobar que las soluciones realmente funcionaron en la fase Mejorar</p>
+                            </div>
+                        </div>
+                        
+                        <div class="reason-card flex items-start bg-white p-3 rounded-lg shadow border-l-4 border-blue-400">
+                            <div class="mr-3 flex-shrink-0">
+                                <div class="bg-blue-100 rounded-full p-2">
+                                    <i class="fas fa-eye text-blue-500"></i>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-800">Monitoreo continuo</h4>
+                                <p class="text-sm text-gray-600">Base para el seguimiento y mantenimiento en la fase Controlar</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right Side: Visual and Example -->
+                <div>
+                    <!-- Data Flow Visual -->
+                    <div class="bg-white p-5 rounded-lg shadow-md mb-6">
+                        <h3 class="text-lg font-medium text-blue-700 mb-4 text-center">
+                            Del Dato a la Decisión
+                        </h3>
+                        
+                        <div class="data-flow flex justify-between items-center py-8">
+                            <div class="data-element text-center">
+                                <div class="bg-blue-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-2">
+                                    <i class="fas fa-database text-blue-600 text-xl"></i>
+                                </div>
+                                <p class="text-sm font-medium text-gray-600">Datos</p>
+                            </div>
+                            
+                            <div class="z-10">
+                                <i class="fas fa-arrow-right text-green-400 text-xl"></i>
+                            </div>
+                            
+                            <div class="data-element text-center">
+                                <div class="bg-blue-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-2">
+                                    <i class="fas fa-chart-pie text-blue-600 text-xl"></i>
+                                </div>
+                                <p class="text-sm font-medium text-gray-600">Análisis</p>
+                            </div>
+                            
+                            <div class="z-10">
+                                <i class="fas fa-arrow-right text-green-400 text-xl"></i>
+                            </div>
+                            
+                            <div class="data-element text-center">
+                                <div class="bg-blue-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-2">
+                                    <i class="fas fa-lightbulb text-blue-600 text-xl"></i>
+                                </div>
+                                <p class="text-sm font-medium text-gray-600">Insights</p>
+                            </div>
+                            
+                            <div class="z-10">
+                                <i class="fas fa-arrow-right text-green-400 text-xl"></i>
+                            </div>
+                            
+                            <div class="data-element text-center">
+                                <div class="bg-green-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-2">
+                                    <i class="fas fa-clipboard-check text-green-600 text-xl"></i>
+                                </div>
+                                <p class="text-sm font-medium text-gray-600">Decisión</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Key Principle -->
+                    <div class="bg-blue-50 p-4 rounded-lg mb-6">
+                        <h3 class="text-lg font-medium text-blue-700 mb-2 flex items-center">
+                            <i class="fas fa-key text-yellow-500 mr-2"></i>Principio Clave:
+                        </h3>
+                        <p class="text-gray-700 font-medium">Tomar decisiones basadas en evidencia, no en presentimientos.</p>
+                    </div>
+                    
+                    <!-- Practical Example -->
+                    <div class="bg-green-50 p-4 rounded-lg">
+                        <h3 class="text-lg font-medium text-green-700 mb-2">
+                            <i class="fas fa-briefcase text-green-600 mr-2"></i>Ejemplo Práctico:
+                        </h3>
+                        <div class="flex">
+                            <i class="fas fa-quote-left text-green-200 text-2xl mr-2 mt-1"></i>
+                            <p class="text-gray-700">En lugar de simplemente sentir que el procesamiento de reclamos es "lento", Six Sigma nos exigiría recopilar datos sobre los tiempos reales de procesamiento. Estos datos podrían revelar que el 80% de los reclamos se procesan dentro de 3 días, pero un tipo específico de reclamo constantemente toma 10 días. Los datos nos señalan dónde se encuentra el problema real.</p>
+                        </div>
+                        
+                        <div class="flex justify-center mt-4">
+                            <div class="bg-white px-6 py-2 rounded-lg shadow-sm flex items-center border border-green-200">
+                                <div class="w-3 h-3 bg-green-400 rounded-full mr-2"></div>
+                                <span class="text-sm text-gray-700">80% de reclamos: <span class="font-medium">3 días</span></span>
+                                <span class="mx-3 text-gray-300">|</span>
+                                <div class="w-3 h-3 bg-red-400 rounded-full mr-2"></div>
+                                <span class="text-sm text-gray-700">Tipo específico: <span class="font-medium">10 días</span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="big-quote">
+                <i class="fas fa-quote-right"></i>
+            </div>
+        </div>
+        
+        <!-- footer -->
+        <div class="company-logo">Tecniseguros | Lean Six Sigma Yellow Belt</div>
+        <div class="footer-bar"></div>
+    </div>
+<!-- 1. Navigation Buttons HTML Block -->
+<div style="position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 100; background: white; padding: 10px; border-radius: 5px; box-shadow: 0 0 10px rgba(0,0,0,0.2);">
+    <button id="prevSlideButton" onclick="goToPrevSlide()"> « Previous </button>
+    <span id="slideIndicator" style="margin: 0 15px;">Slide ? of ?</span>
+    <button id="nextSlideButton" onclick="goToNextSlide()"> Next » </button>
+</div>
+
+<!-- 2. Link to Global script.js -->
+<script src="../../script.js"></script>
+</body>
+</html>

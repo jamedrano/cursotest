@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Principio 4: Establecer Flujo Tirado - Tecniseguros</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .slide {
+            width: 1280px;
+            min-height: 720px;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+        }
+        .header-bar {
+            background: linear-gradient(90deg, #005792 0%, #00A6A6 100%);
+            height: 12px;
+        }
+        .footer-bar {
+            background: linear-gradient(90deg, #005792 0%, #00A6A6 100%);
+            height: 8px;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+        .company-logo {
+            position: absolute;
+            bottom: 20px;
+            right: 30px;
+            font-size: 16px;
+            color: #666;
+            font-weight: 500;
+        }
+        .principle-number {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 120px;
+            font-weight: 700;
+            color: rgba(0, 87, 146, 0.05);
+            z-index: 0;
+        }
+        .system-box {
+            transition: all 0.3s ease;
+        }
+        .system-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+        .benefit-item {
+            transition: all 0.3s ease;
+        }
+        .benefit-item:hover {
+            transform: translateX(5px);
+        }
+        .arrow-right {
+            width: 0;
+            height: 0;
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+            border-left: 15px solid #D1D5DB;
+        }
+        .arrow-left {
+            width: 0;
+            height: 0;
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+            border-right: 15px solid #D1D5DB;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <div class="header-bar"></div>
+        
+        <!-- Main Content -->
+        <div class="p-10 z-10 relative">
+            <!-- Title Section -->
+            <div class="mb-6">
+                <h1 class="text-3xl font-bold text-blue-700">Principio 4: Establecer Flujo Tirado</h1>
+                <h2 class="text-xl font-medium text-green-600 mt-1">Dejar que la demanda indique la acción</h2>
+                <div class="w-20 h-1 bg-blue-500 mt-3"></div>
+            </div>
+            
+            <!-- Core Idea Section -->
+            <div class="mb-6 bg-blue-50 p-4 rounded-lg">
+                <h3 class="text-lg font-medium text-blue-700 mb-2">
+                    <i class="fas fa-lightbulb mr-2 text-yellow-500"></i>Idea Central:
+                </h3>
+                <p class="text-gray-700">No producir nada o realizar un servicio hasta que el cliente posterior (interno o externo) indique una necesidad. El trabajo es "tirado" por la demanda.</p>
+            </div>
+            
+            <!-- Push vs Pull Comparison -->
+            <div class="grid grid-cols-2 gap-8 mb-6">
+                <!-- Push System -->
+                <div class="system-box bg-white p-5 rounded-lg shadow-md border-l-4 border-red-400">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-red-100 rounded-full p-2 mr-3">
+                            <i class="fas fa-arrow-right text-red-500"></i>
+                        </div>
+                        <h3 class="text-lg font-medium text-red-700">Sistema de Empuje (Push)</h3>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <p class="text-gray-700 mb-2">Empujar el trabajo basado en pronósticos o calendarios.</p>
+                        <div class="bg-red-50 p-3 rounded-lg">
+                            <p class="text-sm text-red-700"><i class="fas fa-times-circle mr-1"></i> Genera sobreproducción</p>
+                            <p class="text-sm text-red-700"><i class="fas fa-times-circle mr-1"></i> Aumenta inventario (acumulación)</p>
+                            <p class="text-sm text-red-700"><i class="fas fa-times-circle mr-1"></i> Aumenta complejidad</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Push Visual -->
+                    <div class="flex items-center justify-center mt-4 bg-gray-50 p-3 rounded-lg">
+                        <div class="bg-blue-100 rounded-full w-12 h-12 flex items-center justify-center">
+                            <i class="fas fa-industry text-blue-600"></i>
+                        </div>
+                        <div class="mx-2 text-center">
+                            <div class="arrow-right mx-auto"></div>
+                            <p class="text-xs text-gray-500 mt-1">Empuja</p>
+                        </div>
+                        <div class="bg-blue-100 rounded-full w-12 h-12 flex items-center justify-center">
+                            <i class="fas fa-warehouse text-blue-600"></i>
+                        </div>
+                        <div class="mx-2 text-center">
+                            <div class="arrow-right mx-auto"></div>
+                            <p class="text-xs text-gray-500 mt-1">Empuja</p>
+                        </div>
+                        <div class="bg-green-100 rounded-full w-12 h-12 flex items-center justify-center">
+                            <i class="fas fa-user text-green-600"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Pull System -->
+                <div class="system-box bg-white p-5 rounded-lg shadow-md border-l-4 border-green-400">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-green-100 rounded-full p-2 mr-3">
+                            <i class="fas fa-arrow-left text-green-500"></i>
+                        </div>
+                        <h3 class="text-lg font-medium text-green-700">Sistema de Tirón (Pull)</h3>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <p class="text-gray-700 mb-2">El trabajo se realiza solo cuando hay una señal de demanda real.</p>
+                        <div class="bg-green-50 p-3 rounded-lg">
+                            <p class="text-sm text-green-700"><i class="fas fa-check-circle mr-1"></i> Reduce trabajo en proceso innecesario</p>
+                            <p class="text-sm text-green-700"><i class="fas fa-check-circle mr-1"></i> Asegura que el trabajo se haga solo cuando se necesita</p>
+                            <p class="text-sm text-green-700"><i class="fas fa-check-circle mr-1"></i> Facilita la gestión del flujo de trabajo</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Pull Visual -->
+                    <div class="flex items-center justify-center mt-4 bg-gray-50 p-3 rounded-lg">
+                        <div class="bg-blue-100 rounded-full w-12 h-12 flex items-center justify-center">
+                            <i class="fas fa-industry text-blue-600"></i>
+                        </div>
+                        <div class="mx-2 text-center">
+                            <div class="arrow-left mx-auto"></div>
+                            <p class="text-xs text-gray-500 mt-1">Señal</p>
+                        </div>
+                        <div class="bg-blue-100 rounded-full w-12 h-12 flex items-center justify-center">
+                            <i class="fas fa-warehouse text-blue-600"></i>
+                        </div>
+                        <div class="mx-2 text-center">
+                            <div class="arrow-left mx-auto"></div>
+                            <p class="text-xs text-gray-500 mt-1">Señal</p>
+                        </div>
+                        <div class="bg-green-100 rounded-full w-12 h-12 flex items-center justify-center">
+                            <i class="fas fa-user text-green-600"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Analogy -->
+            <div class="bg-yellow-50 p-5 rounded-lg mb-6">
+                <h3 class="text-lg font-medium text-yellow-700 mb-2">
+                    <i class="fas fa-store mr-2 text-yellow-600"></i>Analogía Simple:
+                </h3>
+                <div class="flex items-start">
+                    <i class="fas fa-quote-left text-yellow-300 text-2xl mr-2 mt-1"></i>
+                    <p class="text-gray-700">Un supermercado solo repone los estantes cuando los artículos son comprados (tirados por la compra del cliente), en lugar de empujar el exceso de stock a los estantes basándose en una suposición.</p>
+                </div>
+                <div class="mt-3 flex justify-center items-center">
+                    <div class="flex items-center">
+                        <div class="bg-white rounded-full w-10 h-10 shadow-sm flex items-center justify-center">
+                            <i class="fas fa-shopping-cart text-green-500"></i>
+                        </div>
+                        <i class="fas fa-long-arrow-alt-left text-green-400 mx-2"></i>
+                        <div class="bg-white rounded-full w-10 h-10 shadow-sm flex items-center justify-center">
+                            <i class="fas fa-box-open text-blue-500"></i>
+                        </div>
+                        <i class="fas fa-long-arrow-alt-left text-green-400 mx-2"></i>
+                        <div class="bg-white rounded-full w-10 h-10 shadow-sm flex items-center justify-center">
+                            <i class="fas fa-warehouse text-blue-500"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Practical Example -->
+            <div class="bg-green-50 p-5 rounded-lg">
+                <h3 class="text-lg font-medium text-green-700 mb-2">
+                    <i class="fas fa-briefcase mr-2 text-green-600"></i>Ejemplo Práctico para Tecniseguros:
+                </h3>
+                <div class="flex">
+                    <i class="fas fa-quote-left text-green-300 text-2xl mr-2 mt-1"></i>
+                    <p class="text-gray-700">En lugar de generar un paquete de informes de ventas mensuales estándar para todos los gerentes (Push), crear un sistema donde los gerentes puedan solicitar fácilmente (Pull) solo las vistas de datos específicas que necesitan, cuando las necesitan. Esto evita el esfuerzo desperdiciado en crear informes no leídos <span class="text-red-600 font-medium">(Sobreproducción)</span>.</p>
+                </div>
+                <div class="mt-3 bg-white p-2 rounded border border-green-200">
+                    <p class="text-sm text-gray-600 flex items-center">
+                        <i class="fas fa-lightbulb text-yellow-500 mr-2"></i>
+                        <span>Los sistemas Pull responden a la demanda real, lo que resulta en menos desperdicio y mayor eficiencia.</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Visual Elements -->
+        <div class="principle-number">4</div>
+        
+        <!-- footer -->
+        <div class="company-logo">Tecniseguros | Lean Six Sigma Yellow Belt</div>
+        <div class="footer-bar"></div>
+    </div>
+<!-- 1. Navigation Buttons HTML Block -->
+<div style="position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 100; background: white; padding: 10px; border-radius: 5px; box-shadow: 0 0 10px rgba(0,0,0,0.2);">
+    <button id="prevSlideButton" onclick="goToPrevSlide()"> « Previous </button>
+    <span id="slideIndicator" style="margin: 0 15px;">Slide ? of ?</span>
+    <button id="nextSlideButton" onclick="goToNextSlide()"> Next » </button>
+</div>
+
+<!-- 2. Link to Global script.js -->
+<script src="../../script.js"></script>
+</body>
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presentaciones y Objetivos</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background: radial-gradient(circle at bottom right, #edf2f7 0%, #ffffff 70%);
+            position: relative;
+            overflow: hidden;
+        }
+        .blue-accent {
+            background: linear-gradient(90deg, #1a365d 0%, #2a4365 100%);
+        }
+        .objective-item {
+            transition: all 0.3s ease;
+        }
+        .objective-item:hover {
+            transform: translateX(5px);
+            background-color: #ebf4ff;
+        }
+        .activity-box {
+            background-color: rgba(49, 130, 206, 0.08);
+            border-left: 5px solid #3182ce;
+        }
+        .icon-circle {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+        .pattern-bg {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 300px;
+            background-image: radial-gradient(#3182ce 1px, transparent 1px);
+            background-size: 20px 20px;
+            opacity: 0.1;
+            z-index: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container flex flex-col">
+        <div class="blue-accent h-12 w-full shadow-md"></div>
+        
+        <div class="pattern-bg"></div>
+        
+        <div class="flex-1 p-12 z-10">
+            <h1 class="text-4xl font-bold text-blue-800 mb-8">
+                <i class="fas fa-users text-blue-600 mr-3"></i>
+                Conozcámonos y Alineemos Objetivos
+            </h1>
+            
+            <div class="flex space-x-12">
+                <div class="w-1/2">
+                    <div class="activity-box p-6 rounded-lg shadow-md mb-6">
+                        <h2 class="text-2xl font-bold text-blue-700 mb-4">
+                            <i class="fas fa-comments mr-2"></i> Actividad: Presentaciones
+                        </h2>
+                        
+                        <p class="text-lg mb-3">Recorramos la sala y compartamos:</p>
+                        
+                        <ul class="space-y-3 text-gray-700 list-none pl-6 mb-4">
+                            <li class="flex items-start">
+                                <span class="text-blue-500 mr-2">•</span> 
+                                <span>Tu nombre</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-blue-500 mr-2">•</span>
+                                <span>Tu rol/departamento en Tecniseguros</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-blue-500 mr-2">•</span>
+                                <span>Un proceso o tarea en tu trabajo diario que podría ser más eficiente</span>
+                            </li>
+                        </ul>
+                        
+                        <div class="bg-blue-100 rounded-md p-4 border-l-4 border-blue-500">
+                            <p class="text-blue-800 font-medium">
+                                <i class="fas fa-lightbulb text-yellow-500 mr-2"></i>
+                                Tiempo estimado: 5-10 minutos
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-100 border-l-4 border-gray-500 p-4 rounded-lg">
+                        <h3 class="text-xl font-semibold text-gray-700 mb-2">
+                            <i class="fas fa-info-circle mr-2"></i> Recordatorio
+                        </h3>
+                        <p class="text-gray-600">
+                            Descansos programados, participación activa esperada. 
+                            Los materiales estarán disponibles en la plataforma digital.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="w-1/2">
+                    <h2 class="text-2xl font-bold text-blue-700 mb-5">
+                        <i class="fas fa-bullseye mr-2"></i> Objetivos del Curso
+                    </h2>
+                    
+                    <div class="space-y-4">
+                        <div class="objective-item flex items-center bg-white p-3 rounded-lg shadow-sm">
+                            <div class="icon-circle bg-blue-100 mr-4 flex-shrink-0">
+                                <i class="fas fa-book text-blue-600 fa-lg"></i>
+                            </div>
+                            <p class="text-gray-700">Comprender los principios básicos de Lean y Six Sigma</p>
+                        </div>
+                        
+                        <div class="objective-item flex items-center bg-white p-3 rounded-lg shadow-sm">
+                            <div class="icon-circle bg-blue-100 mr-4 flex-shrink-0">
+                                <i class="fas fa-search text-blue-600 fa-lg"></i>
+                            </div>
+                            <p class="text-gray-700">Reconocer desperdicios y variación en procesos de trabajo</p>
+                        </div>
+                        
+                        <div class="objective-item flex items-center bg-white p-3 rounded-lg shadow-sm">
+                            <div class="icon-circle bg-blue-100 mr-4 flex-shrink-0">
+                                <i class="fas fa-hands-helping text-blue-600 fa-lg"></i>
+                            </div>
+                            <p class="text-gray-700">Contribuir efectivamente a proyectos de LSS</p>
+                        </div>
+                        
+                        <div class="objective-item flex items-center bg-white p-3 rounded-lg shadow-sm">
+                            <div class="icon-circle bg-blue-100 mr-4 flex-shrink-0">
+                                <i class="fas fa-tools text-blue-600 fa-lg"></i>
+                            </div>
+                            <p class="text-gray-700">Utilizar herramientas básicas de LSS para análisis de procesos</p>
+                        </div>
+                        
+                        <div class="objective-item flex items-center bg-white p-3 rounded-lg shadow-sm">
+                            <div class="icon-circle bg-blue-100 mr-4 flex-shrink-0">
+                                <i class="fas fa-lightbulb text-blue-600 fa-lg"></i>
+                            </div>
+                            <p class="text-gray-700">Identificar oportunidades de mejora dentro de Tecniseguros</p>
+                        </div>
+                        
+                        <div class="objective-item flex items-center bg-white p-3 rounded-lg shadow-sm">
+                            <div class="icon-circle bg-blue-100 mr-4 flex-shrink-0">
+                                <i class="fas fa-user-friends text-blue-600 fa-lg"></i>
+                            </div>
+                            <p class="text-gray-700">Entender roles en proyectos LSS</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="blue-accent h-6 w-full mt-auto"></div>
+    </div>
+<!-- 1. Navigation Buttons HTML Block -->
+<div style="position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 100; background: white; padding: 10px; border-radius: 5px; box-shadow: 0 0 10px rgba(0,0,0,0.2);">
+    <button id="prevSlideButton" onclick="goToPrevSlide()"> « Previous </button>
+    <span id="slideIndicator" style="margin: 0 15px;">Slide ? of ?</span>
+    <button id="nextSlideButton" onclick="goToNextSlide()"> Next » </button>
+</div>
+
+<!-- 2. Link to Global script.js -->
+<script src="../../script.js"></script>
+</body>
+</html>

@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metodología DMAIC - Tecniseguros</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .slide {
+            width: 1280px;
+            min-height: 720px;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+        }
+        .header-bar {
+            background: linear-gradient(90deg, #005792 0%, #00A6A6 100%);
+            height: 12px;
+        }
+        .footer-bar {
+            background: linear-gradient(90deg, #005792 0%, #00A6A6 100%);
+            height: 8px;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+        .company-logo {
+            position: absolute;
+            bottom: 20px;
+            right: 30px;
+            font-size: 16px;
+            color: #666;
+            font-weight: 500;
+        }
+        .dmaic-circle {
+            position: relative;
+            width: 420px; /* Parent circle width */
+            height: 420px; /* Parent circle height */
+            border-radius: 50%;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e6f7ff 100%);
+            border: 2px solid #e0f2fe;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .center-circle {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: white;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2;
+        }
+        .phase {
+            position: absolute;
+            width: 100px; /* Phase circle width */
+            height: 100px; /* Phase circle height */
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            background: white;
+            z-index: 1;
+        }
+        .phase:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Pentagon Positions for Phase Circles (100x100px) within a 420x420px parent */
+        /* Radius from parent center (210,210) to phase center is 160px */
+        /* Phase Center (X,Y): D(210,50), M(362,161), A(304,339), I(116,339), C(58,161) */
+        .d-phase { /* Top */
+            top: 0px; /* (50 center Y) - (100/2 height) */
+            left: 160px; /* (210 center X) - (100/2 width) */
+            background: linear-gradient(to bottom right, #0284c7, #0369a1);
+            color: white;
+        }
+        .m-phase { /* Top-Right */
+            top: 111px; /* (161 center Y) - (100/2 height) */
+            right: 8px;  /* (420 parent W) - (362 center X) - (100/2 width) = 420 - 362 - 50 = 8 */
+            background: linear-gradient(to bottom right, #059669, #047857);
+            color: white;
+        }
+        .a-phase { /* Bottom-Right */
+            bottom: 31px; /* (420 parent H) - (339 center Y) - (100/2 height) = 420 - 339 - 50 = 31 */
+            right: 66px; /* (420 parent W) - (304 center X) - (100/2 width) = 420 - 304 - 50 = 66 */
+            background: linear-gradient(to bottom right, #0284c7, #0369a1);
+            color: white;
+        }
+        .i-phase { /* Bottom-Left */
+            bottom: 31px; /* (420 parent H) - (339 center Y) - (100/2 height) = 420 - 339 - 50 = 31 */
+            left: 66px;  /* (116 center X) - (100/2 width) */
+            background: linear-gradient(to bottom right, #059669, #047857);
+            color: white;
+        }
+        .c-phase { /* Top-Left */
+            top: 111px; /* (161 center Y) - (100/2 height) */
+            left: 8px;   /* (58 center X) - (100/2 width) */
+            background: linear-gradient(to bottom right, #0284c7, #0369a1);
+            color: white;
+        }
+
+        .phase-question {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            font-size: 0.8rem;
+            padding: 6px 10px;
+            position: absolute;
+            color: #4b5563;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e5e7eb;
+            white-space: nowrap;
+            display: none;
+            z-index: 3;
+        }
+        .phase:hover .phase-question {
+            display: block;
+        }
+        .d-question { /* Above D */
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .m-question { /* Right of M */
+            top: 50%;
+            right: -120px; /* Adjusted from -130px */
+            transform: translateY(-50%);
+        }
+        .a-question { /* Right of A (positioned relative to bottom-half of A) */
+            bottom: 50%;
+            right: -130px; /* Kept, should be fine with A's new position */
+            transform: translateY(50%);
+        }
+        .i-question { /* Below I */
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .c-question { /* Left of C */
+            top: 50%;
+            left: -120px; /* Adjusted from -130px */
+            transform: translateY(-50%);
+        }
+        .dmaic-description {
+            transition: all 0.3s ease;
+        }
+        .dmaic-description:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+        .connect-line {
+            position: absolute;
+            height: 2px; /* Line thickness */
+            background-color: #d1d5db;
+            transform-origin: left center; /* Rotates around the starting point's vertical center */
+            z-index: 0; /* Ensures lines are behind phase circles */
+        }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <div class="header-bar"></div>
+        
+        <!-- Main Content -->
+        <div class="p-10 z-10 relative">
+            <!-- Title Section -->
+            <div class="mb-6">
+                <h1 class="text-3xl font-bold text-blue-700">DMAIC: El Ciclo de Resolución de Problemas de Six Sigma</h1>
+                <div class="w-20 h-1 bg-blue-500 mt-3"></div>
+            </div>
+            
+            <div class="flex">
+                <!-- Left Side: DMAIC Descriptions -->
+                <div class="w-2/5 pr-8">
+                    <div class="mb-4 bg-blue-50 p-4 rounded-lg">
+                        <p class="text-gray-700"><span class="font-bold">DMAIC:</span> Una metodología estructurada y basada en datos para la mejora de procesos.</p>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div class="dmaic-description bg-white p-3 rounded-lg shadow border-l-4 border-blue-500">
+                            <h3 class="font-medium text-blue-700 flex items-center">
+                                <span class="bg-blue-600 text-white w-6 h-6 rounded-full flex items-center justify-center mr-2">D</span>
+                                Definir
+                            </h3>
+                            <p class="text-sm text-gray-600 ml-8">Definir claramente el problema, objetivos del proyecto, alcance y requerimientos del cliente (VOC).</p>
+                            <div class="mt-1 ml-8 text-xs text-blue-600 italic flex items-center">
+                                <i class="fas fa-file-alt mr-1"></i>
+                                Entregable: Acta del Proyecto (Project Charter)
+                            </div>
+                        </div>
+                        
+                        <div class="dmaic-description bg-white p-3 rounded-lg shadow border-l-4 border-green-500">
+                            <h3 class="font-medium text-green-700 flex items-center">
+                                <span class="bg-green-600 text-white w-6 h-6 rounded-full flex items-center justify-center mr-2">M</span>
+                                Medir
+                            </h3>
+                            <p class="text-sm text-gray-600 ml-8">Recopilar datos para medir el desempeño actual del proceso (la línea base).</p>
+                            <div class="mt-1 ml-8 text-xs text-green-600 italic flex items-center">
+                                <i class="fas fa-chart-bar mr-1"></i>
+                                Entregable: Datos de Referencia y Mediciones
+                            </div>
+                        </div>
+                        
+                        <div class="dmaic-description bg-white p-3 rounded-lg shadow border-l-4 border-blue-500">
+                            <h3 class="font-medium text-blue-700 flex items-center">
+                                <span class="bg-blue-600 text-white w-6 h-6 rounded-full flex items-center justify-center mr-2">A</span>
+                                Analizar
+                            </h3>
+                            <p class="text-sm text-gray-600 ml-8">Analizar los datos para identificar la(s) causa(s) raíz del problema/defectos/variación.</p>
+                            <div class="mt-1 ml-8 text-xs text-blue-600 italic flex items-center">
+                                <i class="fas fa-search mr-1"></i>
+                                Entregable: Validación de Causas Raíz
+                            </div>
+                        </div>
+                        
+                        <div class="dmaic-description bg-white p-3 rounded-lg shadow border-l-4 border-green-500">
+                            <h3 class="font-medium text-green-700 flex items-center">
+                                <span class="bg-green-600 text-white w-6 h-6 rounded-full flex items-center justify-center mr-2">I</span>
+                                Mejorar
+                            </h3>
+                            <p class="text-sm text-gray-600 ml-8">Desarrollar, probar e implementar soluciones para abordar la(s) causa(s) raíz.</p>
+                            <div class="mt-1 ml-8 text-xs text-green-600 italic flex items-center">
+                                <i class="fas fa-tools mr-1"></i>
+                                Entregable: Soluciones Probadas e Implementadas
+                            </div>
+                        </div>
+                        
+                        <div class="dmaic-description bg-white p-3 rounded-lg shadow border-l-4 border-blue-500">
+                            <h3 class="font-medium text-blue-700 flex items-center">
+                                <span class="bg-blue-600 text-white w-6 h-6 rounded-full flex items-center justify-center mr-2">C</span>
+                                Controlar
+                            </h3>
+                            <p class="text-sm text-gray-600 ml-8">Implementar medidas para mantener las mejoras y monitorear el nuevo proceso.</p>
+                            <div class="mt-1 ml-8 text-xs text-blue-600 italic flex items-center">
+                                <i class="fas fa-clipboard-check mr-1"></i>
+                                Entregable: Plan de Control y Métricas de Seguimiento
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right Side: DMAIC Circle Diagram -->
+                <div class="w-3/5 flex justify-center items-center">
+                    <div class="dmaic-circle">
+                        <!-- Center Circle -->
+                        <div class="center-circle">
+                            <span class="font-bold text-blue-700">DMAIC</span>
+                        </div>
+                        
+                        <!-- Define Phase -->
+                        <div class="phase d-phase">
+                            <span class="text-lg font-bold">D</span>
+                            <span class="text-xs">Definir</span>
+                            <div class="phase-question d-question">¿Cuál es el problema y qué es importante?</div>
+                        </div>
+                        
+                        <!-- Measure Phase -->
+                        <div class="phase m-phase">
+                            <span class="text-lg font-bold">M</span>
+                            <span class="text-xs">Medir</span>
+                            <div class="phase-question m-question">¿Qué tan grande es el problema?</div>
+                        </div>
+                        
+                        <!-- Analyze Phase -->
+                        <div class="phase a-phase">
+                            <span class="text-lg font-bold">A</span>
+                            <span class="text-xs">Analizar</span>
+                            <div class="phase-question a-question">¿Qué está causando el problema?</div>
+                        </div>
+                        
+                        <!-- Improve Phase -->
+                        <div class="phase i-phase">
+                            <span class="text-lg font-bold">I</span>
+                            <span class="text-xs">Mejorar</span>
+                            <div class="phase-question i-question">¿Cómo podemos solucionar el problema?</div>
+                        </div>
+                        
+                        <!-- Control Phase -->
+                        <div class="phase c-phase">
+                            <span class="text-lg font-bold">C</span>
+                            <span class="text-xs">Controlar</span>
+                            <div class="phase-question c-question">¿Cómo aseguramos que la solución permanezca?</div>
+                        </div>
+                        
+                        <!-- Connection Lines - Corrected for Pentagon Shape -->
+                        <!-- Phase Centers (X,Y): D(210,50), M(362,161), A(304,339), I(116,339), C(58,161) -->
+                        <!-- Line D to M -->
+                        <div class="connect-line" style="left: 210px; top: 49px; width: 188.2px; transform: rotate(36.13deg);"></div>
+                        <!-- Line M to A -->
+                        <div class="connect-line" style="left: 362px; top: 160px; width: 187.2px; transform: rotate(108.05deg);"></div>
+                        <!-- Line A to I -->
+                        <div class="connect-line" style="left: 304px; top: 338px; width: 188px; transform: rotate(180deg);"></div>
+                        <!-- Line I to C -->
+                        <div class="connect-line" style="left: 116px; top: 338px; width: 187.2px; transform: rotate(-108.05deg);"></div>
+                        <!-- Line C to D -->
+                        <div class="connect-line" style="left: 58px; top: 160px; width: 188.2px; transform: rotate(-36.13deg);"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Key Message -->
+            <div class="mt-6 bg-green-50 p-4 rounded-lg shadow-sm">
+                <h3 class="text-lg font-medium text-green-700 mb-1 flex items-center">
+                    <i class="fas fa-key mr-2"></i>Mensaje Clave:
+                </h3>
+                <p class="text-gray-700">DMAIC proporciona un enfoque lógico, paso a paso, asegurando que las soluciones se basen en hechos, no en suposiciones.</p>
+                <div class="flex justify-end">
+                    <div class="mt-2 bg-white px-4 py-1 rounded-full text-sm text-blue-700 font-medium shadow-sm border border-blue-100">
+                        <i class="fas fa-quote-left text-blue-400 mr-1"></i>
+                        No se puede mejorar lo que no se puede medir
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- footer -->
+        <div class="company-logo">Tecniseguros | Lean Six Sigma Yellow Belt</div>
+        <div class="footer-bar"></div>
+    </div>
+<!-- 1. Navigation Buttons HTML Block -->
+<div style="position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 100; background: white; padding: 10px; border-radius: 5px; box-shadow: 0 0 10px rgba(0,0,0,0.2);">
+    <button id="prevSlideButton" onclick="goToPrevSlide()"> « Previous </button>
+    <span id="slideIndicator" style="margin: 0 15px;">Slide ? of ?</span>
+    <button id="nextSlideButton" onclick="goToNextSlide()"> Next » </button>
+</div>
+
+<!-- 2. Link to Global script.js -->
+<script src="../../script.js"></script>
+</body>
+</html>

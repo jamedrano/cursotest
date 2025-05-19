@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estrategias Básicas de Muestreo - Tecniseguros</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .slide {
+            width: 1280px;
+            min-height: 720px;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+        }
+        .header-bar {
+            background: linear-gradient(90deg, #005792 0%, #00A6A6 100%);
+            height: 12px;
+        }
+        .footer-bar {
+            background: linear-gradient(90deg, #005792 0%, #00A6A6 100%);
+            height: 8px;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+        .company-logo {
+            position: absolute;
+            bottom: 20px;
+            right: 30px;
+            font-size: 16px;
+            color: #666;
+            font-weight: 500;
+        }
+        .sampling-type {
+            transition: all 0.3s ease;
+            border-radius: 8px;
+        }
+        .sampling-type:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+        .population-container {
+            position: relative;
+            height: 200px;
+            background-color: #f0f9ff;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .population-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            position: absolute;
+            background-color: #93c5fd;
+        }
+        .sample-dot {
+            background-color: #3b82f6;
+            border: 2px solid #fff;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+            z-index: 5;
+        }
+        .stratified-section {
+            position: absolute;
+            height: 33.33%;
+            width: 100%;
+            border-bottom: 1px dashed #93c5fd;
+        }
+        .stratified-section:last-child {
+            border-bottom: none;
+        }
+        .sample-group {
+            position: absolute;
+            right: 20%;
+            top: 50%;
+            transform: translateY(-50%);
+            padding: 15px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            z-index: 10;
+        }
+        .sample-arrow {
+            position: absolute;
+            top: 50%;
+            right: 35%;
+            width: 80px;
+            height: 2px;
+            background-color: #3b82f6;
+            transform: translateY(-50%);
+            z-index: 8;
+        }
+        .sample-arrow:before {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            margin-top: -5px;
+            border-style: solid;
+            border-width: 5px 0 5px 10px;
+            border-color: transparent transparent transparent #3b82f6;
+        }
+        .quote-box {
+            border-left: 4px solid #00A6A6;
+            background-color: #f0f9ff;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <div class="header-bar"></div>
+        
+        <!-- Main Content -->
+        <div class="p-10 z-10 relative">
+            <!-- Title Section -->
+            <div class="mb-5">
+                <h1 class="text-3xl font-bold text-blue-700">Muestreo: Obteniendo Información Sin Medir Todo</h1>
+                <div class="w-20 h-1 bg-blue-500 mt-3"></div>
+            </div>
+            
+            <!-- Why Sample Section -->
+            <div class="grid grid-cols-2 gap-8">
+                <!-- Left Column: Why and Goal -->
+                <div>
+                    <div class="bg-blue-50 p-4 rounded-lg mb-4">
+                        <h3 class="text-lg font-medium text-blue-700 mb-2 flex items-center">
+                            <i class="fas fa-question-circle mr-2 text-blue-600"></i>¿Por qué Muestrear?
+                        </h3>
+                        <p class="text-gray-700">A menudo es poco práctico o demasiado costoso/lento recolectar datos sobre el 100% de los elementos (la "población").</p>
+                    </div>
+                    
+                    <div class="bg-green-50 p-4 rounded-lg mb-6">
+                        <h3 class="text-lg font-medium text-green-700 mb-2 flex items-center">
+                            <i class="fas fa-bullseye mr-2 text-green-600"></i>Meta del Muestreo:
+                        </h3>
+                        <p class="text-gray-700">Obtener un subconjunto representativo de datos que nos permita hacer inferencias sobre toda la población.</p>
+                    </div>
+                    
+                    <!-- Sampling Strategies -->
+                    <div class="space-y-4">
+                        <h3 class="text-lg font-medium text-blue-700 mb-3">
+                            <i class="fas fa-random mr-2 text-blue-600"></i>Estrategias Básicas:
+                        </h3>
+                        
+                        <div class="sampling-type bg-white p-3 rounded-lg shadow-sm flex items-start border-l-4 border-blue-400">
+                            <div class="bg-blue-100 rounded-full p-2 mr-3 flex-shrink-0 mt-1">
+                                <i class="fas fa-dice text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-800">Muestreo Aleatorio</h4>
+                                <p class="text-sm text-gray-600">Cada elemento de la población tiene igual probabilidad de ser seleccionado. Ayuda a evitar el sesgo.</p>
+                                <p class="text-xs text-blue-600 italic mt-1">Como sacar nombres de un sombrero</p>
+                            </div>
+                        </div>
+                        
+                        <div class="sampling-type bg-white p-3 rounded-lg shadow-sm flex items-start border-l-4 border-green-400">
+                            <div class="bg-green-100 rounded-full p-2 mr-3 flex-shrink-0 mt-1">
+                                <i class="fas fa-ruler text-green-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-800">Muestreo Sistemático</h4>
+                                <p class="text-sm text-gray-600">Selección de elementos a intervalos regulares.</p>
+                                <p class="text-xs text-green-600 italic mt-1">Por ejemplo: cada décima solicitud de póliza</p>
+                            </div>
+                        </div>
+                        
+                        <div class="sampling-type bg-white p-3 rounded-lg shadow-sm flex items-start border-l-4 border-blue-400">
+                            <div class="bg-blue-100 rounded-full p-2 mr-3 flex-shrink-0 mt-1">
+                                <i class="fas fa-layer-group text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-800">Muestreo Estratificado</h4>
+                                <p class="text-sm text-gray-600">Dividir la población en subgrupos (estratos) y luego tomar una muestra aleatoria de cada subgrupo.</p>
+                                <p class="text-xs text-blue-600 italic mt-1">Por ejemplo: por tipo de póliza, por sucursal</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right Column: Visual -->
+                <div>
+                    <!-- Population and Sample Visual -->
+                    <div class="population-container mb-4">
+                        <!-- Stratified sections -->
+                        <div class="stratified-section" style="top: 0;"></div>
+                        <div class="stratified-section" style="top: 33.33%;"></div>
+                        <div class="stratified-section" style="top: 66.66%;"></div>
+                        
+                        <!-- Population dots - randomly placed -->
+                        <!-- First strata dots -->
+                        <div class="population-dot" style="top: 10%; left: 15%;"></div>
+                        <div class="population-dot" style="top: 8%; left: 25%;"></div>
+                        <div class="population-dot" style="top: 15%; left: 35%;"></div>
+                        <div class="population-dot" style="top: 20%; left: 45%;"></div>
+                        <div class="population-dot" style="top: 5%; left: 55%;"></div>
+                        <div class="population-dot" style="top: 12%; left: 65%;"></div>
+                        <div class="population-dot" style="top: 18%; left: 75%;"></div>
+                        <div class="population-dot" style="top: 25%; left: 85%;"></div>
+                        
+                        <!-- Second strata dots -->
+                        <div class="population-dot" style="top: 40%; left: 10%;"></div>
+                        <div class="population-dot" style="top: 45%; left: 20%;"></div>
+                        <div class="population-dot" style="top: 38%; left: 30%;"></div>
+                        <div class="population-dot" style="top: 42%; left: 40%;"></div>
+                        <div class="population-dot" style="top: 50%; left: 50%;"></div>
+                        <div class="population-dot" style="top: 46%; left: 60%;"></div>
+                        <div class="population-dot" style="top: 52%; left: 70%;"></div>
+                        <div class="population-dot" style="top: 48%; left: 80%;"></div>
+                        
+                        <!-- Third strata dots -->
+                        <div class="population-dot" style="top: 70%; left: 15%;"></div>
+                        <div class="population-dot" style="top: 75%; left: 25%;"></div>
+                        <div class="population-dot" style="top: 80%; left: 35%;"></div>
+                        <div class="population-dot" style="top: 68%; left: 45%;"></div>
+                        <div class="population-dot" style="top: 72%; left: 55%;"></div>
+                        <div class="population-dot" style="top: 85%; left: 65%;"></div>
+                        <div class="population-dot" style="top: 78%; left: 75%;"></div>
+                        <div class="population-dot" style="top: 90%; left: 85%;"></div>
+                        
+                        <!-- Sample dots -->
+                        <div class="population-dot sample-dot" style="top: 15%; left: 35%;"></div>
+                        <div class="population-dot sample-dot" style="top: 5%; left: 55%;"></div>
+                        <div class="population-dot sample-dot" style="top: 42%; left: 40%;"></div>
+                        <div class="population-dot sample-dot" style="top: 46%; left: 60%;"></div>
+                        <div class="population-dot sample-dot" style="top: 68%; left: 45%;"></div>
+                        <div class="population-dot sample-dot" style="top: 85%; left: 65%;"></div>
+                        
+                        <div class="sample-arrow"></div>
+                        
+                        <div class="sample-group">
+                            <h4 class="text-sm font-medium text-blue-700 mb-2 text-center">Muestra</h4>
+                            <div class="flex justify-center space-x-1">
+                                <div class="population-dot sample-dot static"></div>
+                                <div class="population-dot sample-dot static"></div>
+                                <div class="population-dot sample-dot static"></div>
+                            </div>
+                        </div>
+                        
+                        <!-- Labels -->
+                        <div class="absolute top-2 left-2 bg-white px-2 py-1 rounded text-xs font-medium text-blue-700">
+                            Población
+                        </div>
+                        <div class="absolute top-2 left-1/3 bg-white px-2 py-1 rounded text-xs font-medium text-blue-700">
+                            Estrato 1
+                        </div>
+                        <div class="absolute top-[calc(33.33%+5px)] left-1/3 bg-white px-2 py-1 rounded text-xs font-medium text-green-700">
+                            Estrato 2
+                        </div>
+                        <div class="absolute top-[calc(66.66%+5px)] left-1/3 bg-white px-2 py-1 rounded text-xs font-medium text-blue-700">
+                            Estrato 3
+                        </div>
+                    </div>
+                    
+                    <!-- Caution Note -->
+                    <div class="bg-red-50 p-3 rounded-lg mb-4">
+                        <div class="flex items-center">
+                            <div class="bg-red-100 rounded-full p-2 mr-3 flex-shrink-0">
+                                <i class="fas fa-exclamation-triangle text-red-500"></i>
+                            </div>
+                            <p class="text-gray-700"><span class="font-medium text-red-700">Precaución:</span> Un muestreo deficiente puede llevar a conclusiones erróneas. La muestra debe ser representativa.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Practical Example -->
+                    <div class="quote-box p-4 rounded-lg">
+                        <h3 class="text-lg font-medium text-blue-700 mb-2 flex items-center">
+                            <i class="fas fa-lightbulb text-yellow-500 mr-2"></i>Ejemplo Práctico:
+                        </h3>
+                        <p class="text-gray-700">
+                            "Para entender los tiempos típicos de manejo de llamadas, en lugar de escuchar las 10,000 llamadas del mes pasado, podríamos seleccionar aleatoriamente 300 llamadas, asegurándonos de tomar algunas de los turnos de mañana, tarde y noche (muestreo estratificado por hora del día)."
+                        </p>
+                        <div class="mt-3 bg-white p-2 rounded flex items-center">
+                            <div class="bg-green-100 rounded-full p-1 mr-2 flex-shrink-0">
+                                <i class="fas fa-check text-green-600 text-sm"></i>
+                            </div>
+                            <p class="text-sm text-gray-600"><span class="font-medium text-green-700">Beneficio:</span> Ahorro significativo de tiempo y recursos, manteniendo la fiabilidad de los resultados.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- footer -->
+        <div class="company-logo">Tecniseguros | Lean Six Sigma Yellow Belt</div>
+        <div class="footer-bar"></div>
+    </div>
+<!-- 1. Navigation Buttons HTML Block -->
+<div style="position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 100; background: white; padding: 10px; border-radius: 5px; box-shadow: 0 0 10px rgba(0,0,0,0.2);">
+    <button id="prevSlideButton" onclick="goToPrevSlide()"> « Previous </button>
+    <span id="slideIndicator" style="margin: 0 15px;">Slide ? of ?</span>
+    <button id="nextSlideButton" onclick="goToNextSlide()"> Next » </button>
+</div>
+
+<!-- 2. Link to Global script.js -->
+<script src="../../script.js"></script>
+
+</body>
+</html>

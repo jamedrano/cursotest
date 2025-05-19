@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Herramientas Lean - Soluciones Prácticas</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(120deg, #f8f9fa, #e9ecef);
+        }
+        .slide {
+            width: 1280px;
+            min-height: 720px;
+            background: white;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        .header-bar {
+            background: linear-gradient(90deg, #1C5B8C 0%, #4389A2 100%);
+            height: 80px;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
+        .content {
+            position: relative;
+            z-index: 1;
+            padding: 40px 60px;
+            color: #333;
+        }
+        .waste-card {
+            background: #f5f7fa;
+            border-radius: 8px;
+            border-left: 4px solid #e74c3c;
+            padding: 15px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            transition: transform 0.2s;
+        }
+        .waste-card:hover {
+            transform: translateX(5px);
+        }
+        .solution-card {
+            background: #f0f7ff;
+            border-radius: 8px;
+            border-left: 4px solid #2980b9;
+            padding: 15px;
+            margin-top: 15px;
+            display: flex;
+            align-items: center;
+            transition: transform 0.2s;
+        }
+        .solution-card:hover {
+            transform: translateX(5px);
+        }
+        .arrow-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 10px 0;
+        }
+        .benefits-section {
+            background: #edf7ed;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 20px;
+        }
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+        .tecniseguros-logo {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide mx-auto">
+        <div class="header-bar"></div>
+        <div class="content h-full flex flex-col">
+            <div class="mb-6 pt-10">
+                <h1 class="text-3xl font-bold text-gray-800 mb-2">Herramientas Lean: Simples, Potentes, Prácticas</h1>
+                <p class="text-lg text-gray-600">Soluciones efectivas para problemas comunes en Tecniseguros</p>
+                <div class="h-1 w-32 bg-blue-600 rounded-full mt-2"></div>
+            </div>
+            
+            <div class="grid grid-cols-2 gap-10 mt-4 flex-grow">
+                <div class="flex flex-col">
+                    <h2 class="text-xl font-semibold text-blue-800 mb-3">Problemas Identificados (DOWNTIME)</h2>
+                    
+                    <div class="waste-card">
+                        <i class="fas fa-clock text-red-500 text-2xl mr-4"></i>
+                        <div>
+                            <p class="font-semibold">Defectos y Errores</p>
+                            <p class="text-sm text-gray-600">Errores en documentación, datos incorrectos</p>
+                        </div>
+                    </div>
+                    
+                    <div class="waste-card">
+                        <i class="fas fa-search text-red-500 text-2xl mr-4"></i>
+                        <div>
+                            <p class="font-semibold">Esperas y Búsquedas</p>
+                            <p class="text-sm text-gray-600">Tiempo perdido buscando archivos, esperando aprobaciones</p>
+                        </div>
+                    </div>
+                    
+                    <div class="waste-card">
+                        <i class="fas fa-random text-red-500 text-2xl mr-4"></i>
+                        <div>
+                            <p class="font-semibold">Procesos Inconsistentes</p>
+                            <p class="text-sm text-gray-600">Variación en la forma de ejecutar tareas comunes</p>
+                        </div>
+                    </div>
+                    
+                    <div class="arrow-container">
+                        <i class="fas fa-arrow-right text-4xl text-blue-600"></i>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col">
+                    <h2 class="text-xl font-semibold text-blue-800 mb-3">Soluciones Lean</h2>
+                    
+                    <div class="solution-card">
+                        <i class="fas fa-sort-amount-up text-blue-600 text-2xl mr-4"></i>
+                        <div>
+                            <p class="font-semibold">5S</p>
+                            <p class="text-sm text-gray-600">Organización eficiente del espacio físico y digital</p>
+                        </div>
+                    </div>
+                    
+                    <div class="solution-card">
+                        <i class="fas fa-eye text-blue-600 text-2xl mr-4"></i>
+                        <div>
+                            <p class="font-semibold">Gestión Visual</p>
+                            <p class="text-sm text-gray-600">Información inmediatamente visible y procesable</p>
+                        </div>
+                    </div>
+                    
+                    <div class="solution-card">
+                        <i class="fas fa-clipboard-check text-blue-600 text-2xl mr-4"></i>
+                        <div>
+                            <p class="font-semibold">Trabajo Estándar</p>
+                            <p class="text-sm text-gray-600">Consistencia en la ejecución usando el mejor método</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="benefits-section mt-6">
+                <h2 class="text-lg font-semibold text-green-700 mb-3">Beneficios para Tecniseguros</h2>
+                
+                <div class="grid grid-cols-3 gap-4">
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                        <p class="text-sm">Reducción de errores</p>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                        <p class="text-sm">Menor tiempo de búsqueda</p>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                        <p class="text-sm">Mayor seguridad</p>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                        <p class="text-sm">Mejor comunicación</p>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                        <p class="text-sm">Expectativas más claras</p>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                        <p class="text-sm">Base para mejora continua</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tecniseguros-logo">
+                <p class="mr-2 text-gray-600 font-semibold">Tecniseguros</p>
+                <i class="fas fa-shield-alt text-blue-700 text-2xl"></i>
+            </div>
+        </div>
+    </div>
+<!-- 1. Navigation Buttons HTML Block -->
+<div style="position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 100; background: white; padding: 10px; border-radius: 5px; box-shadow: 0 0 10px rgba(0,0,0,0.2);">
+    <button id="prevSlideButton" onclick="goToPrevSlide()"> « Previous </button>
+    <span id="slideIndicator" style="margin: 0 15px;">Slide ? of ?</span>
+    <button id="nextSlideButton" onclick="goToNextSlide()"> Next » </button>
+</div>
+
+<!-- 2. Link to Global script.js -->
+<script src="../../script.js"></script>
+</body>
+</html>

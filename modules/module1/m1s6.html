@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Qué es Lean Thinking?</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background: linear-gradient(to right bottom, #ffffff, #f0f9ff);
+            position: relative;
+            overflow: hidden;
+        }
+        .blue-accent {
+            background: linear-gradient(90deg, #1a365d 0%, #2a4365 100%);
+        }
+        .highlight-text {
+            color: #2b6cb0;
+            font-weight: bold;
+        }
+        
+        /* Pipe analogy animation */
+        .pipe {
+            position: relative;
+            height: 60px;
+            background: #e2e8f0;
+            border-radius: 30px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+        .water {
+            height: 100%;
+            background: linear-gradient(90deg, #3182ce, #63b3ed);
+            width: 0;
+            border-radius: 30px;
+        }
+        .debris {
+            position: absolute;
+            height: 40px;
+            width: 40px;
+            background: #e53e3e;
+            border-radius: 50%;
+            top: 10px;
+            transition: all 0.8s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+        .d1 { left: 20%; }
+        .d2 { left: 40%; }
+        .d3 { left: 60%; }
+        .d4 { left: 80%; }
+        
+        .pipe:hover .water {
+            width: 100%;
+            transition: width 2s ease;
+        }
+        .pipe:hover .debris {
+            opacity: 0;
+            transform: translateY(-100px);
+        }
+        
+        .concept-box {
+            transition: all 0.3s ease;
+        }
+        .concept-box:hover {
+            transform: scale(1.03);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .focus-item {
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        .focus-item::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: 3px;
+            width: 0;
+            background: #3182ce;
+            transition: width 0.4s ease;
+            z-index: -1;
+        }
+        .focus-item:hover::after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container flex flex-col">
+        <div class="blue-accent h-12 w-full shadow-md"></div>
+        
+        <div class="flex-1 p-10">
+            <h1 class="text-4xl font-bold text-blue-800 mb-6">
+                <i class="fas fa-running text-blue-600 mr-3"></i>
+                Lean = Maximizar Valor, Minimizar Desperdicio
+            </h1>
+            
+            <div class="flex flex-wrap -mx-4">
+                <div class="w-1/2 px-4">
+                    <div class="concept-box bg-white p-6 rounded-lg shadow-md mb-6">
+                        <h2 class="text-2xl font-bold text-blue-700 mb-3">
+                            Idea Central
+                        </h2>
+                        <p class="text-lg text-gray-700 mb-3">
+                            Identificar y eliminar <span class="highlight-text">sistemáticamente</span> 
+                            actividades que no agregan valor desde la perspectiva del cliente.
+                        </p>
+                        
+                        <div class="flex flex-col space-y-4 mt-6">
+                            <h3 class="text-xl font-semibold text-gray-700">Enfoque en:</h3>
+                            
+                            <div class="flex items-center bg-blue-50 p-3 rounded-lg focus-item">
+                                <div class="bg-blue-100 rounded-full p-3 mr-4">
+                                    <i class="fas fa-tachometer-alt text-blue-600 fa-lg"></i>
+                                </div>
+                                <span class="text-lg font-medium">Velocidad</span>
+                            </div>
+                            
+                            <div class="flex items-center bg-blue-50 p-3 rounded-lg focus-item">
+                                <div class="bg-blue-100 rounded-full p-3 mr-4">
+                                    <i class="fas fa-cogs text-blue-600 fa-lg"></i>
+                                </div>
+                                <span class="text-lg font-medium">Eficiencia</span>
+                            </div>
+                            
+                            <div class="flex items-center bg-blue-50 p-3 rounded-lg focus-item">
+                                <div class="bg-blue-100 rounded-full p-3 mr-4">
+                                    <i class="fas fa-water text-blue-600 fa-lg"></i>
+                                </div>
+                                <span class="text-lg font-medium">Flujo</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gradient-to-r from-yellow-50 to-orange-50 p-5 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold text-orange-700 flex items-center mb-3">
+                            <i class="fas fa-lightbulb text-yellow-500 mr-2"></i>
+                            Ejemplo Práctico
+                        </h3>
+                        <p class="text-gray-700">
+                            Si el procesamiento de un reclamo requiere 5 firmas internas cuando 
+                            solo 2 son realmente necesarias para el cumplimiento/riesgo, las 3 firmas 
+                            adicionales representan desperdicios potenciales (esperas, procesamiento extra) 
+                            que el pensamiento Lean cuestionaría.
+                        </p>
+                        
+                        <div class="mt-4 flex items-center">
+                            <div class="bg-red-100 py-2 px-3 rounded-lg flex items-center mr-4">
+                                <i class="fas fa-times-circle text-red-500 mr-1"></i> 
+                                <span>Proceso con desperdicio: <strong>5 firmas</strong></span>
+                            </div>
+                            
+                            <div class="text-2xl font-bold text-gray-500 mx-2">→</div>
+                            
+                            <div class="bg-green-100 py-2 px-3 rounded-lg flex items-center">
+                                <i class="fas fa-check-circle text-green-500 mr-1"></i> 
+                                <span>Proceso Lean: <strong>2 firmas</strong></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="w-1/2 px-4">
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h2 class="text-2xl font-bold text-blue-700 mb-4">
+                            <i class="fas fa-share-alt mr-2"></i>
+                            Analogía: Sistema de Tuberías
+                        </h2>
+                        
+                        <div class="bg-blue-50 p-4 rounded-lg mb-4">
+                            <p class="text-gray-700">
+                                Imagine un sistema de tuberías obstruido con residuos (desperdicios). 
+                                Lean se trata de limpiar las tuberías para que el agua (valor) 
+                                fluya de manera suave y rápida hacia el cliente.
+                            </p>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <h3 class="text-lg font-semibold text-gray-700 mb-2">Antes de Lean:</h3>
+                            <p class="text-sm text-gray-600 italic mb-2">
+                                Flujo obstruido por desperdicios - Pase el cursor sobre la tubería para ver qué sucede
+                            </p>
+                            
+                            <div class="pipe">
+                                <div class="water"></div>
+                                <div class="debris d1"><i class="fas fa-file-alt"></i></div>
+                                <div class="debris d2"><i class="fas fa-clock"></i></div>
+                                <div class="debris d3"><i class="fas fa-exclamation"></i></div>
+                                <div class="debris d4"><i class="fas fa-tasks"></i></div>
+                            </div>
+                            
+                            <div class="flex justify-between text-sm text-gray-500 px-2">
+                                <div>Entrada</div>
+                                <div>Salida (Cliente)</div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <h3 class="text-lg font-semibold text-gray-700 mb-2">Un proceso típico contiene:</h3>
+                            
+                            <div class="flex items-center mb-2">
+                                <div class="w-3/4 bg-gray-200 rounded-full h-4 mr-2">
+                                    <div class="bg-green-500 h-4 rounded-full" style="width: 5%"></div>
+                                </div>
+                                <span class="text-sm"><strong>5%</strong> Valor puro</span>
+                            </div>
+                            
+                            <div class="flex items-center mb-2">
+                                <div class="w-3/4 bg-gray-200 rounded-full h-4 mr-2">
+                                    <div class="bg-yellow-500 h-4 rounded-full" style="width: 35%"></div>
+                                </div>
+                                <span class="text-sm"><strong>35%</strong> Soporte necesario</span>
+                            </div>
+                            
+                            <div class="flex items-center">
+                                <div class="w-3/4 bg-gray-200 rounded-full h-4 mr-2">
+                                    <div class="bg-red-500 h-4 rounded-full" style="width: 60%"></div>
+                                </div>
+                                <span class="text-sm"><strong>60%</strong> Desperdicio puro</span>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-indigo-50 border-l-4 border-indigo-500 p-4 rounded-r-lg">
+                            <p class="text-indigo-800 font-medium">
+                                <i class="fas fa-bullseye text-indigo-600 mr-2"></i>
+                                <span class="text-lg">Lean hace visible lo invisible.</span>
+                                <br>
+                                <span class="text-sm mt-1 block">
+                                    La mayoría de las personas ven el proceso, pero Lean te enseña a ver el desperdicio.
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="blue-accent h-6 w-full mt-auto"></div>
+    </div>
+<!-- 1. Navigation Buttons HTML Block -->
+<div style="position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 100; background: white; padding: 10px; border-radius: 5px; box-shadow: 0 0 10px rgba(0,0,0,0.2);">
+    <button id="prevSlideButton" onclick="goToPrevSlide()"> « Previous </button>
+    <span id="slideIndicator" style="margin: 0 15px;">Slide ? of ?</span>
+    <button id="nextSlideButton" onclick="goToNextSlide()"> Next » </button>
+</div>
+
+<!-- 2. Link to Global script.js -->
+<script src="../../script.js"></script>
+</body>
+</html>

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Fase de Control - Propósito y Preguntas Clave</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            /* overflow: hidden; -- Removed for consistency */
+            background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+            /* Added for centering the slide for testing */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .slide {
+            width: 1280px;
+            min-height: 720px;
+            background-color: white;
+            margin: 0 auto;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+        }
+        .top-bar {
+            height: 12px;
+            background: linear-gradient(90deg, #1e40af, #3b82f6, #93c5fd);
+        }
+        .dmaic-cycle {
+            position: relative;
+            width: 240px;
+            height: 240px;
+            border-radius: 50%;
+            background: #f9fafb; /* Light background for the cycle area */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+        .phase-letter {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 24px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            z-index: 2; /* Above SVG lines */
+        }
+
+        /* Pentagon points for 240x240 container, letter 60x60, radius R=80px */
+        /* Center of container (120,120). Letter half-size lw=30px */
+        .phase-letter.d { /* Top */
+            top: 10px;    /* (120 - R) - lw = 40 - 30 */
+            left: 90px;   /* 120 - lw */
+            background-color: #e5e7eb;
+            color: #4b5563;
+        }
+        .phase-letter.m { /* Top-right */
+            top: 65.28px;  /* (120 - R*sin(18)) - lw = 95.28 - 30 */
+            left: 166.08px; /* (120 + R*cos(18)) - lw = 196.08 - 30 */
+            background-color: #e5e7eb;
+            color: #4b5563;
+        }
+        .phase-letter.a { /* Bottom-right */
+            top: 154.72px; /* (120 + R*sin(54)) - lw = 184.72 - 30 */
+            left: 137.04px; /* (120 + R*cos(54)) - lw = 167.04 - 30 */
+            background-color: #e5e7eb;
+            color: #4b5563;
+        }
+        .phase-letter.i { /* Bottom-left */
+            top: 154.72px; /* (120 + R*sin(126)) - lw = 184.72 - 30 */
+            left: 42.96px;  /* (120 + R*cos(126)) - lw = 72.96 - 30 */
+            background-color: #e5e7eb;
+            color: #4b5563;
+        }
+        .phase-letter.c { /* Top-left (special size 70x70, half lc_w=35px) */
+            top: 60.28px;   /* (120 - R*sin(162)) - lc_w = 95.28 - 35 */
+            left: 8.92px;   /* (120 + R*cos(162)) - lc_w = 43.92 - 35 */
+            background-color: #2563eb;
+            color: white;
+            font-size: 28px; /* Original size */
+            width: 70px;     /* Original size */
+            height: 70px;    /* Original size */
+            transform: scale(1.1); /* Original scale */
+            z-index: 10;     /* Original z-index, highest */
+            box-shadow: 0 0 0 5px rgba(37, 99, 235, 0.2), 0 4px 8px rgba(0, 0, 0, 0.2); /* Original shadow */
+        }
+        .feature-card {
+            border-radius: 10px;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border-left: 5px solid #3b82f6;
+            height: 100%;
+        }
+        .feature-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
+        }
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #e0f2fe;
+            color: #0369a1;
+            font-size: 22px;
+            margin-right: 16px;
+            flex-shrink: 0;
+        }
+        .question-card {
+            border-radius: 8px;
+            background-color: #f0f9ff;
+            border: 1px solid #bae6fd;
+            padding: 12px 16px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+        .question-card:hover {
+            background-color: #e0f2fe;
+            transform: translateX(5px);
+        }
+        .question-icon { /* This is for the key questions list, not the DMAIC visual */
+            color: #0284c7;
+            font-size: 20px;
+            margin-right: 12px;
+            flex-shrink: 0;
+        }
+        /* .dash-line and its specific classes removed */
+
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <div class="top-bar"></div>
+        <div class="flex flex-col h-full">
+            <!-- header Section -->
+            <header class="px-16 pt-8 pb-4">
+                <div class="flex justify-between items-center">
+                    <h1 class="text-4xl font-bold text-blue-700">La Fase de Control - Propósito y Preguntas Clave</h1>
+                    <img src="../../assets/images/logotecniseguros.png" alt="Logo Tecniseguros" class="h-12">
+                </div>
+                <p class="text-lg text-gray-600">Haciendo permanentes las mejoras</p>
+            </header>
+
+            <!-- Main Content -->
+            <main class="px-16 py-4 flex-1 flex">
+                <!-- Left Column - DMAIC Cycle Visualization -->
+                <div class="w-1/3 pr-6 flex flex-col items-center justify-center">
+                    <div class="dmaic-cycle">
+                        <!-- SVG for Connecting Lines -->
+                        <!-- Bubble centers: D(120,40), M(196.08,95.28), A(167.04,184.72), I(72.96,184.72), C(43.92,95.28) -->
+                        <svg style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1;" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
+                            <line x1="120"    y1="40"     x2="196.08" y2="95.28"  stroke="#cbd5e1" stroke-width="2" stroke-dasharray="4 2"/>
+                            <line x1="196.08" y1="95.28"  x2="167.04" y2="184.72" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="4 2"/>
+                            <line x1="167.04" y1="184.72" x2="72.96"  y2="184.72" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="4 2"/>
+                            <line x1="72.96"  y1="184.72" x2="43.92"  y2="95.28"  stroke="#cbd5e1" stroke-width="2" stroke-dasharray="4 2"/>
+                            <line x1="43.92"  y1="95.28"  x2="120"    y2="40"     stroke="#cbd5e1" stroke-width="2" stroke-dasharray="4 2"/>
+                        </svg>
+                        
+                        <div class="phase-letter d">D</div>
+                        <div class="phase-letter m">M</div>
+                        <div class="phase-letter a">A</div>
+                        <div class="phase-letter i">I</div>
+                        <div class="phase-letter c">C</div>
+                        
+                        <div class="absolute text-center" style="z-index: 3;"> <!-- Ensure center text is above lines but below C if overlapping -->
+                            <div class="text-xs font-bold text-gray-700">Ciclo DMAIC</div>
+                            <div class="text-sm text-gray-500 mt-1">Fase de Control</div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-10 bg-amber-50 p-6 rounded-lg border-l-4 border-amber-500">
+                        <div class="flex items-center mb-3">
+                            <i class="fas fa-exclamation-circle text-amber-500 text-2xl mr-3"></i>
+                            <h3 class="text-xl font-bold text-gray-800">¿Por qué es necesario el Control?</h3>
+                        </div>
+                        <p class="text-gray-700">Los procesos naturalmente tienden a:</p>
+                        <ul class="mt-2 space-y-2">
+                            <li class="flex items-center">
+                                <i class="fas fa-undo text-amber-600 mr-2"></i>
+                                <span>Volver a las viejas formas</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-chart-line text-amber-600 mr-2 transform rotate-180"></i>
+                                <span>Degradar su desempeño con el tiempo</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-random text-amber-600 mr-2"></i>
+                                <span>Aumentar su variabilidad</span>
+                            </li>
+                        </ul>
+                        <div class="mt-4 text-center">
+                            <div class="font-bold text-gray-800">
+                                "La mejora es temporal; el Control la hace permanente"
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right Column - Purpose and Key Questions -->
+                <div class="w-2/3 pl-6">
+                    <!-- Purpose of Control Phase -->
+                    <div class="mb-6">
+                        <h2 class="text-2xl font-bold text-gray-800 mb-4 flex items-center">
+                            <i class="fas fa-bullseye text-blue-600 mr-3"></i>
+                            Propósito de la Fase de Control
+                        </h2>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="feature-card p-4">
+                                <div class="flex">
+                                    <div class="feature-icon">
+                                        <i class="fas fa-lock"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-bold text-gray-800 text-lg mb-2">Asegurar las Ganancias</h3>
+                                        <p class="text-gray-600">Garantizar que las mejoras logradas en la fase anterior se mantengan a lo largo del tiempo</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="feature-card p-4">
+                                <div class="flex">
+                                    <div class="feature-icon">
+                                        <i class="fas fa-clipboard-check"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-bold text-gray-800 text-lg mb-2">Estandarizar</h3>
+                                        <p class="text-gray-600">Documentar y formalizar el proceso mejorado como el nuevo estándar de la organización</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="feature-card p-4">
+                                <div class="flex">
+                                    <div class="feature-icon">
+                                        <i class="fas fa-desktop"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-bold text-gray-800 text-lg mb-2">Monitorear</h3>
+                                        <p class="text-gray-600">Implementar sistemas de seguimiento para detectar si el desempeño disminuye o se desvía</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="feature-card p-4">
+                                <div class="flex">
+                                    <div class="feature-icon">
+                                        <i class="fas fa-book"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-bold text-gray-800 text-lg mb-2">Documentar</h3>
+                                        <p class="text-gray-600">Registrar el proyecto, los resultados y las lecciones aprendidas para referencia futura</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Key Questions in Control Phase -->
+                    <div>
+                        <h2 class="text-2xl font-bold text-gray-800 mb-4 flex items-center">
+                            <i class="fas fa-question-circle text-blue-600 mr-3"></i>
+                            Preguntas Clave en la Fase de Control
+                        </h2>
+                        
+                        <div class="question-card">
+                            <div class="question-icon">
+                                <i class="fas fa-cogs"></i>
+                            </div>
+                            <p class="font-medium text-gray-800">¿Cómo nos aseguramos de que el nuevo proceso se siga de manera consistente?</p>
+                        </div>
+                        
+                        <div class="question-card">
+                            <div class="question-icon">
+                                <i class="fas fa-chart-bar"></i>
+                            </div>
+                            <p class="font-medium text-gray-800">¿Cómo monitorearemos el desempeño del proceso en el futuro?</p>
+                        </div>
+                        
+                        <div class="question-card">
+                            <div class="question-icon">
+                                <i class="fas fa-life-ring"></i>
+                            </div>
+                            <p class="font-medium text-gray-800">¿Cuál es el plan si el desempeño comienza a disminuir?</p>
+                        </div>
+                        
+                        <div class="question-card">
+                            <div class="question-icon">
+                                <i class="fas fa-flag-checkered"></i>
+                            </div>
+                            <p class="font-medium text-gray-800">¿Cómo cerramos formalmente el proyecto y compartimos los resultados?</p>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+<!-- 1. Navigation Buttons HTML Block -->
+<div style="position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 100; background: white; padding: 10px; border-radius: 5px; box-shadow: 0 0 10px rgba(0,0,0,0.2);">
+    <button id="prevSlideButton" onclick="goToPrevSlide()"> « Previous </button>
+    <span id="slideIndicator" style="margin: 0 15px;">Slide ? of ?</span>
+    <button id="nextSlideButton" onclick="goToNextSlide()"> Next » </button>
+</div>
+
+<!-- 2. Link to Global script.js -->
+<script src="../../script.js"></script>
+</body>
+</html>

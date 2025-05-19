@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 9: Las Fases de Mejora y Control</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .slide {
+            width: 1280px;
+            min-height: 720px;
+            background-color: white;
+            margin: 0 auto;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+        }
+        .top-bar {
+            height: 12px;
+            background: linear-gradient(90deg, #1e40af, #3b82f6, #93c5fd);
+        }
+
+        .dmaic-letter {
+            position: absolute;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 24px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            z-index: 2;
+        }
+
+        .dmaic-d {
+            top: 35px;
+            left: 165px;
+            background-color: #93c5fd;
+        }
+        .dmaic-m {
+            top: 124.83px;
+            left: 288.63px;
+            background-color: #93c5fd;
+        }
+        .dmaic-a {
+            top: 270.17px;
+            left: 241.41px;
+            background-color: #93c5fd;
+        }
+        .dmaic-i {
+            top: 270.17px;
+            left: 88.59px;
+            background-color: #2563eb;
+            color: white;
+            transform: scale(1.15);
+        }
+        .dmaic-c {
+            top: 124.83px;
+            left: 41.37px;
+            background-color: #2563eb;
+            color: white;
+            transform: scale(1.15);
+        }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <div class="top-bar"></div>
+        <div class="flex flex-col h-full">
+            <!-- header Section -->
+            <div class="px-16 py-8">
+                <div class="flex justify-between items-center">
+                    <h1 class="text-5xl font-bold text-gray-800">Módulo 9</h1>
+                    <img src="../../assets/images/logotecniseguros.png" alt="Logo Tecniseguros" class="h-16">
+                </div>
+                <h2 class="text-4xl font-bold text-blue-700 mt-2">Las Fases de Mejora y Control</h2>
+                <p class="text-xl text-gray-600">Lean Six Sigma Yellow Belt</p>
+            </div>
+
+            <!-- Main Content -->
+            <div class="flex px-16 py-4 flex-1">
+                <!-- Left Column with Content -->
+                <div class="w-2/3 pr-6 flex flex-col justify-center">
+                    <div class="mb-8">
+                        <h3 class="text-2xl font-semibold text-gray-700 mb-4">
+                            <i class="fas fa-sync-alt text-blue-600 mr-2"></i>Recapitulación del Módulo 8
+                        </h3>
+                        <p class="text-lg text-gray-600 mb-2">Exploramos herramientas Lean fundamentales como 5S, Gestión Visual y Trabajo Estándar</p>
+                    </div>
+                    
+                    <div class="mb-8">
+                        <h3 class="text-2xl font-semibold text-gray-700 mb-4">
+                            <i class="fas fa-lightbulb text-blue-600 mr-2"></i>Enfoque de Hoy: Fases MEJORAR y CONTROLAR
+                        </h3>
+                        <ul class="text-lg text-gray-600 space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-arrow-circle-up text-blue-500 mt-1 mr-2"></i>
+                                <span>Fase de Mejora: Generación, selección e implementación de soluciones</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-flask text-blue-500 mt-1 mr-2"></i>
+                                <span>Pruebas piloto de soluciones</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-anchor text-blue-500 mt-1 mr-2"></i>
+                                <span>Fase de Control: Mantenimiento de ganancias</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-chart-line text-blue-500 mt-1 mr-2"></i>
+                                <span>Introducción a gráficos de control para monitoreo</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="text-2xl font-semibold text-gray-700 mb-2">
+                            <i class="fas fa-flag-checkered text-blue-600 mr-2"></i>Objetivo
+                        </h3>
+                        <p class="text-lg text-gray-600 italic">Entender cómo desarrollar soluciones efectivas basadas en análisis de causa raíz y asegurar que las mejoras se mantengan en el tiempo</p>
+                    </div>
+                </div>
+                
+                <!-- Right Column with DMAIC Cycle: Corrected Structure -->
+                <div class="w-1/3 flex flex-col justify-center items-center">
+                    <!-- Container for the visual pentagon elements -->
+                    <div style="position: relative; width: 400px; height: 350px;">
+                        <!-- SVG for Connecting Lines -->
+                        <!-- Bubble centers: D(200,70), M(323.63,159.83), A(276.41,305.17), I(123.59,305.17), C(76.37,159.83) -->
+                        <!-- CORRECTED viewBox height to 350 to match container height -->
+                        <svg style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1;" viewBox="0 0 400 350" xmlns="http://www.w3.org/2000/svg">
+                            <line x1="200"    y1="70"     x2="323.63" y2="159.83" stroke="#64748b" stroke-width="3"/> <!-- D to M -->
+                            <line x1="323.63" y1="159.83" x2="276.41" y2="305.17" stroke="#64748b" stroke-width="3"/> <!-- M to A -->
+                            <line x1="276.41" y1="305.17" x2="123.59" y2="305.17" stroke="#64748b" stroke-width="3"/> <!-- A to I -->
+                            <line x1="123.59" y1="305.17" x2="76.37"  y2="159.83" stroke="#64748b" stroke-width="3"/> <!-- I to C -->
+                            <line x1="76.37"  y1="159.83" x2="200"    y2="70"     stroke="#64748b" stroke-width="3"/> <!-- C to D -->
+                        </svg>
+
+                        <!-- DMAIC Letter Bubbles -->
+                        <div class="dmaic-letter dmaic-d">D</div>
+                        <div class="dmaic-letter dmaic-m">M</div>
+                        <div class="dmaic-letter dmaic-a">A</div>
+                        <div class="dmaic-letter dmaic-i">I</div>
+                        <div class="dmaic-letter dmaic-c">C</div>
+                    </div>
+                    
+                    <!-- Text Label for DMAIC Cycle -->
+                    <div class="text-center mt-4">
+                        <p class="text-xl font-semibold text-blue-700">DMAIC</p>
+                        <p class="text-gray-600">"I" - Improve (Mejorar) | "C" - Control</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- 1. Navigation Buttons HTML Block -->
+<div style="position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 100; background: white; padding: 10px; border-radius: 5px; box-shadow: 0 0 10px rgba(0,0,0,0.2);">
+    <button id="prevSlideButton" onclick="goToPrevSlide()"> « Previous </button>
+    <span id="slideIndicator" style="margin: 0 15px;">Slide ? of ?</span>
+    <button id="nextSlideButton" onclick="goToNextSlide()"> Next » </button>
+</div>
+
+<!-- 2. Link to Global script.js -->
+<script src="../../script.js"></script>
+</body>
+</html>

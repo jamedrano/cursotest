@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Por qué Mejorar? El Caso para el Cambio</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background: linear-gradient(to right bottom, #ffffff, #f7fafc);
+            position: relative;
+            overflow: hidden;
+        }
+        .blue-accent {
+            background: linear-gradient(90deg, #1a365d 0%, #2a4365 100%);
+        }
+        .card {
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+        }
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid #3182ce;
+        }
+        .example-box {
+            background-color: rgba(237, 242, 247, 0.8);
+            border-left: 5px solid #4299e1;
+        }
+        .chart-container {
+            height: 240px;
+            width: 100%;
+        }
+        .key-message {
+            background: linear-gradient(135deg, #ebf4ff 0%, #c3dafe 100%);
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container flex flex-col">
+        <div class="blue-accent h-12 w-full shadow-md"></div>
+        
+        <div class="flex-1 p-10 z-10">
+            <h1 class="text-4xl font-bold text-blue-800 mb-6">
+                <i class="fas fa-question-circle text-blue-600 mr-3"></i>
+                ¿Por qué Enfocarnos en la Mejora Ahora?
+            </h1>
+            
+            <div class="flex flex-wrap -mx-4">
+                <div class="w-1/2 px-4 mb-6">
+                    <h2 class="text-2xl font-bold text-blue-700 mb-4">
+                        <i class="fas fa-globe mr-2"></i>
+                        El Panorama Moderno de Seguros
+                    </h2>
+                    
+                    <div class="space-y-3">
+                        <div class="card bg-white p-4 rounded-lg shadow-sm">
+                            <div class="flex items-center">
+                                <div class="bg-red-100 rounded-full p-3 mr-4">
+                                    <i class="fas fa-fire-alt text-red-600 fa-lg"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-gray-800">Competencia Intensa</h3>
+                                    <p class="text-gray-600">Precio, Servicio e Innovación</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="card bg-white p-4 rounded-lg shadow-sm">
+                            <div class="flex items-center">
+                                <div class="bg-yellow-100 rounded-full p-3 mr-4">
+                                    <i class="fas fa-star text-yellow-600 fa-lg"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-gray-800">Expectativas Crecientes</h3>
+                                    <p class="text-gray-600">Rapidez, Precisión, Facilidad y Experiencia Digital</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="card bg-white p-4 rounded-lg shadow-sm">
+                            <div class="flex items-center">
+                                <div class="bg-green-100 rounded-full p-3 mr-4">
+                                    <i class="fas fa-chart-line text-green-600 fa-lg"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-gray-800">Presión sobre Rentabilidad</h3>
+                                    <p class="text-gray-600">La eficiencia en costos es clave</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="card bg-white p-4 rounded-lg shadow-sm">
+                            <div class="flex items-center">
+                                <div class="bg-purple-100 rounded-full p-3 mr-4">
+                                    <i class="fas fa-balance-scale text-purple-600 fa-lg"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-gray-800">Complejidad Regulatoria</h3>
+                                    <p class="text-gray-600">Exigencias de cumplimiento en aumento</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6">
+                        <h3 class="text-lg font-semibold text-gray-700 mb-2">Tendencias del Mercado:</h3>
+                        <div class="chart-container">
+                            <canvas id="trendsChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="w-1/2 px-4">
+                    <h2 class="text-2xl font-bold text-blue-700 mb-4">
+                        <i class="fas fa-building mr-2"></i>
+                        Desafíos Internos
+                    </h2>
+                    
+                    <div class="bg-white p-5 rounded-lg shadow-md mb-6">
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <span class="text-red-500 mr-3"><i class="fas fa-exclamation-circle"></i></span>
+                                <span class="text-gray-700">Procesos internos frustrantes con demoras innecesarias</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-red-500 mr-3"><i class="fas fa-redo"></i></span>
+                                <span class="text-gray-700">Reprocesos y duplicación de esfuerzos</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-red-500 mr-3"><i class="fas fa-user-clock"></i></span>
+                                <span class="text-gray-700">Tiempos de respuesta lentos a clientes</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-red-500 mr-3"><i class="fas fa-clipboard-list"></i></span>
+                                <span class="text-gray-700">Complejidad operativa innecesaria</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-red-500 mr-3"><i class="fas fa-random"></i></span>
+                                <span class="text-gray-700">Inconsistencia en la ejecución de procesos</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="key-message p-6 rounded-lg shadow-md mb-6">
+                        <h2 class="text-2xl font-bold text-blue-800 mb-3">Mensaje Clave:</h2>
+                        <p class="text-lg text-blue-800 font-medium">
+                            La mejora continua no es simplemente deseable; es <span class="font-bold underline">esencial</span> para el éxito y crecimiento. 
+                            LSS proporciona un marco comprobado.
+                        </p>
+                    </div>
+                    
+                    <div class="example-box p-5 rounded-lg">
+                        <h3 class="text-xl font-bold text-blue-700 mb-2">
+                            <i class="fas fa-lightbulb text-yellow-500 mr-2"></i>
+                            Ejemplo Práctico:
+                        </h3>
+                        <p class="text-gray-700">
+                            Piense en obtener una simple cotización de seguro. Los clientes esperan recibirla casi instantáneamente online y con precisión. Si nuestro proceso interno toma días o implica re-ingresar datos manualmente (generando errores), arriesgamos perder ese cliente.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="blue-accent h-6 w-full mt-auto"></div>
+    </div>
+    
+    <script>
+        // Setup trend chart
+        const ctx = document.getElementById('trendsChart').getContext('2d');
+        const trendsChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['2018', '2019', '2020', '2021', '2022', '2023'],
+                datasets: [{
+                    label: 'Expectativas de Clientes',
+                    data: [30, 40, 50, 65, 75, 85],
+                    borderColor: '#4299e1',
+                    backgroundColor: 'rgba(66, 153, 225, 0.1)',
+                    tension: 0.4,
+                    fill: true
+                }, {
+                    label: 'Complejidad Regulatoria',
+                    data: [40, 45, 55, 60, 70, 80],
+                    borderColor: '#805ad5',
+                    backgroundColor: 'rgba(128, 90, 213, 0.1)',
+                    tension: 0.4,
+                    fill: true
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100,
+                        title: {
+                            display: true,
+                            text: 'Índice de Intensidad'
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+<!-- 1. Navigation Buttons HTML Block -->
+<div style="position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 100; background: white; padding: 10px; border-radius: 5px; box-shadow: 0 0 10px rgba(0,0,0,0.2);">
+    <button id="prevSlideButton" onclick="goToPrevSlide()"> « Previous </button>
+    <span id="slideIndicator" style="margin: 0 15px;">Slide ? of ?</span>
+    <button id="nextSlideButton" onclick="goToNextSlide()"> Next » </button>
+</div>
+
+<!-- 2. Link to Global script.js -->
+<script src="../../script.js"></script>
+</body>
+</html>
